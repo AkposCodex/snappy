@@ -4,7 +4,7 @@ export class ProductService {
       id: 1,
       productName: "PAX-90 Sturdy POS",
       isSelected: false,
-      image: "/assets/images/products/POS.png",
+      image: "/src/assets/images/products/POS.png",
       plans: [
         {
           id: 1,
@@ -35,7 +35,7 @@ export class ProductService {
     {
       id: 2,
       productName: "SRS-90 Android POS",
-      image: "/assets/images/products/Payment-Tablet-Terminal.png",
+      image: "/src/assets/images/products/Payment-Tablet-Terminal.png",
       isSelected: false,
       plans: [
         {

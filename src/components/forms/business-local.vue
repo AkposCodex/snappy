@@ -12,14 +12,14 @@
       placeholder="Business Address"
     ></textarea>
     <ErrorMessage name="address" as="div" class="text-red-500"/>
-    <div class="flex space-x-20">
+    <div class="md:flex md:space-x-20">
       <div>
         <label for="" class="m-3">State</label>
         <Field
           v-model="userState.businessLocal.state"
           type="text"
           name="state"
-          class="peer block w-min form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+          class="peer block md:w-min w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder="State"
         />
         <ErrorMessage name="state" as="div" class="text-red-500"/>
@@ -30,7 +30,7 @@
           v-model="userState.businessLocal.country"
           type="text"
           name="country"
-          class="peer block w-min form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+          class="peer block md:w-min w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder="Country"
         />
         <ErrorMessage name="country" as="div" class="text-red-500"/>
@@ -41,7 +41,7 @@
       v-model="userState.businessLocal.localGovernment"
       type="text"
       name="localGovernment"
-      class="peer block w-min form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+      class="peer block md:w-min w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
       placeholder="Local Government"
     />
     <ErrorMessage name="localGovernment" as="div" class="text-red-500"/>

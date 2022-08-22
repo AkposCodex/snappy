@@ -1,14 +1,14 @@
 <template lang="">
   <div class="flex w-full justify-between">
     <div
-      class="w-[30rem] h-min m-9 after:content-['Finna act up'] after:text-9xl after:text-red-200 block after:rounded-full after:w-[15rem] after:bg-green-500 after:bg-opacity-40 after:shadow-lg after:h-[15rem] after:bottom-36 after:right-[-6rem] after:absolute after:backdrop-blur text-center"
+      class="w-[30rem] hidden md:block h-min m-9 after:content-['Finna act up'] after:text-9xl after:text-red-200 block after:rounded-full after:w-[15rem] after:bg-green-500 after:bg-opacity-40 after:shadow-lg after:h-[15rem] after:bottom-36 after:right-[-6rem] after:absolute after:backdrop-blur text-center"
     >
       <div
         class="rounded-full shadow-lg relative bg-[url('https://images.unsplash.com/photo-1594025741471-7710d7249113?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG9zJTIwdGVybWluYWx8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')] h-[30rem] bg-center bg-cover"
       ></div>
     </div>
-    <div class="w-1/2" v-if="signUp">
-      <div class="pt-6">
+    <div class="md:w-1/2 w-full" v-if="signUp">
+      <div class="md:pt-6 p-6">
         <h1 class="text-4xl text-green-700">Create a New Account</h1>
         <!-- <p class="text-2xl">Welcome to RO<span class="text-teal-800 font-title text-4xl text-[2rem]">k</span>U</p> -->
         <p>
@@ -39,32 +39,36 @@
         </button>
       </div> -->
     </div>
-    <div class="w-1/2 p-9" v-if="!signUp">
-      <h1>Log In</h1>
+    <div class="md:w-1/2 w-full p-9" v-if="!signUp">
+      <h1 class="text-2xl">Log In</h1>
       <Form
         @submit="changeStage"
         class="w-full p-6"
         :validation-schema="schema"
       >
-        <label for="email"></label>
-        <Field
-          v-model.trim="userState.bio.emailAddress"
-          type="text"
-          name="emailAddress"
-          class="peer block w-4/5 form-input ml-3 appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-          placeholder="Email Address"
-        />
-        <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
-        <label for="password"></label>
-        <Field
-          v-model.trim="userState.bio.password"
-          type="text"
-          name="password"
-          class="peer block w-4/5 form-input ml-3 appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-          placeholder="Password"
-        />
-        <ErrorMessage name="password" as="div" class="text-red-500" />
-        <div class="flex items-center">
+        <div class="my-4">
+          <label for="email">Email Address</label>
+          <Field
+            v-model.trim="userState.bio.emailAddress"
+            type="text"
+            name="emailAddress"
+            class="peer block w-4/5 form-input mx-auto appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+            placeholder="Email Address"
+          />
+          <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
+        </div>
+        <div class="my-4">
+          <label for="password">Password</label>
+          <Field
+            v-model.trim="userState.bio.password"
+            type="text"
+            name="password"
+            class="peer block w-4/5 form-input mx-auto appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+            placeholder="Password"
+          />
+          <ErrorMessage name="password" as="div" class="text-red-500" />
+        </div>
+        <div class="flex flex-col items-center">
           <button
             type="submit"
             class="p-2 shadow-md w-52 bottom-0 align-top bg-green-800 text-white rounded-full text-lg hover:bg-green-700"

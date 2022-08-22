@@ -12,6 +12,12 @@ export default {
       });
       console.log(this.user);
     },
+    show(){
+      this.menu = !this.menu
+    }
+  },
+  data() {
+    return { menu: false };
   },
   computed: mapGetters({
     user: "getUser",
@@ -22,15 +28,43 @@ export default {
 
 <template>
   <body class="font-sans">
-    <nav class="p-6 relative mx-auto border">
-      <div class="flex justify-between">
-        <div class="flex items-center space-x-6">
+    <nav class="p-6 mx-auto border">
+      <div class="flex justify-between space-x-9">
+        <div
+          class="flex justify-between  relative w-full items-center space-x-6"
+        >
           <div class="pt-2">
             <router-link to="/"
               ><img src="./assets/logo.svg" alt="" width="45" height="45"
             /></router-link>
           </div>
           <div class="hidden md:flex space-x-12 text-md">
+            <router-link
+              to="/products"
+              class="hover:underline hover:text-lg hover:font-bold"
+              >Product</router-link
+            >
+            <router-link
+              to="/buy-now"
+              class="hover:underline hover:text-lg hover:font-bold"
+              >Pricing</router-link
+            >
+            <router-link
+              to="/about"
+              class="hover:underline hover:text-lg hover:font-bold"
+              >About Us</router-link
+            >
+            <router-link
+              to="/faq"
+              class="hover:underline hover:text-lg hover:font-bold"
+              >Contact</router-link
+            >
+          </div>
+          <a href="#" @click="show()" class="bg-green-700 md:hidden p-3 rounded-lg text-white">Menu</a>
+          <div
+            v-if="menu"
+            class="absolute top-12 space-y-3 z-50 bg-white rounded right-0 p-6 flex flex-col shadow-md text-md"
+          >
             <router-link
               to="/products"
               class="hover:underline hover:text-lg hover:font-bold"

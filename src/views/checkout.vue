@@ -8,7 +8,7 @@
       <div class="w-4/5 h-[90%] mx-auto">
         <img
           class="w-[35rem] mx-auto"
-          :src="productState.products[1].image"
+          :src="productState.products.image"
           alt=""
         />
         <p class="font-title text-2xl text-center">

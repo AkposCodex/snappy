@@ -1,7 +1,7 @@
 <template>
   <div class="w-full md:h-[30rem] bg-[url('@/assets/images/komarov-egor.jpeg')] bg-center bg-cover">
     <div class="md:h-full text-center backdrop-blur md:py-9 py-20 px-3 backdrop-brightness-[.3]">
-      <h1 class="text-white text-3xl text-6xl md:text-9xl text-center md:py-9 pt-36 font-title">
+      <h1 class="text-white text-3xl text-6xl md:text-9xl text-center md:py-9 md:pt-20 font-title">
         RO<span class="text-teal-800 md:text-9xl text-5xl md:text-[10rem]">k</span>U
       </h1>
       <p class="w-full md:text-4xl text-2xl text-white">
