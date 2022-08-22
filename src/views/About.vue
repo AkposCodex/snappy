@@ -1,4 +1,5 @@
 <template>
+<link rel="preload" href="../assets/images/reimond-de-zuniga.jpeg">
   <div class="w-full h-[30rem] bg-about bg-center bg-cover">
     <div class="h-full backdrop-blur backdrop-brightness-[.4]">
       <h1 class="text-white text-6xl md:text-9xl text-center pt-44 font-title">
