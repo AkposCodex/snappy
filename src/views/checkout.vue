@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full h-max flex bg-gray-100">
-    <div class="w-1/2 text-center p-6">
+  <div class="w-full h-max md:flex bg-gray-100">
+    <div class="hidden md:block w-1/2 text-center p-6">
       <h1 class="text-4xl text-zinc-500 w-max mx-auto">One Last Step!</h1>
       <p>
         Please confirm the details of your rental and complete the checkout.
@@ -8,7 +8,7 @@
       <div class="w-4/5 h-[90%] mx-auto">
         <img
           class="w-[35rem] mx-auto"
-          :src="productState.products.image"
+          :src="productState.products[1].image"
           alt=""
         />
         <p class="font-title text-2xl text-center">
@@ -17,15 +17,15 @@
       </div>
     </div>
 
-    <div class="h-full bg-white p-10 w-1/2">
+    <div class="h-full bg-white p-10 md:w-1/2">
       <h1 class="text-6xl">Welcome, {{ userState.bio.firstName }}</h1>
+      <h1 class="text-3xl">Order Details</h1>
 
       <div
         v-if="steps == 1"
         class="mt-12"
         v-for="items in productState.products"
       >
-        <h1 class="text-3xl">Order Details</h1>
         <ul class="grid grid-cols-2 items-center bg-slate-50">
           <li class="m-3 text-lg">Item name</li>
           <li class="m-3 font-bold">{{ items.product }}</li>
@@ -44,22 +44,22 @@
             {{ userState.businessDetails.businessName }}
           </li>
         </ul>
-        <div class="bg-slate-50 mt-2 p-4">
-          <h1 class="text-xl">Delivery Options</h1>
-          <div class="flex justify-start mt-3">
-            <button
-              @click="pay()"
-              class="p-2 rounded-lg text-sm hover:text-white bg-white mr-3 mt-1 shadow-md border hover:bg-teal-500 border-none border border-zinc-400"
-            >
-              In-person Delivery
-            </button>
-            <button
-              @click="btnClick()"
-              class="p-2 text-sm rounded-lg hover:text-white bg-white mt-1 shadow-md border-none border hover:bg-teal-500 border-zinc-400"
-            >
-              Dispatch drop-off
-            </button>
-          </div>
+      </div>
+      <div class="bg-slate-50 mt-2 p-4">
+        <h1 class="text-xl">Delivery Options</h1>
+        <div class="flex justify-start mt-3">
+          <button
+            @click="pay()"
+            class="p-2 rounded-lg text-sm hover:text-white bg-white mr-3 mt-1 shadow-md border hover:bg-teal-500 border-none border border-zinc-400"
+          >
+            In-person Delivery
+          </button>
+          <button
+            @click="btnClick()"
+            class="p-2 text-sm rounded-lg hover:text-white bg-white mt-1 shadow-md border-none border hover:bg-teal-500 border-zinc-400"
+          >
+            Dispatch drop-off
+          </button>
         </div>
       </div>
 

@@ -13,8 +13,10 @@ export default {
 };
 </script>
 <template>
-  <div class="text-pink p-6 flex items-center justify-between">
-    <div class="w-1/2 p-3">
+  <div
+    class="text-pink p-6 flex items-center  sm:flex-row flex-col justify-between"
+  >
+    <div class="sm:w-1/2 p-3">
       <div>
         <h3 class="text-4xl font-bold p-3">{{ title }}</h3>
         <p class="text-2xl p-3">{{ sub_title }}</p>
@@ -27,6 +29,10 @@ export default {
         </button>
       </div>
     </div>
-    <img :src="image" alt="" class="rounded-[4rem] w-3/6 p-6 h-1/2" />
+    <img
+      :src="image"
+      alt=""
+      class="sm:rounded-[4rem] sm:w-3/6 rounded-[4rem] p-6 h-1/2"
+    />
   </div>
 </template>

@@ -62,31 +62,5 @@
         />
       </div>
     </div>
-    <div class="get-started md:flex justify-content-around items-center pt-12">
-      <p
-        class="md:text-4xl text-xl w-full md:w-2/5 text-black leading-[2.5rem]"
-      >
-        Ready to get started with <span class="font-title">ROkU?</span>
-      </p>
-      <form action="" class="mx-auto p-6 w-1/2">
-        <label for="" class="m-3">Email Address</label>
-        <input
-          type="email"
-          placeholder="Email address"
-          class="block form-input m-4 rounded w-3/5 h-12"
-        />
-        <label for="" class="m-3">Your Name</label>
-        <input
-          type="text"
-          placeholder="First name & Last name"
-          class="block form-input m-4 rounded w-3/5 h-12"
-        />
-        <button
-          class="p-2 w-52 text-white bottom-0 bg-green-800 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
-        >
-          Get Started
-        </button>
-      </form>
-    </div>
   </div>
 </template>

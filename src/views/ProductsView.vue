@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full h-[30rem] bg-about bg-center bg-cover">
-    <div class="h-full text-center backdrop-blur backdrop-brightness-[.3]">
-      <h1 class="text-white text-6xl md:text-9xl text-center pt-36 font-title">
-        RO<span class="text-teal-800 text-8xl md:text-[10rem]">k</span>U
+  <div class="w-full md:h-[30rem] bg-about bg-center bg-cover">
+    <div class="md:h-full text-center backdrop-blur py-20 px-3 backdrop-brightness-[.3]">
+      <h1 class="text-white text-3xl md:text-6xl md:text-9xl text-center md:pt-36 font-title">
+        RO<span class="text-teal-800 md:text-8xl text-5xl md:text-[10rem]">k</span>U
       </h1>
-      <p class="w-full text-2xl text-white">
+      <p class="w-full md:text-2xl text-white">
         Choose from our selection of POS terminal devices. From the iconic
         <i>PAX-90</i> terminal to the modern <i>SRS-90</i> Android terminal
       </p>
@@ -16,12 +16,12 @@
       v-for="product in productState.list"
       :key="product.id"
     >
-      <img :src="product.image" class="w-[25rem] mx-auto" alt="" />
+      <img :src="product.image" class="md:w-[25rem] w-[15rem] mx-auto" alt="" />
       <div class="">
-        <h1 class="text-4xl text-center font-title">
+        <h1 class="text-2xl md:text-4xl text-center font-title">
           {{ product.productName }}
         </h1>
-        <div class="flex space-x-9">
+        <div class="flex-col md:flex space-y-9 md:space-x-9">
           <div
             class="card"
             v-for="plan in product.plans"

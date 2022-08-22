@@ -2,15 +2,17 @@
   <div class="w-full mx-auto pt-10">
     <!-- <h1 class="text-black text-4xl p-[3rem] font-title">RO<span
               class="text-teal-800 text-6xl">k</span>U</h1> -->
-    <h1 class="text-center font-bold text-black text-3xl">
-      Purchase the Key to a Greater Business Solution
-    </h1>
-    <p class="text-center">
-      Below are our plans to get you started on the path to success. <br />
-      Choose from any of the plans to get started.
-    </p>
+    <div class="px-9">
+      <h1 class="text-center font-bold text-black text-3xl">
+        Purchase the Key to a Greater Business Solution
+      </h1>
+      <p class="text-center">
+        Below are our plans to get you started on the path to success. <br />
+        Choose from any of the plans to get started.
+      </p>
+    </div>
 
-    <main class="flex space-x-9 w-4/5 justify-center mx-auto my-12 pt-6">
+    <main class="md:flex space-y-10 md:space-x-9 w-4/5 justify-center mx-auto my-12 pt-6">
       <div class="card">
         <div>
           <span class="pricing">N5000</span>
