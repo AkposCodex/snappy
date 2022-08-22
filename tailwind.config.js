@@ -13,6 +13,8 @@ module.exports = {
         about: "url('@/assets/images/komarov-egor.jpeg')",
         product: "url('@/assets/images/mohammad-metri.jpg')",
         icon: "url('@/assets/images/3geepaylogo.png')",
+        pos1: "url('@/assets/images/products/Payment-Tablet-Terminal.png')",
+        pos2: "url('@/assets/images/products/POS.png')"
       },
       fontFamily: {
         title: ["Syncopate"],
