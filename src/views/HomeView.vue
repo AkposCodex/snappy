@@ -31,7 +31,7 @@ export default {
   <main>
     <div
       id="hero"
-      class="relative bg-hero h-full md:h-[35rem] bg-center bg-cover"
+      class="relative bg-[url('@/assets/images/clay-banks-unsplash.jpeg')] h-full md:h-[35rem] bg-center bg-cover"
     >
       <div class="h-full backdrop-brightness-[.3]">
         <div
@@ -68,7 +68,7 @@ export default {
         title="Sync your transactions."
         sub_title="INTEGRATED PAYMENTS"
         content="Enjoy effortless integrated payments – software that wirelessly connects your card machine to your EPOS in the cloud. For a smooth experience and easy end-of-day reporting."
-        class="flex-row-reverse"
+        class="md:flex-row-reverse"
         image="https://dojo.tech/media/ypjiwmgn/homepage-asset_01.jpg?center=0.4999819679846001,0.47394164354520407&mode=crop&quality=70&width=640&height=441&rnd=132918143489800000"
       />
       <LandingComponent
@@ -83,7 +83,7 @@ export default {
         sub_title="NEXT-DAY TRANSFERS"
         content="Get your takings the very next day. For free, even on weekends and bank holidays – we're the only UK payments provider that doesn't charge you for the privilege."
         reversed="w-[12rem]"
-        class="flex-row-reverse"
+        class="md:flex-row-reverse"
         inner_html="Get started"
         image="https://dojo.tech/media/zawjsigw/homepage-asset_03.jpg?anchor=center&mode=crop&quality=70&width=640&height=441&rnd=132875131197130000"
       />

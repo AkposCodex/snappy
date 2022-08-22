@@ -1,6 +1,6 @@
 <template>
 <link rel="preload" href="../assets/images/reimond-de-zuniga.jpeg">
-  <div class="w-full h-[30rem] bg-about bg-center bg-cover">
+  <div class="w-full h-[30rem] bg-[url('@/assets/images/komarov-egor.jpeg')] bg-center bg-cover">
     <div class="h-full backdrop-blur backdrop-brightness-[.4]">
       <h1 class="text-white text-6xl md:text-9xl text-center pt-44 font-title">
         RO<span class="text-teal-800 text-8xl md:text-[10rem]">k</span>U
@@ -17,7 +17,7 @@
         Sit error totam animi magnam quis!
       </p>
       <img
-        src="../assets/images/reimond-de-zuniga.jpeg"
+        src="@/assets/images/reimond-de-zuniga.jpeg"
         alt=""
         class="md:w-1/3 p-6 w-full md:float-right"
       />
