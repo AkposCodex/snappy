@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.framed::after{
+    content: '';
+    background-image: "./assets/Vector.png";
+    width: 50px;
+    height: 20px;
+}
