@@ -1,4 +1,13 @@
+import * as products from "./productsv2.service";
 export class ProductService {
+  static getProducts() {
+    return products;
+  }
+
+  static getProductList() {
+    return this.productList;
+  }
+
   static productList = [
     {
       id: 1,
@@ -13,6 +22,7 @@ export class ProductService {
           description:
             "You receive ownership of the POS for a single day to to do transactions.",
           isPlanSelected: false,
+          qty: 0,
         },
         {
           id: 2,
@@ -21,6 +31,7 @@ export class ProductService {
           description:
             "You receive ownership of the POS for a week to to do transactions.",
           isPlanSelected: false,
+          qty: 0,
         },
         {
           id: 3,
@@ -29,6 +40,7 @@ export class ProductService {
           description:
             "You receive ownership of the POS for a month to to do transactions.",
           isPlanSelected: false,
+          qty: 0,
         },
       ],
     },
@@ -45,6 +57,7 @@ export class ProductService {
           description:
             "You receive ownership of the POS for a single day to to do transactions.",
           isPlanSelected: false,
+          qty: 0,
         },
         {
           id: 2,
@@ -53,6 +66,7 @@ export class ProductService {
           description:
             "You receive ownership of the POS for a week to to do transactions.",
           isPlanSelected: false,
+          qty: 0,
         },
         {
           id: 3,
@@ -61,12 +75,9 @@ export class ProductService {
           description:
             "You receive ownership of the POS for a month to to do transactions.",
           isPlanSelected: false,
+          qty: 0,
         },
       ],
     },
   ];
-
-  static getProductList() {
-    return this.productList;
-  }
 }

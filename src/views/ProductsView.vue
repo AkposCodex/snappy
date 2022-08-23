@@ -61,10 +61,10 @@ export default {
         image,
       });
       console.log(price, product, image);
-      this.$router.push({
-        name: "checkout",
-        // params: { price: price, product: product, image: image },
-      });
+      // this.$router.push({
+      //   name: "checkout",
+      //   params: { price: price, product: product, image: image },
+      // });
     },
   },
   computed: mapGetters({

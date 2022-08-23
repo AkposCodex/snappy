@@ -20,7 +20,13 @@
     <div class="h-full bg-white p-10 md:w-1/2">
       <h1 class="text-6xl">Welcome, {{ userState.bio.firstName }}</h1>
       <h1 class="text-3xl">Order Details</h1>
-
+      <!-- <div class="" v-if="productState.products = ''">
+        <h1>You don't have any Items added</h1>
+        <span
+          >Return to Products to rent a
+          <a href="/productsv2" class="text-green-900 font-bold">POS</a></span
+        >
+      </div> -->
       <div
         v-if="steps == 1"
         class="mt-12"
@@ -31,10 +37,11 @@
           <li class="m-3 font-bold">{{ items.product }}</li>
           <li class="m-3 text-lg">Price</li>
           <li class="m-3 font-bold">N{{ items.price }}</li>
-          <li class="m-3 text-lg">Rental Period</li>
-          <li class="m-3 font-bold">{{ start }} to {{ end }}</li>
+          <li class="m-3 text-lg">Quantity</li>
+          <li class="m-3 font-bold">{{ items.qty }}</li>
         </ul>
-        <ul class="grid grid-cols-2 items-center mt-2 bg-slate-50">
+        <button @click="clear(items.index)">Clear product</button>
+        <!-- <ul class="grid grid-cols-2 items-center mt-2 bg-slate-50">
           <li class="m-3 text-lg">Customer</li>
           <li class="m-3 font-bold">
             {{ userState.bio.firstName }} {{ userState.bio.lastName }}
@@ -43,7 +50,7 @@
           <li class="m-3 font-bold">
             {{ userState.businessDetails.businessName }}
           </li>
-        </ul>
+        </ul> -->
       </div>
       <div class="bg-slate-50 mt-2 p-4">
         <h1 class="text-xl">Delivery Options</h1>
@@ -231,6 +238,11 @@ export default {
 
     home() {
       this.steps = 1;
+    },
+
+    clear(index) {
+      this.$store.dispatch("productModule/removeItem", index);
+      console.log(this.productState.products);
     },
 
     prev: function () {

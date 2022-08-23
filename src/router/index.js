@@ -52,7 +52,7 @@ const router = createRouter({
     {
       path: "/productsv2",
       name: "productsv2",
-      component: () => import("@/views/caroutest.vue"),
+      component: () => import("@/views/ProductsView2.vue"),
     },
     {
       path: "/:pathMatch(.*)*",

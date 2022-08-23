@@ -12,9 +12,12 @@ export default {
       });
       console.log(this.user);
     },
-    show(){
-      this.menu = !this.menu
-    }
+    show() {
+      this.menu = !this.menu;
+    },
+    checkout() {
+      this.$router.push({ path: "/checkout" });
+    },
   },
   data() {
     return { menu: false };
@@ -31,7 +34,7 @@ export default {
     <nav class="p-6 mx-auto border">
       <div class="flex justify-between space-x-9">
         <div
-          class="flex justify-between  relative w-full items-center space-x-6"
+          class="flex justify-between relative w-full items-center space-x-6"
         >
           <div class="pt-2">
             <router-link to="/"
@@ -60,13 +63,18 @@ export default {
               >Contact</router-link
             >
           </div>
-          <a href="#" @click="show()" class="bg-green-700 md:hidden p-3 rounded-lg text-white">Menu</a>
+          <a
+            href="#"
+            @click="show()"
+            class="bg-green-700 md:hidden p-3 rounded-lg text-white"
+            >Menu</a
+          >
           <div
             v-if="menu"
             class="absolute top-12 space-y-3 z-50 bg-white rounded right-0 p-6 flex flex-col shadow-md text-md"
           >
             <router-link
-              to="/products"
+              to="/productsv2"
               class="hover:underline hover:text-lg hover:font-bold"
               >Product</router-link
             >
@@ -85,15 +93,27 @@ export default {
               class="hover:underline hover:text-lg hover:font-bold"
               >Contact</router-link
             >
+            <router-link
+              to="/checkout"
+              class="hover:underline hover:text-lg hover:font-bold"
+              >Cart</router-link
+            >
           </div>
         </div>
-        <div>
+        <div class="flex space-x-3">
           <button
             v-if="user"
             @click="logout()"
-            class="hidden md:block p-2 w-52 items-center text-white bottom-0 bg-green-800 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
+            class="hidden md:block p-2 w-32 items-center text-white bottom-0 bg-green-800 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
           >
             Log Out
+          </button>
+          <button
+            v-if="user"
+            @click="checkout()"
+            class="hidden md:block p-2 w-24 items-center text-white bottom-0 bg-green-800 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
+          >
+            Cart
           </button>
           <button
             v-if="!user"
