@@ -1,5 +1,9 @@
 <template>
-  <Form class="h-min" @submit="signIn" :validation-schema="schema">
+  <Form
+    class="h-min dark:text-white"
+    @submit="signIn"
+    :validation-schema="schema"
+  >
     <h1 class="text-2xl p-4">Settlement Account Details</h1>
     <hr class="pb-6 w-3/5" />
     <label for="" class="m-3">Bank</label>
@@ -10,7 +14,7 @@
       class="peer block w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
       placeholder="Bank"
     />
-    <ErrorMessage name="bank" as="div" class="text-red-500"/>
+    <ErrorMessage name="bank" as="div" class="text-red-500" />
     <label for="" class="m-3">Account Name</label>
     <Field
       v-model="userState.account.accountName"
@@ -19,7 +23,7 @@
       class="peer block w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
       placeholder="Account Name"
     />
-    <ErrorMessage name="accountName" as="div" class="text-red-500"/>
+    <ErrorMessage name="accountName" as="div" class="text-red-500" />
     <label for="" class="m-3">Account Number</label>
     <Field
       v-model="userState.account.accountNumber"
@@ -29,7 +33,7 @@
       class="peer block w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
       placeholder="Account Number"
     />
-    <ErrorMessage name="accountNumber" as="div" class="text-red-500"/>
+    <ErrorMessage name="accountNumber" as="div" class="text-red-500" />
     <!-- <button @click="signIn()">Button here</button> -->
     <div class="flex justify-center w-full">
       <button
@@ -63,8 +67,8 @@ export default {
   methods: {
     signIn: function () {
       this.$store.dispatch("userModule/login").then(() => {
-        });
-        this.$router.push("/products");
+        this.$router.push("/productsv2");
+      });
       console.log(this.userState.isLoggedIn);
     },
     next: function () {

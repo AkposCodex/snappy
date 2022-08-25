@@ -1,12 +1,12 @@
 <template>
-  <Form @submit="changeStage" class="" :validation-schema="schema">
+  <Form @submit="changeStage" class="dark:text-white " :validation-schema="schema">
     <h1 class="text-2xl p-4">Business Details</h1>
     <hr class="pb-6 w-3/5" />
     <label for="type" class="m-3">Business type</label>
     <select
       v-model="userState.businessDetails.businessType"
       name="businessType"
-      class="block border-green-700 border-0 border-b bg-slate-100 focus:border-blue-600 focus:outline-none focus:ring-0 my-3 ml-3"
+      class="block border-green-700 border-0 border-b dark:text-black  bg-slate-100 focus:border-blue-600 focus:outline-none focus:ring-0 my-3 ml-3"
     >
       <option value="">Choose an option</option>
       <option value="SME">Small to Medium sized enterprise</option>

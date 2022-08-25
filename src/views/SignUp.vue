@@ -9,9 +9,9 @@
     </div>
     <div class="md:w-1/2 w-full" v-if="signUp">
       <div class="md:pt-6 p-6">
-        <h1 class="text-4xl text-green-700">Create a New Account</h1>
+        <h1 class="text-4xl text-green-700 dark:text-white">Create a New Account</h1>
         <!-- <p class="text-2xl">Welcome to RO<span class="text-teal-800 font-title text-4xl text-[2rem]">k</span>U</p> -->
-        <p>
+        <p class="dark:text-white">
           Create a new account with us today to start making transactions faster
           than ever before.
         </p>
@@ -40,13 +40,9 @@
       </div> -->
     </div>
     <div class="md:w-1/2 w-full p-9" v-if="!signUp">
-      <h1 class="text-2xl">Log In</h1>
-      <Form
-        @submit="changeStage"
-        class="w-full p-6"
-        :validation-schema="schema"
-      >
-        <div class="my-4">
+      <h1 class="text-2xl dark:text-white">Log In</h1>
+      <Form @submit="signIn()" class="w-full p-6" :validation-schema="schema">
+        <div class="my-4 dark:text-white">
           <label for="email">Email Address</label>
           <Field
             v-model.trim="userState.bio.emailAddress"
@@ -57,31 +53,32 @@
           />
           <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
         </div>
-        <div class="my-4">
+        <div class="my-4 dark:text-white">
           <label for="password">Password</label>
           <Field
             v-model.trim="userState.bio.password"
-            type="text"
             name="password"
+            type="password"
             class="peer block w-4/5 form-input mx-auto appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
             placeholder="Password"
           />
           <ErrorMessage name="password" as="div" class="text-red-500" />
         </div>
-        <div class="flex flex-col items-center">
-          <button
-            type="submit"
-            class="p-2 shadow-md w-52 bottom-0 align-top bg-green-800 text-white rounded-full text-lg hover:bg-green-700"
-          >
-            Log In</button
-          >Dont't have an account?<button
-            @click="toggle()"
-            class="text-green-900"
-          >
-            Sign Up
-          </button>
-        </div>
+        <button
+          type="submit"
+          class="p-2 shadow-md w-52 bottom-0 align-top bg-green-800 text-white rounded-full text-lg hover:bg-green-700"
+        >
+          Log In
+        </button>
       </Form>
+      <div class="flex flex-col items-center dark:text-white">
+        Dont't have an account?<button
+          @click="toggle()"
+          class="text-green-900"
+        >
+          Sign Up
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -112,7 +109,10 @@ export default {
   },
   methods: {
     signIn: function () {
-      this.$store.dispatch("userModule/login");
+      this.$store.dispatch("userModule/login").then(() => {
+        console.log(this.userState.isLoggedIn);
+      this.$router.push({name: "productsv2"});
+      });
     },
     changeStage() {
       this.$store.dispatch("userModule/changeStage");

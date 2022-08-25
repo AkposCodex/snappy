@@ -1,5 +1,5 @@
 <template>
-  <Form @submit="changeStage" class="w-full p-6" :validation-schema="schema">
+  <Form @submit="changeStage" class="w-full dark:text-white p-6" :validation-schema="schema">
     <h1 class="text-xl px-4">Bio-Data</h1>
     <hr class="pb-6 w-3/5" />
     <div class="justify-between w-4/5">

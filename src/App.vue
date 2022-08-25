@@ -8,7 +8,7 @@ export default {
     },
     logout() {
       this.$store.dispatch("userModule/logout").then(() => {
-        this.$router.push({ path: "/sign-up" });
+        this.$router.push({ name: "signup" });
       });
       console.log(this.user);
     },
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <template>
-  <body class="font-sans text-black">
+  <body class="font-sans text-black ">
     <nav class="p-6 mx-auto border">
       <div class="flex justify-between space-x-9">
         <div
@@ -44,58 +44,58 @@ export default {
           <div class="hidden md:flex space-x-12 text-md">
             <router-link
               to="/productsv2"
-              class="hover:underline hover:text-lg hover:font-bold"
+              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Product</router-link
             >
             <router-link
               to="/buy-now"
-              class="hover:underline hover:text-lg hover:font-bold"
+              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Pricing</router-link
             >
             <router-link
               to="/about"
-              class="hover:underline hover:text-lg hover:font-bold"
+              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >About Us</router-link
             >
             <router-link
               to="/faq"
-              class="hover:underline hover:text-lg hover:font-bold"
+              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Contact</router-link
             >
           </div>
           <a
             href="#"
             @click="show()"
-            class="bg-green-700 md:hidden p-3 rounded-lg text-white"
+            class="bg-green-700 md:hidden dark:text-white p-3 rounded-lg text-white"
             >Menu</a
           >
           <div
             v-if="menu"
-            class="absolute top-12 space-y-3 z-50 bg-white rounded right-0 p-6 flex flex-col shadow-md text-md"
+            class="absolute top-12  space-y-3 z-50 bg-white rounded right-0 p-6 flex flex-col shadow-md text-md"
           >
             <router-link
               to="/productsv2"
-              class="hover:underline hover:text-lg hover:font-bold"
+              class="hover:underline text-black hover:text-lg hover:font-bold"
               >Product</router-link
             >
             <router-link
               to="/buy-now"
-              class="hover:underline hover:text-lg hover:font-bold"
+              class="hover:underline text-black hover:text-lg hover:font-bold"
               >Pricing</router-link
             >
             <router-link
               to="/about"
-              class="hover:underline hover:text-lg hover:font-bold"
+              class="hover:underline text-black hover:text-lg hover:font-bold"
               >About Us</router-link
             >
             <router-link
               to="/faq"
-              class="hover:underline hover:text-lg hover:font-bold"
+              class="hover:underline text-black hover:text-lg hover:font-bold"
               >Contact</router-link
             >
             <router-link
               to="/checkout"
-              class="hover:underline hover:text-lg hover:font-bold"
+              class="hover:underline text-black hover:text-lg hover:font-bold"
               >Cart</router-link
             >
             <a

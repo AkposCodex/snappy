@@ -58,8 +58,8 @@ export default {
       </div>
     </div>
     <section class="details">
-      <h1 class="text-5xl text-center dark:text-red-700">Meet the Roku app.</h1>
-      <p class="text-lg sm:w-3/5 p-4 text-center mx-auto sm:mb-9">
+      <h1 class="text-5xl text-center dark:text-white">Meet the Roku app.</h1>
+      <p class="text-lg sm:w-3/5 p-4 dark:text-white text-center mx-auto sm:mb-9">
         A card machine that combines sleek design and powerful technology – for
         reliable, fast and secure payments at the till, the table or on the
         move.
@@ -68,7 +68,7 @@ export default {
         title="Sync your transactions."
         sub_title="INTEGRATED PAYMENTS"
         content="Enjoy effortless integrated payments – software that wirelessly connects your card machine to your EPOS in the cloud. For a smooth experience and easy end-of-day reporting."
-        class="md:flex-row-reverse"
+        class="md:flex-row-reverse dark:text-white"
         image="https://dojo.tech/media/ypjiwmgn/homepage-asset_01.jpg?center=0.4999819679846001,0.47394164354520407&mode=crop&quality=70&width=640&height=441&rnd=132918143489800000"
       />
       <LandingComponent
@@ -76,6 +76,7 @@ export default {
         sub_title="SUPERFAST TRANSACTIONS"
         content="Process card transactions 80% faster than the industry average. Shorter queues mean happier customers – and a till that won’t stop ringing."
         reversed="w-[12rem]"
+        class="dark:text-white"
         image="https://dojo.tech/media/0cyo4333/homepage-asset_02.jpg?anchor=center&mode=crop&quality=70&width=640&height=441&rnd=132875130902500000"
       />
       <Landingbutton
@@ -83,7 +84,7 @@ export default {
         sub_title="NEXT-DAY TRANSFERS"
         content="Get your takings the very next day. For free, even on weekends and bank holidays – we're the only UK payments provider that doesn't charge you for the privilege."
         reversed="w-[12rem]"
-        class="md:flex-row-reverse"
+        class="md:flex-row-reverse dark:text-white"
         inner_html="Get started"
         image="https://dojo.tech/media/zawjsigw/homepage-asset_03.jpg?anchor=center&mode=crop&quality=70&width=640&height=441&rnd=132875131197130000"
       />
@@ -94,12 +95,13 @@ export default {
         content="Download the Dojo app or view it on your web browser and get transaction breakdowns and transfer notifications wherever, whenever. And with the app, PCI compliance takes a matter of minutes."
         reversed="w-[12rem]"
         inner_html="Get started"
+        class="dark:text-white"
         image="https://dojo.tech/media/lcrfvujg/adobestock_226083031.jpg?anchor=center&mode=crop&quality=70&width=640&height=427&rnd=132875131442730000"
       />
     </section>
     <div class="p-9 text-center flex-col space-y-6">
       <h2 class="text-2xl font-title">SIGN UP</h2>
-      <p class="text-lg">
+      <p class="text-lg dark:text-white">
         Signing up requires only your personal information and your BVN in order
         to get you set up on the platform
       </p>

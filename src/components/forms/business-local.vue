@@ -1,7 +1,11 @@
 <template>
-  <h1 class="text-2xl p-4">Business Location</h1>
+  <h1 class="text-2xl p-4 dark:text-white">Business Location</h1>
   <hr class="pb-6 w-3/5" />
-  <Form @submit="changeStage" class="" :validation-schema="schema">
+  <Form
+    @submit="changeStage"
+    class="dark:text-white"
+    :validation-schema="schema"
+  >
     <label for="" class="m-3">Address</label>
     <textarea
       v-model="userState.businessLocal.address"
@@ -11,8 +15,8 @@
       class="peer block w-4/5 form-input p-4 my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
       placeholder="Business Address"
     ></textarea>
-    <ErrorMessage name="address" as="div" class="text-red-500"/>
-    <div class="md:flex md:space-x-20">
+    <ErrorMessage name="address" as="div" class="text-red-500" />
+    <div class="md:flex  md:space-x-20">
       <div>
         <label for="" class="m-3">State</label>
         <Field
@@ -22,7 +26,7 @@
           class="peer block md:w-min w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder="State"
         />
-        <ErrorMessage name="state" as="div" class="text-red-500"/>
+        <ErrorMessage name="state" as="div" class="text-red-500" />
       </div>
       <div>
         <label for="" class="m-3">Country</label>
@@ -33,7 +37,7 @@
           class="peer block md:w-min w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder="Country"
         />
-        <ErrorMessage name="country" as="div" class="text-red-500"/>
+        <ErrorMessage name="country" as="div" class="text-red-500" />
       </div>
     </div>
     <label for="" class="m-3">Local Government</label>
@@ -44,7 +48,7 @@
       class="peer block md:w-min w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
       placeholder="Local Government"
     />
-    <ErrorMessage name="localGovernment" as="div" class="text-red-500"/>
+    <ErrorMessage name="localGovernment" as="div" class="text-red-500" />
     <div class="flex justify-end w-full">
       <button
         type="submit"

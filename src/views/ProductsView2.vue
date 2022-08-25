@@ -6,9 +6,9 @@
       class="md:h-full text-center backdrop-blur md:py-9 py-20 px-3 backdrop-brightness-[.3]"
     >
       <h1
-        class="text-white text-3xl text-6xl md:text-9xl text-center md:py-9 md:pt-20 font-title"
+        class="text-white text-3xl text-5xl md:text-9xl text-center md:py-9 md:pt-20 font-title"
       >
-        RO<span class="text-teal-800 md:text-9xl text-5xl md:text-[10rem]"
+        RO<span class="text-teal-800 md:text-9xl text-6xl md:text-[10rem]"
           >k</span
         >U
       </h1>
