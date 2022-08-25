@@ -16,11 +16,17 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
+      meta: {
+        needsAuth: false,
+      },
     },
     {
       path: "/about",
       name: "about",
       component: AboutView,
+      meta: {
+        needsAuth: false,
+      },
     },
     {
       path: "/products",
@@ -34,11 +40,17 @@ const router = createRouter({
       path: "/buy-now",
       name: "pricing",
       component: () => import("@/views/PricingView.vue"),
+      meta: {
+        needsAuth: false,
+      },
     },
     {
       path: "/sign-up",
       name: "signup",
       component: () => import("@/views/SignUp.vue"),
+      meta: {
+        needsAuth: false,
+      },
     },
     {
       path: "/checkout",
@@ -65,14 +77,17 @@ const router = createRouter({
       path: "/faq",
       name: "faq",
       component: () => import("@/views/faq.vue"),
+      meta: {
+        needsAuth: false,
+      },
     },
   ],
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.needsAuth && !isLoggedIn) {
+  if (!isLoggedIn && to.meta.needsAuth) {
     next("/sign-up");
-  } else if (to.meta.needsAuth && isLoggedIn) {
+  } else if (isLoggedIn && to.meta.needsAuth) {
     next();
   } else if (!to.meta.needsAuth) {
     next();

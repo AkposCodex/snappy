@@ -48,7 +48,7 @@
             v-model.trim="userState.bio.emailAddress"
             type="text"
             name="emailAddress"
-            class="peer block w-4/5 form-input mx-auto appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+            class="peer block w-4/5 form-input appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
             placeholder="Email Address"
           />
           <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
@@ -59,7 +59,7 @@
             v-model.trim="userState.bio.password"
             name="password"
             type="password"
-            class="peer block w-4/5 form-input mx-auto appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+            class="peer block w-4/5 form-input  appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
             placeholder="Password"
           />
           <ErrorMessage name="password" as="div" class="text-red-500" />
