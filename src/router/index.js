@@ -7,6 +7,8 @@ import ProductsView from "../views/ProductsView.vue";
 import { computed } from "vue";
 import { mapGetters } from "vuex";
 
+const isLoggedIn = store.getters.getUser;
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -18,9 +20,6 @@ const router = createRouter({
     {
       path: "/about",
       name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: AboutView,
     },
     {
@@ -53,6 +52,9 @@ const router = createRouter({
       path: "/productsv2",
       name: "productsv2",
       component: () => import("@/views/ProductsView2.vue"),
+      meta: {
+        needsAuth: true,
+      },
     },
     {
       path: "/:pathMatch(.*)*",
@@ -67,13 +69,14 @@ const router = createRouter({
   ],
 });
 
-// router.beforeEach((to, from, next) => {
-//   //   if (store.getUser) {
-//   //     next();
-//   //   } else {
-//   //     next("/sign-up");
-//   //   }
-//   // }
-// });
+router.beforeEach((to, from, next) => {
+  if (to.meta.needsAuth && !isLoggedIn) {
+    next("/sign-up");
+  } else if (to.meta.needsAuth && isLoggedIn) {
+    next();
+  } else if (!to.meta.needsAuth) {
+    next();
+  }
+});
 
 export default router;

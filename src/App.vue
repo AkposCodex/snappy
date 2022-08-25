@@ -30,7 +30,7 @@ export default {
 </script>
 
 <template>
-  <body class="font-sans">
+  <body class="font-sans text-black">
     <nav class="p-6 mx-auto border">
       <div class="flex justify-between space-x-9">
         <div
@@ -43,7 +43,7 @@ export default {
           </div>
           <div class="hidden md:flex space-x-12 text-md">
             <router-link
-              to="/products"
+              to="/productsv2"
               class="hover:underline hover:text-lg hover:font-bold"
               >Product</router-link
             >
@@ -97,6 +97,13 @@ export default {
               to="/checkout"
               class="hover:underline hover:text-lg hover:font-bold"
               >Cart</router-link
+            >
+            <a
+              href="#"
+              v-if="user"
+              @click="logout()"
+              class="md:hidden hover:underline hover:text-lg hover:font-bold"
+              >Log Out</a
             >
           </div>
         </div>

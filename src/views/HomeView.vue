@@ -58,7 +58,7 @@ export default {
       </div>
     </div>
     <section class="details">
-      <h1 class="text-5xl text-center">Meet the Roku app.</h1>
+      <h1 class="text-5xl text-center dark:text-red-700">Meet the Roku app.</h1>
       <p class="text-lg sm:w-3/5 p-4 text-center mx-auto sm:mb-9">
         A card machine that combines sleek design and powerful technology – for
         reliable, fast and secure payments at the till, the table or on the
