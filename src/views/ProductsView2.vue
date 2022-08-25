@@ -26,10 +26,15 @@
     >
       <img :src="product.image" class="md:w-[25rem] w-[15rem] mx-auto" alt="" />
       <div class="">
-        <h1 class="text-2xl md:text-4xl text-center dark:text-white text-black font-title">
+        <h1
+          class="text-2xl md:text-4xl text-center dark:text-white text-black font-title"
+        >
           {{ product.packageName }}
         </h1>
-        <div id="main" class="flex flex-col md:flex-row justify-center space-y-9 md:space-x-9">
+        <div
+          id="main"
+          class="flex flex-col md:flex-row justify-center space-y-9 md:space-x-9"
+        >
           <div class="card" :key="product.id">
             <span class="">N{{ product.price }}</span>
             <!-- <span>/Month</span><br /> -->
