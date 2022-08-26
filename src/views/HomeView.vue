@@ -8,10 +8,11 @@ export default {
   methods: {
     btnClick: function () {
       if (!this.user) {
-        this.$router.push({ path: "/sign-up" });
+        // this.$router.go()
+        this.$router.push({ name: "signup", params: { signUp: true } });
         console.log(this.user);
       } else {
-        this.$router.push({ path: "/products" });
+        this.$router.push({ path: "/productsv2" });
         console.log(this.user);
       }
     },
@@ -43,14 +44,15 @@ export default {
             RO<span class="text-teal-800 text-8xl md:text-[10rem]">k</span>U
           </h1>
           <h1 class="w-full text-4xl">
-            Empowering you to do business on your terms
+            Take faster card payments with Snappy Pay
           </h1>
-          <p class="text-xl right-0">
-            Powered by 3Gee Pay, licensed under CBN for PTSP serveices
+          <p class="text-xl">
+            Join thousands of businesses – from start-ups to expanding
+            enterprises – using a Snappy card machine and payment solution.
           </p>
           <button
             @click="btnClick()"
-            class="p-2 w-52 bottom-0 bg-green-800 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
+            class="p-2 w-52 bottom-0 bg-sub rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
           >
             Get Started
           </button>
@@ -59,8 +61,10 @@ export default {
     </div>
     <section class="details">
       <h1 class="text-5xl text-center dark:text-white">Meet the Roku app.</h1>
-      <p class="text-lg sm:w-3/5 p-4 dark:text-white text-center mx-auto sm:mb-9">
-        A card machine that combines sleek design and powerful technology – for
+      <p
+        class="text-lg sm:w-3/5 p-4 dark:text-white text-center mx-auto sm:mb-9"
+      >
+        A card machine and payment solution that combines sleek design and powerful technology – for
         reliable, fast and secure payments at the till, the table or on the
         move.
       </p>
@@ -80,8 +84,8 @@ export default {
         image="https://dojo.tech/media/0cyo4333/homepage-asset_02.jpg?anchor=center&mode=crop&quality=70&width=640&height=441&rnd=132875130902500000"
       />
       <Landingbutton
-        title="Get paid, tomorrow."
-        sub_title="NEXT-DAY TRANSFERS"
+        title="Get paid, today."
+        sub_title="SAME-DAY TRANSFERS"
         content="Get your takings the very next day. For free, even on weekends and bank holidays – we're the only UK payments provider that doesn't charge you for the privilege."
         reversed="w-[12rem]"
         class="md:flex-row-reverse dark:text-white"
@@ -92,7 +96,7 @@ export default {
       <Landingbutton
         title="Enjoy instant insights."
         sub_title="THE ROKU APP"
-        content="Download the Dojo app or view it on your web browser and get transaction breakdowns and transfer notifications wherever, whenever. And with the app, PCI compliance takes a matter of minutes."
+        content="Download the Roku app and get transaction breakdowns and transfer notifications wherever, whenever. And with the app, PCI compliance takes a matter of minutes."
         reversed="w-[12rem]"
         inner_html="Get started"
         class="dark:text-white"
@@ -107,7 +111,7 @@ export default {
       </p>
       <button
         @click="btnClick()"
-        class="p-2 w-52 bottom-0 text-white bg-green-800 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
+        class="p-2 w-52 bottom-0 text-white bg-sub rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
       >
         Get Started
       </button>

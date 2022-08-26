@@ -52,7 +52,10 @@
           </li>
         </ul> -->
       </div>
-      <div class="bg-slate-50 mt-2 p-4" v-if="!steps == 2 || steps == 1">
+      <div
+        class="bg-slate-50 mt-2 p-4"
+        v-if="productState.products.length > 0 && (!steps == 2 || steps == 1)"
+      >
         <h1 class="text-xl">Delivery Options</h1>
         <div class="flex justify-start mt-3">
           <button
@@ -126,7 +129,7 @@
           </ul>
         </div>
         <form action="" v-if="!useData">
-          <div class="flex flex-col md:space-x-20">
+          <div class="flex flex-col">
             <div class="">
               <label for="" class="m-3">First Name</label>
               <input
@@ -141,7 +144,7 @@
               <input
                 type="text"
                 name="email"
-                class="peer block w-full md:w-max form-input my-3 md:ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+                class="peer block w-full form-input my-3 md:ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
                 placeholder=" Last Name "
               />
             </div>
@@ -151,14 +154,14 @@
             type="text"
             name="email"
             :maxlength="11"
-            class="peer block md:w-4/5 w-full form-input my-3 md:ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+            class="peer block w-full form-input my-3 md:ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
             placeholder="Phone Number"
           />
           <label for="" class="m-3">Email Address</label>
           <input
             type="text"
             name="email"
-            class="peer block md:w-4/5 w-full form-input my-3 md:ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+            class="peer block w-full form-input my-3 md:ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
             placeholder="Email Address"
           />
           <label for="" class="m-3">Address</label>
@@ -166,7 +169,7 @@
             rows="3"
             type="text"
             name="email"
-            class="peer block md:w-4/5 w-full form-input my-3 md:ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+            class="peer block w-full form-input my-3 md:ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
             placeholder="Address"
           ></textarea>
         </form>

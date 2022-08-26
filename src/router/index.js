@@ -16,6 +16,13 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
+      beforeEnter: (to, from) => {
+        if (from.name == "signup") {
+          setTimeout(() => {
+            router.go();
+          }, 200);
+        }
+      },
       meta: {
         needsAuth: false,
       },
@@ -43,11 +50,18 @@ const router = createRouter({
       meta: {
         needsAuth: false,
       },
+      beforeEnter: (to, from) => {
+        if (!isLoggedIn) {
+          // router.go()
+          return { name: "signup" };
+        }
+      },
     },
     {
       path: "/sign-up",
       name: "signup",
       component: () => import("@/views/SignUp.vue"),
+      props: true,
       meta: {
         needsAuth: false,
       },
@@ -58,6 +72,12 @@ const router = createRouter({
       component: () => import("@/views/checkout.vue"),
       meta: {
         needsAuth: true,
+      },
+      beforeEnter: (to, from) => {
+        if (!isLoggedIn) {
+          // router.go()
+          return { name: "signup" };
+        }
       },
     },
     {
@@ -84,14 +104,27 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  if (!isLoggedIn && to.meta.needsAuth) {
-    next("/sign-up");
-  } else if (isLoggedIn && to.meta.needsAuth) {
-    next();
-  } else if (!to.meta.needsAuth) {
-    next();
-  }
-});
+// router.beforeEach((to, from, next) => {
+//   if (!isLoggedIn && to.meta.needsAuth) {
+//     return { name: "sign-up" };
+//   } else if (isLoggedIn && to.meta.needsAuth) {
+//     next();
+//   } else if (isLoggedIn && !to.meta.needsAuth) {
+//     next();
+//   } else if (!isLoggedIn && !to.meta.needsAuth) {
+//     next();
+//   }
+//   // if (
+//   //   // make sure the user is authenticated
+//   //   !isLoggedIn &&
+//   //   // ❗️ Avoid an infinite redirect
+//   //   to.name !== "signup"
+//   // ) {
+//   //   // redirect the user to the login page
+//   //   return { name: "signup" };
+//   // } else {
+//   //   return;
+//   // }
+// });
 
 export default router;

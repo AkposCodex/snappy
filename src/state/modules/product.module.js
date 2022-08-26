@@ -7,8 +7,9 @@ export default {
       products: [],
       list: ProductService.getProductList(),
       total: 0,
-      pax_qty: 0,
-      srs_qty: 0,
+      starter_qty: 0,
+      enterprise_qty: 0,
+      bespoke_qty: 0,
     },
   },
   mutations: {
@@ -19,22 +20,28 @@ export default {
       state.productList.products.length = 0;
     },
     REMOVE_ITEM: function (state, payload) {
-      state.productList.products.splice(payload,1)
+      state.productList.products.splice(payload, 1);
     },
     UPDATE_TOTAL: function (state, payload) {
       state.productList.total = payload;
     },
-    INCREMENT_PAX: function (state) {
-      state.productList.pax_qty++;
+    INCREMENT_STARTER: function (state) {
+      state.productList.starter_qty++;
     },
-    DECREMENT_PAX: function (state) {
-      state.productList.pax_qty++;
+    DECREMENT_STARTER: function (state) {
+      state.productList.starter_qty--;
     },
-    INCREMENT_SRS: function (state) {
-      state.productList.srs_qty--;
+    INCREMENT_ENTERPRISE: function (state) {
+      state.productList.enterprise_qty++;
     },
-    DECREMENT_SRS: function (state) {
-      state.productList.srs_qty--;
+    DECREMENT_ENTERPRISE: function (state) {
+      state.productList.enterprise_qty--;
+    },
+    INCREMENT_BESPOKE: function (state) {
+      state.productList.bespoke_qty++;
+    },
+    DECREMENT_BESPOKE: function (state) {
+      state.productList.bespoke_qty--;
     },
   },
 
@@ -45,20 +52,26 @@ export default {
     clearProducts: function ({ commit }) {
       return commit("CLEAR_PRODUCTS");
     },
-    removeItem: function({commit}, payload){
-      return commit("REMOVE_ITEM", payload)
+    removeItem: function ({ commit }, payload) {
+      return commit("REMOVE_ITEM", payload);
     },
-    incrementPax: function ({ commit }) {
-      return commit("INCREMENT_PAX");
+    incrementStarter: function ({ commit }) {
+      return commit("INCREMENT_STARTER");
     },
-    decrementPax: function ({ commit }) {
-      return commit("DECREMENT_PAX");
+    decrementStarter: function ({ commit }) {
+      return commit("DECREMENT_STARTER");
     },
-    incrementSrs: function ({ commit }) {
-      return commit("INCREMENT_SRS");
+    incrementEnterprise: function ({ commit }) {
+      return commit("INCREMENT_ENTERPRISE");
     },
-    decrementSrs: function ({ commit }) {
-      return commit("DECREMENT_SRS");
+    decrementEnterprise: function ({ commit }) {
+      return commit("DECREMENT_ENTERPRISE");
+    },
+    incrementBespoke: function ({ commit }) {
+      return commit("INCREMENT_BESPOKE");
+    },
+    decrementBespoke: function ({ commit }) {
+      return commit("DECREMENT_BESPOKE");
     },
   },
 };

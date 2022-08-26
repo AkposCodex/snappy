@@ -1,5 +1,5 @@
 <template>
-  <Form @submit="changeStage" class="w-full dark:text-white p-6" :validation-schema="schema">
+  <Form @submit="changeStage" class="w-full px-auto dark:text-white p-6" :validation-schema="schema">
     <h1 class="text-xl px-4">Bio-Data</h1>
     <hr class="pb-6 w-3/5" />
     <div class="justify-between w-4/5">
@@ -28,13 +28,13 @@
         <br />
       </div>
     </div>
-    <div>
+    <div class="w-4/5">
       <label for="" class="m-3">Email Address</label>
       <Field
         v-model.trim="userState.bio.emailAddress"
         type="text"
         name="emailAddress"
-        class="peer block w-4/5 form-input ml-3 appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+        class="peer block w-full mx-0 form-input ml-3 appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
         placeholder="Email Address"
         :rules="validEmail"
       />
@@ -71,7 +71,7 @@
       </div>
     </div>
     <!-- <button @click="signIn()">Button here</button> -->
-    <div class="flex justify-end w-full">
+    <div class="flex justify-center w-full">
       <button
         type="submit"
         class="p-2 m-6 shadow-md w-52 bottom-0 mb-6 align-top bg-green-800 text-white rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"

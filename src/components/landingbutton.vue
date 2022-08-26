@@ -23,7 +23,7 @@ export default {
         <p class="pl-3">{{ content }}</p>
         <button
           @click="btnClick()"
-          class="p-2 mx-3 my-6 w-52 text-white bottom-0 bg-green-800 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
+          class="p-2 mx-3 my-6 w-52 text-white bottom-0 bg-sub rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
         >
           {{ inner_html }}
         </button>

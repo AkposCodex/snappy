@@ -5,9 +5,14 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
     "./node_modules/flowbite/**/*.js",
     "@/assets/images/products/Payment-Tablet-Terminal.png",
-    "@/assets/images/products/POS.png"
+    "@/assets/images/products/POS.png",
   ],
   theme: {
+    colors: {
+      main: "#3BC14A",
+      sub: "#297373",
+      bluu: "#51BBFE",
+    },
     extend: {
       backgroundImage: {
         users: "url('@/assets/images/mark-oflynn.jpeg')",
@@ -16,7 +21,7 @@ module.exports = {
         product: "url('@/assets/images/mohammad-metri.jpg')",
         icon: "url('@/assets/images/3geepaylogo.png')",
         pos1: "url('@/assets/images/products/Payment-Tablet-Terminal.png')",
-        pos2: "url('@/assets/images/products/POS.png')"
+        pos2: "url('@/assets/images/products/POS.png')",
       },
       fontFamily: {
         title: ["Syncopate"],

@@ -8,7 +8,8 @@ export default {
     },
     logout() {
       this.$store.dispatch("userModule/logout").then(() => {
-        this.$router.push({ name: "signup" });
+        this.$router.push({ name: "home" });
+        this.$router.go();
       });
       console.log(this.user);
     },
@@ -30,8 +31,20 @@ export default {
 </script>
 
 <template>
-  <body class="font-sans text-black ">
-    <nav class="p-6 mx-auto border">
+  <body class="font-sans text-black">
+    <div class="flex justify-end bg-sub">
+      <button
+        v-if="user"
+        @click="checkout()"
+        class="hidden md:block p-1 w-20 items-center text-white bottom-0 bg-none rounded-md m-2 shadow-lg text-lg hover:ring ring-green-200/50 hover:bg-main"
+      >
+        <span class="flex flex-row-reverse"
+          ><img src="@/assets/icons/shopping-cart-24.png" alt="" />
+          <p>Cart</p></span
+        >
+      </button>
+    </div>
+    <nav class="px-6 py-4 border-b mx-auto">
       <div class="flex justify-between space-x-9">
         <div
           class="flex justify-between relative w-full items-center space-x-6"
@@ -66,12 +79,12 @@ export default {
           <a
             href="#"
             @click="show()"
-            class="bg-green-700 md:hidden dark:text-white p-3 rounded-lg text-white"
+            class="bg-sub md:hidden dark:text-white p-3 rounded-lg text-white"
             >Menu</a
           >
           <div
             v-if="menu"
-            class="absolute top-12  space-y-3 z-50 bg-white rounded right-0 p-6 flex flex-col shadow-md text-md"
+            class="absolute top-12 space-y-3 z-50 bg-white rounded right-0 p-6 flex flex-col shadow-md text-md"
           >
             <router-link
               to="/productsv2"
@@ -105,27 +118,27 @@ export default {
               class="md:hidden hover:underline hover:text-lg hover:font-bold"
               >Log Out</a
             >
+            <a
+              href="#"
+              v-if="!user"
+              @click="btnClick()"
+              class="md:hidden hover:underline hover:text-lg hover:font-bold"
+              >Log In</a
+            >
           </div>
         </div>
-        <div class="flex space-x-3">
+        <div class="hidden md:flex space-x-3">
           <button
             v-if="user"
             @click="logout()"
-            class="hidden md:block p-2 w-32 items-center text-white bottom-0 bg-green-800 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
+            class="hidden md:block p-2 w-32 items-center text-white bottom-0 bg-sub rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
           >
             Log Out
           </button>
           <button
-            v-if="user"
-            @click="checkout()"
-            class="hidden md:block p-2 w-24 items-center text-white bottom-0 bg-green-800 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
-          >
-            Cart
-          </button>
-          <button
             v-if="!user"
             @click="btnClick()"
-            class="hidden md:block p-2 w-52 items-center text-white bottom-0 bg-green-800 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
+            class="hidden md:block p-2 w-52 items-center text-white bottom-0 bg-sub rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
           >
             Log In
           </button>
@@ -138,6 +151,12 @@ export default {
     <h1 class="text-white text-2xl text-left font-title">
       RO<span class="text-teal-800 text-3xl">k</span>U
     </h1>
+    <p class="text-xl right-0">
+      Powered by <span class="text-2xl font-bold text-sub">3</span
+      ><span class="text-2xl font-bold"
+        ><span class="text-main font-bold">G</span>eePay</span
+      >, a licensed PTSP by CBN
+    </p>
   </footer>
 </template>
 <style>

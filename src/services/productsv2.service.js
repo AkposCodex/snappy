@@ -4,7 +4,7 @@ export class Products {
       id: 1,
       price: 20000,
       packageName: "PAX Daily",
-      image: "/src/assets/images/products/POS.png",
+      image: "https://www.horizonpay.ng/assets/img/partner6.png",
       description:
         "You receive ownership of the POS for a single day to to do transactions.",
       qty: 0,

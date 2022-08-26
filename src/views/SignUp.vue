@@ -1,15 +1,17 @@
 <template lang="">
   <div class="flex w-full justify-between">
     <div
-      class="w-[30rem] hidden md:block h-min m-9 after:content-['Finna act up'] after:text-9xl after:text-red-200 block after:rounded-full after:w-[15rem] after:bg-green-500 after:bg-opacity-40 after:shadow-lg after:h-[15rem] after:bottom-36 after:right-[-6rem] after:absolute after:backdrop-blur text-center"
+      class="w-[20rem] md:w-[30rem] hidden md:block h-min m-9 before:content-['Finna act up'] before:text-9xl before:text-red-200 block before:rounded-full before:w-[15rem] before:bg-sub before:bg-opacity-40 before:shadow-lg before:h-[15rem] before:bottom-5 before:right-[-6rem] before:absolute before:backdrop-blur text-center"
     >
       <div
-        class="rounded-full shadow-lg relative bg-[url('https://images.unsplash.com/photo-1594025741471-7710d7249113?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG9zJTIwdGVybWluYWx8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')] h-[30rem] bg-center bg-cover"
+        class="rounded-full shadow-lg relative bg-[url('https://3geepay.com.ng/wp-content/uploads/2020/07/3gpay-thumb-14.jpg')] h-[30rem] bg-center bg-cover"
       ></div>
     </div>
     <div class="md:w-1/2 w-full" v-if="signUp">
       <div class="md:pt-6 p-6">
-        <h1 class="text-4xl text-green-700 dark:text-white">Create a New Account</h1>
+        <h1 class="text-4xl text-green-700 dark:text-white">
+          Let's Get you Started
+        </h1>
         <!-- <p class="text-2xl">Welcome to RO<span class="text-teal-800 font-title text-4xl text-[2rem]">k</span>U</p> -->
         <p class="dark:text-white">
           Create a new account with us today to start making transactions faster
@@ -40,42 +42,46 @@
       </div> -->
     </div>
     <div class="md:w-1/2 w-full p-9" v-if="!signUp">
-      <h1 class="text-2xl dark:text-white">Log In</h1>
+      <h1
+        class="text-2xl dark:text-white underline decoration-bluu underline-offset-8"
+      >
+        Log In
+      </h1>
       <Form @submit="signIn()" class="w-full p-6" :validation-schema="schema">
         <div class="my-4 dark:text-white">
-          <label for="email">Email Address</label>
+          <label for="email" class="">Email Address</label>
           <Field
             v-model.trim="userState.bio.emailAddress"
             type="text"
             name="emailAddress"
-            class="peer block w-4/5 form-input appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+            class="peer block w-4/5 form-input mx-auto appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
             placeholder="Email Address"
           />
           <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
         </div>
         <div class="my-4 dark:text-white">
-          <label for="password">Password</label>
+          <label for="password" class="">Password</label>
           <Field
             v-model.trim="userState.bio.password"
             name="password"
             type="password"
-            class="peer block w-4/5 form-input  appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+            autocomplete="current password"
+            class="peer block w-4/5 mx-auto form-input appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
             placeholder="Password"
           />
           <ErrorMessage name="password" as="div" class="text-red-500" />
         </div>
-        <button
-          type="submit"
-          class="p-2 shadow-md w-52 bottom-0 align-top bg-green-800 text-white rounded-full text-lg hover:bg-green-700"
-        >
-          Log In
-        </button>
+        <div class="flex justify-center">
+          <button
+            type="submit"
+            class="p-2 shadow-md w-52 bottom-0 align-top bg-sub text-white rounded-full text-lg hover:bg-main"
+          >
+            Log In
+          </button>
+        </div>
       </Form>
       <div class="flex flex-col items-center dark:text-white">
-        Dont't have an account?<button
-          @click="toggle()"
-          class="text-green-900"
-        >
+        Dont't have an account?<button @click="toggle()" class="text-bluu">
           Sign Up
         </button>
       </div>
@@ -94,6 +100,8 @@ export default {
     ErrorMessage,
   },
 
+  props: ["signUp"],
+
   print() {
     this.$store.userState;
   },
@@ -103,7 +111,7 @@ export default {
       password: yup.string().required().label("Password"),
     });
     return {
-      signUp: false,
+      // signUp: false,
       schema,
     };
   },
@@ -111,7 +119,11 @@ export default {
     signIn: function () {
       this.$store.dispatch("userModule/login").then(() => {
         console.log(this.userState.isLoggedIn);
-      this.$router.push({name: "productsv2"});
+        setTimeout(() => {
+          this.$router.push({ name: "home" });
+          window.alert("Successfully logged in");
+          // this.$router.go();
+        }, 1000);
       });
     },
     changeStage() {
@@ -121,13 +133,16 @@ export default {
       console.log(this.stage);
     },
     toggle() {
-      this.signUp = true;
+      this.$router.push({ name: "signup", params: { signUp: true } });
     },
   },
-  computed: mapGetters({
-    userState: "getUserState",
-    // accountDetails: userState.user.account
-    stage: "getStage",
-  }),
+  computed: {
+    ...mapGetters({
+      userState: "getUserState",
+      // accountDetails: userState.user.account
+      stage: "getStage",
+    }),
+    // signUp: this.$routes.params.signUp
+  },
 };
 </script>
