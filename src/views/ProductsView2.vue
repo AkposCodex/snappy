@@ -67,25 +67,22 @@
       Rent out our POS for a period of time or even purchase it outright to
       access our payment platform for your business needs
     </p>
-    <div class="flex border-md justify-between my-9 px-6">
-      <div class="card flex">
-        <!-- <img
-          src="@/assets/images/products/POS.png"
-          class="md:w-[15rem] w-[15rem] mx-auto"
-          alt=""
-        /> -->
+    <div class="flex sm:flex-row flex-col sapce-y-9 border-md my-9 px-6">
+      <div class="card flex sm:flex-row sm:my-0 my-9">
         <div class="w-[16rem]" id="details">
           <p class="name">Starter</p>
           <span class="pricing">N2500</span>
           <span>/Day</span>
-          <ul class="w-[15rem]">
-            <li class="flex flex-col items-center items-start my-3">
-              Rent our POS for a single day to use in your business.
-              <span
-                >Recommended for trade fairs and parties that only go on for a
-                few days</span
-              >
-            </li>
+          <li class="flex flex-col items-center items-start my-3">
+            Rent our POS for a single day to use in your business.
+            <span
+              >Recommended for trade fairs and parties that only go on for a few
+              days</span
+            >
+          </li>
+        </div>
+        <div class="">
+          <ul class="md:w-[15rem] sm:w-min">
             <li class="flex items-start">
               <svg
                 class="w-6 h-6 text-green-300"
@@ -127,7 +124,7 @@
           </button>
         </div>
       </div>
-      <div class="card flex">
+      <div class="card flex sm:flex-row sm:my-0 my-9">
         <!-- <img
           src="@/assets/images/products/POS.png"
           class="md:w-[15rem] w-[15rem] mx-auto"
@@ -138,10 +135,12 @@
             <p class="name">Enterprise</p>
             <span class="pricing">N30000</span>
             <span>/Month</span>
-            <p>Up front purchase of the terminal unit</p>
+            <p>Rent our POS for a month to use in your business.</p>
             <p class="subscript"></p>
           </div>
-          <ul class="w-[15rem]">
+        </div>
+        <div class="">
+          <ul class="sm:w-min md:w-[15rem]">
             <li class="flex items-start">
               <svg
                 class="w-6 h-6 text-green-300"
@@ -156,7 +155,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              <span>Fire Marketting</span>
+              <p>Fire Marketting</p>
             </li>
           </ul>
           <button
@@ -167,7 +166,7 @@
           </button>
         </div>
       </div>
-      <div class="card flex">
+      <div class="card flex sm:flex-row sm:my-0 my-9">
         <!-- <img
           src="@/assets/images/products/POS.png"
           class="md:w-[15rem] w-[15rem] mx-auto"
@@ -179,8 +178,10 @@
             <span class="pricing hover:shadow-inner">N120000</span>
             <p>Up front purchase of the terminal unit.</p>
           </div>
-          <ul class="w-[15rem]">
-            <li class="flex items-start">
+        </div>
+        <div class="">
+          <ul class="md:w-[15rem] sm:w-min">
+            <li class="flex justify-between items-start">
               <svg
                 class="w-6 h-6 text-green-300"
                 aria-hidden="true"
@@ -305,8 +306,8 @@ export default {
       //   params: { price: price, product: product, image: image },
       // });
     },
-    checkout(){
-      this.$router.push('buy-now')
+    checkout() {
+      this.$router.push("buy-now");
     },
     clear() {
       this.$store.dispatch("productModule/clearProducts");

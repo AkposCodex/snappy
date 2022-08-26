@@ -39,7 +39,8 @@
             </div>
           </ul>
           <button
-            @click="checkout"
+
+            @click="checkout(2500, 'Starter Package' ,'@/assets/images/products/POS.png',productState.starter_qty)"
             class="bg-green-400 text-white rounded-full hover:shadow-md px-6 py-2 mt-6"
           >
             Add to Cart
@@ -73,7 +74,7 @@
             </div>
           </ul>
           <button
-            @click="checkout"
+            @click="checkout(30000, 'Enterprise Package' ,'@/assets/images/products/POS.png',productState.enterprise_qty)"
             class="bg-green-400 text-white rounded-full hover:shadow-md px-6 py-2 mt-6"
           >
             Add to Cart
@@ -107,7 +108,7 @@
             </div>
           </ul>
           <button
-            @click="checkout"
+            @click="checkout(120000, 'Bespoke Package' ,'@/assets/images/products/POS.png',productState.bespoke_qty)"
             class="bg-green-400 text-white rounded-full hover:shadow-md px-6 py-2 mt-6"
           >
             Add to Cart
@@ -131,8 +132,25 @@ import { Products } from "../services/productsv2.service";
 export default {
   props: ["price"],
   methods: {
-    checkout: function () {
-      this.$router.push({ path: "/products" })
+    checkout: function (price, product, image, qty) {
+      if(qty<=0){
+      window.alert("Add an item to the cart pls");
+
+      }else{
+        this.$store.dispatch("productModule/updateProducts", {
+        price,
+        product,
+        image,
+        qty,
+      });
+      window.alert(product + " \ added to cart");
+      console.log(price, product, image);
+      console.log(this.productState.products);
+      }
+      // this.$router.push({
+      //   name: "checkout",
+      //   params: { price: price, product: product, image: image },
+      // });
     },
     incrStarter(){
       this.$store.dispatch("productModule/incrementStarter");

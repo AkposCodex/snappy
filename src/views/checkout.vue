@@ -24,7 +24,7 @@
         <h1>You don't have any Items added</h1>
         <span
           >Return to <i>Product</i> to rent a
-          <a href="/productsv2" class="text-green-900 font-bold">POS</a></span
+          <a href="/buy-now" class="text-green-900 font-bold">POS</a></span
         >
       </div>
       <div
