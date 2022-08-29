@@ -51,8 +51,8 @@
         <img src="@/assets/images/products/POS.png" class="md:w-2/5 w-2/5 mx-auto" alt="" />
         <div class="w-2/5" id="details">
           <div>
-            <span class="pricing hover:shadow-inner">N30000</span>
             <p class="name">Enterprise</p>
+            <span class="pricing hover:shadow-inner">N30000</span>
           </div>
           <ul>
             <li>You recieve the POS for a month to do business.</li>
@@ -85,8 +85,8 @@
         <img src="@/assets/images/products/POS.png" class="md:w-2/5 w-2/5 mx-auto" alt="" />
         <div class="w-2/5" id="details">
           <div>
-            <span class="pricing">N120000</span>
             <p class="name">Bespoke</p>
+            <span class="pricing">N120000</span>
           </div>
           <ul>
             <p>Up front purchase of the terminal unit</p>

@@ -67,8 +67,8 @@
       Rent out our POS for a period of time or even purchase it outright to
       access our payment platform for your business needs
     </p>
-    <div class="flex sm:flex-row flex-col sapce-y-9 border-md my-9 px-6">
-      <div class="card flex sm:flex-row sm:my-0 my-9">
+    <div class="flex sm:flex-row flex-col sm:sapce-y-9 md:justify-between border-md my-9 px-6">
+      <div class="card flex sm:flex-row md:flex-col sm:my-0 my-9">
         <div class="w-[16rem]" id="details">
           <p class="name">Starter</p>
           <span class="pricing">N2500</span>
@@ -124,7 +124,7 @@
           </button>
         </div>
       </div>
-      <div class="card flex sm:flex-row sm:my-0 my-9">
+      <div class="card flex sm:flex-row md:flex-col sm:my-0 my-9">
         <!-- <img
           src="@/assets/images/products/POS.png"
           class="md:w-[15rem] w-[15rem] mx-auto"
@@ -166,7 +166,7 @@
           </button>
         </div>
       </div>
-      <div class="card flex sm:flex-row sm:my-0 my-9">
+      <div class="card flex sm:flex-row md:flex-col sm:my-0 my-9">
         <!-- <img
           src="@/assets/images/products/POS.png"
           class="md:w-[15rem] w-[15rem] mx-auto"
@@ -224,66 +224,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="p-6">
-    <div
-      class="w-full flex flex-col"
-      v-for="product in productList"
-      :key="product.id"
-    >
-      <img :src="product.image" class="md:w-[25rem] w-[15rem] mx-auto" alt="" />
-      <div class="">
-        <h1
-          class="text-2xl md:text-4xl text-center dark:text-white text-black font-title"
-        >
-          {{ product.packageName }}
-        </h1>
-        <div
-          id="main"
-          class="flex flex-col md:flex-row justify-center space-y-9 md:space-x-9"
-        >
-          <div class="card" :key="product.id">
-            <span class="">N{{ product.price }}</span>
-            <p>
-              {{ product.description }}
-            </p>
-            <p>Now buying: {{ product.qty }}</p>
-            <div class="flex space-x-9">
-              <button
-                class="font-bold rounded-full bg-green-700 text-white px-2"
-                @click="product.qty += 1"
-              >
-                +
-              </button>
-              <button
-                class="font-bold rounded-full bg-green-700 text-white px-2"
-                v-if="product.qty > 0"
-                @click="product.qty -= 1"
-              >
-                -
-              </button>
-            </div>
-            <p class="subscript">
-              Note: each transaction has a 0.5% fee attached to it.
-            </p>
-            <button
-              :disabled="product.qty <= 0"
-              class="bg-green-400 disabled text-white rounded-full hover:shadow-md px-6 py-2 mt-6"
-              @click="
-                purchase(
-                  product.price * product.qty,
-                  product.packageName,
-                  product.image,
-                  product.qty
-                )
-              "
-            >
-              Rent
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
+
 </template>
 <script>
 import { mapGetters } from "vuex";

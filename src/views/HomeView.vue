@@ -81,7 +81,7 @@ export default {
         content="Process card transactions 80% faster than the industry average. Shorter queues mean happier customers – and a till that won’t stop ringing."
         reversed="w-[12rem]"
         class="dark:text-white"
-        image="https://dojo.tech/media/0cyo4333/homepage-asset_02.jpg?anchor=center&mode=crop&quality=70&width=640&height=441&rnd=132875130902500000"
+        image="https://3geepay.com.ng/wp-content/uploads/2020/07/3gpay-thumb-14.jpg"
       />
       <Landingbutton
         title="Get paid, today."
@@ -90,7 +90,7 @@ export default {
         reversed="w-[12rem]"
         class="md:flex-row-reverse dark:text-white"
         inner_html="Get started"
-        image="https://dojo.tech/media/zawjsigw/homepage-asset_03.jpg?anchor=center&mode=crop&quality=70&width=640&height=441&rnd=132875131197130000"
+        image="https://3geepay.com.ng/wp-content/uploads/2020/07/shutterstock_600927191.jpg"
       />
 
       <Landingbutton
@@ -100,7 +100,7 @@ export default {
         reversed="w-[12rem]"
         inner_html="Get started"
         class="dark:text-white"
-        image="https://dojo.tech/media/lcrfvujg/adobestock_226083031.jpg?anchor=center&mode=crop&quality=70&width=640&height=427&rnd=132875131442730000"
+        image="https://3geepay.com.ng/wp-content/uploads/2020/07/3gp-thumb3.jpg"
       />
     </section>
     <div class="p-9 text-center flex-col space-y-6">

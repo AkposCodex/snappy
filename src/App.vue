@@ -148,15 +148,28 @@ export default {
     <router-view />
   </body>
   <footer class="bg-gray-800 w-full p-4">
-    <h1 class="text-white text-2xl text-left font-title">
-      RO<span class="text-teal-800 text-3xl">k</span>U
-    </h1>
-    <p class="text-xl right-0">
-      Powered by <span class="text-2xl font-bold text-sub">3</span
-      ><span class="text-2xl font-bold"
-        ><span class="text-main font-bold">G</span>eePay</span
-      >, a licensed PTSP by CBN
-    </p>
+    <div class="flex">
+      <h1 class="text-white text-2xl text-left font-title">
+        RO<span class="text-teal-800 text-3xl">k</span>U
+      </h1>
+      <p class="text-xl right-0">
+        Powered by <span class="text-2xl font-bold text-sub">3</span
+        ><span class="text-2xl font-bold"
+          ><span class="text-main font-bold">G</span>eePay</span
+        >, a licensed PTSP by CBN
+      </p>
+    </div>
+    <div class="flex">
+      <div id="quick-links">
+        <h1>Quick Links</h1>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
   </footer>
 </template>
 <style>
