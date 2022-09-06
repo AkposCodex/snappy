@@ -4,7 +4,10 @@ export default {
   namespaced: true,
   state: {
     productList: {
-      products: [],
+      order: {
+        id: "",
+        products: [],
+      },
       list: ProductService.getProductList(),
       total: 0,
       starter_qty: 0,
@@ -13,17 +16,24 @@ export default {
     },
   },
   mutations: {
-    ADD_PRODUCTS: function (state, payload) {
-      state.productList.products.push(payload);
+    ADD_order: function (state, payload) {
+      state.productList.order.products.push(payload);
     },
-    CLEAR_PRODUCTS: function (state) {
-      state.productList.products.length = 0;
+    CLEAR_order: function (state) {
+      state.productList.order.products.length = 0;
+    },
+    CLEAR_total: function (state) {
+      state.productList.total = 0;
+    },
+    COMPLETE_order: function (state, payload) {
+      state.productList.order.id = payload;
     },
     REMOVE_ITEM: function (state, payload) {
-      state.productList.products.splice(payload, 1);
+      state.productList.order.products.splice(payload.index, 1);
+      state.productList.total -= payload.price;
     },
     UPDATE_TOTAL: function (state, payload) {
-      state.productList.total = payload;
+      state.productList.total += payload;
     },
     INCREMENT_STARTER: function (state) {
       state.productList.starter_qty++;
@@ -46,11 +56,20 @@ export default {
   },
 
   actions: {
-    updateProducts: function ({ commit }, payload) {
-      return commit("ADD_PRODUCTS", payload);
+    updateorder: function ({ commit }, payload) {
+      return commit("ADD_order", payload);
     },
-    clearProducts: function ({ commit }) {
-      return commit("CLEAR_PRODUCTS");
+    clearorder: function ({ commit }) {
+      return commit("CLEAR_order");
+    },
+    cleartotal: function ({ commit }) {
+      return commit("CLEAR_total");
+    },
+    completeorder: function ({ commit }, payload) {
+      return commit("COMPLETE_order", payload);
+    },
+    updateTotal: function ({ commit }, payload) {
+      return commit("UPDATE_TOTAL", payload);
     },
     removeItem: function ({ commit }, payload) {
       return commit("REMOVE_ITEM", payload);

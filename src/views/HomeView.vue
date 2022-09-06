@@ -72,7 +72,7 @@ export default {
         title="Sync your transactions."
         sub_title="INTEGRATED PAYMENTS"
         content="Enjoy effortless integrated payments – software that wirelessly connects your card machine to your EPOS in the cloud. For a smooth experience and easy end-of-day reporting."
-        class="md:flex-row-reverse dark:text-white"
+        class="md:flex-row-reverse hidden dark:text-white"
         image="https://dojo.tech/media/ypjiwmgn/homepage-asset_01.jpg?center=0.4999819679846001,0.47394164354520407&mode=crop&quality=70&width=640&height=441&rnd=132918143489800000"
       />
       <LandingComponent
@@ -84,9 +84,9 @@ export default {
         image="https://3geepay.com.ng/wp-content/uploads/2020/07/3gpay-thumb-14.jpg"
       />
       <Landingbutton
-        title="Get paid, today."
+        title="Get paid, Today!"
         sub_title="SAME-DAY TRANSFERS"
-        content="Get your takings the very next day. For free, even on weekends and bank holidays – we're the only UK payments provider that doesn't charge you for the privilege."
+        content="Enjoy seamless payment and quick settlement to take your business to the next level. Join us as the first payment service in Nigeria to offer same day settlements into your preferred account."
         reversed="w-[12rem]"
         class="md:flex-row-reverse dark:text-white"
         inner_html="Get started"

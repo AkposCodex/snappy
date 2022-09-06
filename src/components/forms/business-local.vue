@@ -2,47 +2,47 @@
   <h1 class="text-2xl p-4 dark:text-white">Business Location</h1>
   <hr class="pb-6 w-3/5" />
   <Form
-    @submit="changeStage"
+    @submit="changeStage(street, city, state)"
     class="dark:text-white"
     :validation-schema="schema"
   >
-    <label for="" class="m-3">Address</label>
-    <textarea
-      v-model="userState.businessLocal.address"
+    <label for="" class="m-3">Address(Street Address & House Number)</label>
+    <Field
+      v-model="street"
       rows="3"
       type="text"
       name="address"
       class="peer block w-4/5 form-input p-4 my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-      placeholder="Business Address"
-    ></textarea>
+      placeholder="ex: 4 federal housing road adetokunbo ademola street"
+    ></Field>
     <ErrorMessage name="address" as="div" class="text-red-500" />
-    <div class="md:flex  md:space-x-20">
+    <div class="md:flex md:space-x-20">
       <div>
-        <label for="" class="m-3">State</label>
+        <label for="" class="m-3">City</label>
         <Field
-          v-model="userState.businessLocal.state"
+          v-model="city"
           type="text"
           name="state"
           class="peer block md:w-min w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-          placeholder="State"
+          placeholder="ex: Victoria Island"
         />
         <ErrorMessage name="state" as="div" class="text-red-500" />
       </div>
       <div>
-        <label for="" class="m-3">Country</label>
+        <label for="" class="m-3">State</label>
         <Field
-          v-model="userState.businessLocal.country"
+          v-model="state"
           type="text"
           name="country"
           class="peer block md:w-min w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-          placeholder="Country"
+          placeholder="ex: Lagos"
         />
         <ErrorMessage name="country" as="div" class="text-red-500" />
       </div>
     </div>
     <label for="" class="m-3">Local Government</label>
     <Field
-      v-model="userState.businessLocal.localGovernment"
+      v-model="lga"
       type="text"
       name="localGovernment"
       class="peer block md:w-min w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
@@ -63,6 +63,7 @@
 import { mapGetters } from "vuex";
 import { Field, Form, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import authService from "../../services/snappyService/AuthService";
 export default {
   components: {
     Form,
@@ -72,12 +73,18 @@ export default {
   data() {
     const schema = yup.object({
       localGovernment: yup.string().required().label("LGA"),
-      country: yup.string().required().label("Country"),
-      state: yup.string().required().label("State"),
-      // address: yup.string().required().label("Address"),
+      country: yup.string().required().label("state"),
+      state: yup.string().required().label("City"),
+      address: yup.string().required().label("Address"),
     });
     return {
       schema,
+      street: "",
+      city: "",
+      state: "",
+      country: "Nigeria",
+      lga: "",
+      address: "",
     };
   },
   methods: {
@@ -85,16 +92,32 @@ export default {
       this.$store.dispatch("userModule/login");
       console.log(this.userState.account);
     },
-    changeStage() {
+    changeStage(street, city, state) {
+      this.setAddress(street, city, state);
       this.$store.dispatch("userModule/changeStage");
     },
     next: function () {
       this.userState.stage += 1;
     },
+    async setAddress(street, city, state) {
+      this.address = street + ", " + city + ", " + state + ", " + this.country;
+      const response = await this.$store.dispatch("loadPoints", {
+        address: this.address,
+      });
+      this.$store.dispatch("userModule/updateAddress", this.address);
+      this.$store.dispatch("userModule/updateLocation", {
+        lat: response.lat,
+        lon: response.lng,
+      });
+      console.log("Lat Lng response: "+response.lat + response.lng);
+      console.log(this.address);
+    },
   },
-  computed: mapGetters({
-    stage: "getStage",
-    userState: "getUserState",
-  }),
+  computed: {
+    ...mapGetters({
+      stage: "getStage",
+      userState: "getUserState",
+    }),
+  },
 };
 </script>

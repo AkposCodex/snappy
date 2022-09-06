@@ -137,15 +137,17 @@ export default {
       window.alert("Add an item to the cart pls");
 
       }else{
-        this.$store.dispatch("productModule/updateProducts", {
-        price,
+        this.$store.dispatch("productModule/updateorder", {
+        price: price *qty,
         product,
         image,
         qty,
+      }).then(()=>{
+        console.log(price, product, image);
+        this.$store.dispatch("productModule/updateTotal",price*qty)
       });
       window.alert(product + " \ added to cart");
-      console.log(price, product, image);
-      console.log(this.productState.products);
+      console.log(this.productState.order.products);
       }
       // this.$router.push({
       //   name: "checkout",

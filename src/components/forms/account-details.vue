@@ -67,12 +67,12 @@ export default {
   methods: {
     signIn: function () {
       this.$store.dispatch("userModule/login").then(() => {
-        this.$router.push("/productsv2");
+        this.$router.push("/");
       });
       console.log(this.userState.isLoggedIn);
     },
     next: function () {
-      this.userState.stage += 1;
+      this.userState.stage -= 1;
     },
     changeStage() {
       this.$store.dispatch("userModule/changeStage");

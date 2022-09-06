@@ -1,0 +1,9 @@
+{
+  "order_id":"order_id",
+  "user_id":"user_id",
+  "Product Name": "",
+  "Price": 0,
+  "Quantity": 0,
+  "Date of Purchase": "date_of_purchase",
+  "Status": "Pending|Delivered|Completed"
+}

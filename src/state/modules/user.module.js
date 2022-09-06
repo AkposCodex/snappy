@@ -7,9 +7,9 @@ const getInitialState = () => {
         firstName: "",
         lastName: "",
         emailAddress: "",
-        phoneNumber: "",
         bvn: "",
-        password: '',
+        password: "",
+        phoneNumber: "",
       },
       businessDetails: {
         businessType: "",
@@ -17,14 +17,19 @@ const getInitialState = () => {
       },
       businessLocal: {
         address: "",
+        city: "",
         state: "",
-        country: "",
         localGovernment: "",
       },
+      mainAddress: "",
       account: { bank: "", accountNumber: "" },
       stage: 1,
       isLoggedIn: false,
       details: [],
+      geoLocation: {
+        Latitude: "",
+        Longitude: "",
+      },
     },
   };
 };
@@ -37,6 +42,13 @@ export default {
   mutations: {
     LOGIN: function (state) {
       state.user.isLoggedIn = true;
+    },
+    UPDATE_ADDRESS: function (state, payload) {
+      state.user.mainAddress = payload;
+    },
+    UPDATE_LOCATION: function (state, payload) {
+      state.user.geoLocation.Latitude = payload.lat;
+      state.user.geoLocation.Longitude = payload.lon;
     },
     LOGOUT: function (state) {
       state.user.isLoggedIn = false;
@@ -64,6 +76,12 @@ export default {
     },
     logout({ commit }) {
       return commit("LOGOUT");
+    },
+    updateAddress({ commit }, payload) {
+      return commit("UPDATE_ADDRESS", payload);
+    },
+    updateLocation({ commit }, payload) {
+      return commit("UPDATE_LOCATION", payload);
     },
     changeStage(context) {
       return context.commit("CHANGE_STAGE");

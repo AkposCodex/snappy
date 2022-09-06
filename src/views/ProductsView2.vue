@@ -12,7 +12,7 @@
           >k</span
         >U
       </h1>
-      <p class="w-full md:text-4xl text-2xl text-right text-white">
+      <p class=" hidden w-full md:text-4xl text-2xl text-right text-white">
         Choose from our selection of POS terminal devices. From the iconic
         <i>PAX-90</i> terminal to the modern <i>SRS-90</i> Android terminal
       </p>
@@ -33,7 +33,7 @@
   <LandingComponent
     title="Get Paid, Today!"
     sub_title="SAME-DAY TRANSFERS"
-    content="Enjoy seamless payment and quick settlement to take your business to the next level. Join us as the first payment service in Nigeria to offer same day settlements"
+    content="Enjoy seamless payment and quick settlement to take your business to the next level. Join us as the first payment service in Nigeria to offer same day settlements into your preferred account."
     class="dark:text-white text-gray-800"
     image="https://3geepay.com.ng/wp-content/uploads/2020/07/shutterstock_600927191.jpg"
   />
@@ -64,17 +64,17 @@
       sizes
     </h1>
     <p>
-      Rent out our POS for a period of time or even purchase it outright to
+      Rent our POS for a period of time or even purchase it outright to
       access our payment platform for your business needs
     </p>
-    <div class="flex sm:flex-row flex-col sm:sapce-y-9 md:justify-between border-md my-9 px-6">
-      <div class="card flex sm:flex-row md:flex-col sm:my-0 my-9">
+    <div class="flex md:flex-row flex-col md:sapce-y-9 sm:justify-between border-md my-9 px-6">
+      <div class="card flex sm:flex-row sm:justify-between md:justify-around md:flex-col sm:my-9 my-9">
         <div class="w-[16rem]" id="details">
           <p class="name">Starter</p>
           <span class="pricing">N2500</span>
           <span>/Day</span>
           <li class="flex flex-col items-center items-start my-3">
-            Rent our POS for a single day to use in your business.
+            Daily rental of our POS to use in your business.
             <span
               >Recommended for trade fairs and parties that only go on for a few
               days</span
@@ -124,7 +124,7 @@
           </button>
         </div>
       </div>
-      <div class="card flex sm:flex-row md:flex-col sm:my-0 my-9">
+      <div class="card flex sm:flex-row sm:justify-between md:justify-around md:flex-col sm:my-9 my-9">
         <!-- <img
           src="@/assets/images/products/POS.png"
           class="md:w-[15rem] w-[15rem] mx-auto"
@@ -155,7 +155,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              <p>Fire Marketting</p>
+              <p>Placeholder Text</p>
             </li>
           </ul>
           <button
@@ -166,7 +166,7 @@
           </button>
         </div>
       </div>
-      <div class="card flex sm:flex-row md:flex-col sm:my-0 my-9">
+      <div class="card flex sm:flex-row sm:justify-between md:justify-normal md:flex-col sm:my-9 my-9">
         <!-- <img
           src="@/assets/images/products/POS.png"
           class="md:w-[15rem] w-[15rem] mx-auto"
