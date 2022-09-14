@@ -1,77 +1,156 @@
 <template>
-  <div class="">
-    <div class="text-center">
-      <h1>FAQ: Frequently Asked Questions</h1>
+  <section class="" id="faq">
+    <div class="text-center text-2xl p-16">
+      <h1 class="font-bold text-3xl uppercase mb-6">
+        FAQ: Frequently Asked Questions
+      </h1>
       <p>
-        Before reaching out to us please take a look at our FAQ to try and
-        troubleshoot whatever issues you have.
+        Before reaching out to us please take a look at our <i>FAQ</i> to try
+        and troubleshoot whatever issues you have.
       </p>
     </div>
-    
-  </div>
-  <div class="flex w-full justify-between p-14 items-center">
-    <div class="w-1/2">
-      <h1>Contact Us</h1>
-      <p class="w-3/5">
-        Feel free to send us a message to inquire about anything relagted to
-        Snappy Pay
-      </p>
-      <Form>
-        <div class="my-4 dark:text-white w-3/5">
-          <label for="email" class="">Email Address</label>
-          <Field
-            v-model.trim="emailAddress"
-            type="text"
-            name="emailAddress"
-            class="peer block w-full form-input appearance-none border-0 border-b border-green-700 bg-slate-50 px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-            placeholder="Email Address"
-          />
-          <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
-        </div>
-        <div class="my-4 dark:text-white">
-          <label for="email" class="">Full Name</label>
-          <Field
-            v-model.trim="fullName"
-            type="text"
-            name="name"
-            class="peer block w-4/5 form-input appearance-none border-0 border-b border-green-700 bg-slate-50 px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-            placeholder="Full Name"
-          />
-          <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
-        </div>
-        <div class="my-4 dark:text-white">
-          <label for="email" class="">Phone number</label>
-          <Field
-            v-model.trim="phone"
-            type="text"
-            name="name"
-            class="peer block w-4/5 form-input appearance-none border-0 border-b border-green-700 bg-slate-50 px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-            placeholder="Phone Number"
-          />
-          <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
-        </div>
-        <button>SEND</button>
-      </Form>
+    <div class="grid grid-cols-1 md:grid-cols-2 p-4 gap-6 lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+      <details class="mb-2 bg-gray-200 rounded-md h-min">
+        <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">
+          How Long can I rent the terminals for?
+        </summary>
+
+        <span> The rental period is dependent on which packages you buy. </span>
+      </details>
+      <details class="mb-2 bg-gray-200 rounded-md h-min">
+        <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">
+          Can I change the account details on my profile?
+        </summary>
+
+        <span class="px-4 py-2">
+          Your bank account details can be changed once you've created an
+          account as long as you provide proof of ownership of the account.
+        </span>
+      </details>
+      <details class="mb-2 bg-gray-200 rounded-md h-min">
+        <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">
+          How many terminals I can rent at once?
+        </summary>
+
+        <span class="px-4 py-2"> As many as you need. </span>
+      </details>
+      <details class="mb-2 bg-gray-200 rounded-md h-min">
+        <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">
+          How can I communicate with you?
+        </summary>
+
+        <span class="px-4 py-2 w-[full]">
+          Contact us using the contact form below or by calling our support hotlines: <span class="font-bold">+234 7043151949</span>
+        </span>
+      </details>
+      <!-- <details class="mb-2">
+        <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">
+          Can I install/upload anything I want on there?
+        </summary>
+
+        <span>
+          Laboris qui labore cillum culpa in sunt quis sint veniam. Dolore ex
+          aute deserunt esse ipsum elit aliqua. Aute quis minim velit nostrud
+          pariatur culpa magna in aute.
+        </span>
+      </details> -->
+      <!-- <details class="mb-2">
+        <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">
+          How can I migrate to another site?
+        </summary>
+
+        <span>
+          Laboris qui labore cillum culpa in sunt quis sint veniam. Dolore ex
+          aute deserunt esse ipsum elit aliqua. Aute quis minim velit nostrud
+          pariatur culpa magna in aute.
+        </span>
+      </details> -->
     </div>
-    <div class="w-1/2">
-      <div class="">
-        <h3>Opening Hours</h3>
-        <p>Monday - Friday</p>
-        <p>8am - 5pm</p>
-        <p>Weekend</p>
-        <p>closed</p>
+  </section>
+  <section
+    id="contact"
+    class="before:content-['Finna act up'] before:text-9xl before:z-10 before:text-red-200 block before:rounded-full before:w-[15rem] before:bg-main before:bg-opacity-25 before:shadow-xl before:h-[15rem] before:-top-6 before:right-[1rem] before:absolute before:backdrop-blur after:content-['Finna act up'] after:text-9xl after:text-red-200 block after:rounded-full after:w-[15rem] after:bg-bluu after:bg-opacity-40 after:shadow-lg after:h-[15rem] after:bottom-[15rem] after:left-[1rem] after:absolute after:backdrop-blur p-6 md:p-14"
+  >
+    <div class="w-full justify-between relative">
+      <div class="w-full md:w-1/2 mx-auto shadow-xl bg-white z-20 p-6 rounded-lg">
+        <h1
+          class="text-lg bg-main text-white w-max p-2 rounded-md shadow-md my-3"
+        >
+          Contact Us
+        </h1>
+        <p class="w-full text-lg">
+          Feel free to send us a message to inquire about anything related to
+          Snappy Pay
+        </p>
+        <Form>
+          <div class="my-4 dark:text-white w-3/5">
+            <label for="email" class="">Email Address</label>
+            <Field
+              v-model.trim="emailAddress"
+              type="text"
+              name="emailAddress"
+              class="peer block w-full form-input appearance-none border-0 border-b border-green-700 bg-slate-50 px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              placeholder="Email Address"
+            />
+            <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
+          </div>
+          <div class="my-4 dark:text-white">
+            <label for="email" class="">Full Name</label>
+            <Field
+              v-model.trim="name"
+              type="text"
+              name="name"
+              class="peer block w-4/5 form-input appearance-none border-0 border-b border-green-700 bg-slate-50 px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              placeholder="Full Name"
+            />
+            <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
+          </div>
+          <div class="my-4 dark:text-white">
+            <label for="email" class="">Phone number</label>
+            <Field
+              v-model.trim="phone"
+              type="text"
+              name="phone"
+              class="peer block w-4/5 form-input appearance-none border-0 border-b border-green-700 bg-slate-50 px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              placeholder="Phone Number"
+            />
+            <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
+          </div>
+          <button class="bg-main p-3 text-white shadow-lg rounded-lg">
+            SEND
+          </button>
+        </Form>
       </div>
-      <div class="">
-        <h3>Address</h3>
-        <p>
-          26B Ibeju Lekki Street,<br />
-          Dolphin Estate,<br />
-          Ikoyi Obalende,<br />
+    </div>
+    <div class="md:w-1/2 mx-auto my-9 z-20 flex flex-col items-center">
+      <div class="text-center">
+        <h3 class="text-2xl">Opening Hours</h3>
+        <p class="text-xl">Monday - Tuesday - Wednesday - Thursday - Friday</p>
+        <p class="text-xl font-bold">8am - 5pm</p>
+        <p class="text-xl">Weekends - Closed</p>
+        <!-- <p class="text-xl">closed</p> -->
+      </div>
+      <div class="text-center z-20">
+        <h3 class="text-2xl">Address</h3>
+        <p class="text-xl">
+          26B Ibeju Lekki Street, Dolphin Estate, Ikoyi Obalende,<br />
           Lagos Nigeria.
         </p>
       </div>
+      <div
+        class="bg-gray-500 font-bold text-white shadow-2xl rounded-full w-min relative text-center p-9 mt-24"
+      >
+        <p class="font-bold text-xl">Contact us</p>
+        <p class="font-bold text-lg">
+          <span>Mobile|WhatsApp:</span><br />
+          +234 7043151949
+        </p>
+        <p class="font-bold text-lg">
+          <span>Email:</span> frontdesk@snappy.com.ng
+        </p>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 <script>
 import { Field, Form, ErrorMessage } from "vee-validate";
@@ -81,6 +160,10 @@ export default {
     Form,
     Field,
     ErrorMessage,
+  },
+
+  data() {
+    return { name: "", emailAddress: "", phone: "" };
   },
 };
 </script>

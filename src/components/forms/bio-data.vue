@@ -9,7 +9,7 @@
           v-model.trim="userState.bio.firstName"
           type="text"
           name="firstName"
-          class="peer block w-full form-input ml-3 appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+          class="peer block w-full form-input ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder=" First Name "
         />
         <ErrorMessage name="firstName" class="text-red-500" />
@@ -21,7 +21,7 @@
           v-model.trim="userState.bio.lastName"
           type="text"
           name="lastName"
-          class="peer block w-full form-input ml-3 appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+          class="peer block w-full form-input ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder=" Last Name "
         />
         <ErrorMessage name="lastName" as="div" class="text-red-500" />
@@ -34,7 +34,7 @@
         v-model.trim="userState.bio.emailAddress"
         type="text"
         name="emailAddress"
-        class="peer block w-full mx-0 form-input ml-3 appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+        class="peer block w-full mx-0 form-input ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
         placeholder="Email Address"
         :rules="validEmail"
       />
@@ -49,7 +49,7 @@
           type="text"
           name="phoneNumber"
           :maxlength="11"
-          class="peer block w-full form-input ml-3 appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+          class="peer block w-full form-input ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder="Phone Number"
         />
         <ErrorMessage name="phoneNumber" class="text-red-500" />
@@ -63,7 +63,7 @@
           name="bvn"
           @change="validBVN()"
           :maxlength="11"
-          class="peer block w-full form-input ml-3 appearance-none border-0 border-b border-green-700 bg-slate-50 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+          class="peer block w-full form-input ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder="BVN"
         />
         <ErrorMessage name="bvn" as="div" class="text-red-500" />
@@ -71,7 +71,7 @@
       </div>
     </div>
     <!-- <button @click="signIn()">Button here</button> -->
-    <div class="flex justify-center w-full">
+    <div class="flex justify-end w-full pr-24">
       <button
         type="submit"
         class="p-2 m-6 shadow-md w-52 bottom-0 mb-6 align-top bg-green-800 text-white rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"

@@ -12,18 +12,18 @@
       rows="3"
       type="text"
       name="address"
-      class="peer block w-4/5 form-input p-4 my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+      class="peer block w-4/5 form-input p-4 my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
       placeholder="ex: 4 federal housing road adetokunbo ademola street"
     ></Field>
     <ErrorMessage name="address" as="div" class="text-red-500" />
-    <div class="md:flex md:space-x-20">
+    <div class=" w-full">
       <div>
         <label for="" class="m-3">City</label>
         <Field
           v-model="city"
           type="text"
           name="state"
-          class="peer block md:w-min w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+          class="peer block w-4/5 form-input p-4 my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder="ex: Victoria Island"
         />
         <ErrorMessage name="state" as="div" class="text-red-500" />
@@ -34,7 +34,7 @@
           v-model="state"
           type="text"
           name="country"
-          class="peer block md:w-min w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+          class="peer block w-4/5 form-input p-4 my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder="ex: Lagos"
         />
         <ErrorMessage name="country" as="div" class="text-red-500" />
@@ -45,11 +45,11 @@
       v-model="lga"
       type="text"
       name="localGovernment"
-      class="peer block md:w-min w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+      class="peer block w-4/5 form-input p-4 my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
       placeholder="Local Government"
     />
     <ErrorMessage name="localGovernment" as="div" class="text-red-500" />
-    <div class="flex justify-end w-full">
+    <div class="flex justify-end w-full pr-24">
       <button
         type="submit"
         class="p-2 m-6 shadow-md w-52 bottom-0 mb-6 align-top bg-green-800 text-white rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"

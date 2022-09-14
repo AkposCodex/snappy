@@ -6,10 +6,17 @@ import shippingService from "../services/snappyService/ShippingService";
 import productModule from "./modules/product.module";
 import userModule from "./modules/user.module";
 import orderModule from "./modules/order.module";
+import paystackService from "../services/snappyService/paystackService";
 const store = createStore({
-  state: {},
+  state: {
+    banks: [],
+  },
   plugins: [createPersistedState()],
-  mutations: {},
+  mutations: {
+    ADD_BANKS: function (state, payload) {
+      state.banks.push(payload);
+    },
+  },
   actions: {
     loadPoints: async (context, data) => {
       const resp = await authService.loadPoints({
@@ -42,6 +49,20 @@ const store = createStore({
       const resp = await shippingService.getDispatchPrice();
       console.log(resp);
     },
+    loadBanks: async function ({ commit }, payload) {
+      const resp = await paystackService.getBanks();
+      console.log(resp);
+      return commit("ADD_BANKS", (payload = resp.data));
+    },
+    createUser: async (context, e) => {
+      const resp = await paystackService.createUser(e);
+      console.log(resp);
+      return resp;
+    },
+    verifyUser: async (context, e) => {
+      const resp = await paystackService.verifyUser(e);
+      console.log(resp);
+    },
   },
   modules: {
     productModule,
@@ -54,6 +75,12 @@ const store = createStore({
     },
     getUserState(state) {
       return state.userModule.user;
+    },
+    getCustomerCode(state) {
+      return state.userModule.user.bio.customerCode;
+    },
+    getOrderState(state) {
+      return state.orderModule.order;
     },
     getStage(state) {
       return state.userModule.user.stage;
@@ -69,6 +96,9 @@ const store = createStore({
     },
     getTotal(state) {
       return state.productModule.productList.total;
+    },
+    getBanks(state) {
+      return state.banks;
     },
   },
 });

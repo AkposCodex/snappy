@@ -32,17 +32,22 @@ export default {
 
 <template>
   <body class="font-sans text-black">
-    <div class="flex justify-end bg-sub">
+    <div class="flex justify-end w-full bg-sub">
       <button
         v-if="user"
         @click="checkout()"
-        class="hidden md:block p-1 w-20 items-center text-white bottom-0 bg-none rounded-md m-2 shadow-lg text-lg hover:ring ring-green-200/50 hover:bg-main"
+        class="hidden md:block p-1 w-max text-white bg-none rounded-md m-2 shadow-lg text-sm hover:ring ring-green-200/50"
       >
-        <span class="flex flex-row-reverse"
-          ><img src="@/assets/icons/shopping-cart-24.png" alt="" />
-          <p>Cart</p></span
-        >
+        <img src="@/assets/icons/shopping-cart-24.png" class="h-[24px] w-[24px]" alt="" />
       </button>
+      <button
+        v-if="user"
+        @click="this.$router.push('/products')"
+        class="hidden md:block p-1 w-max text-white font-bold bg-none rounded-md m-2 shadow-lg text-sm hover:ring ring-green-200/50"
+      >
+        Order History 
+      </button>
+
     </div>
     <nav class="px-6 py-4 border-b mx-auto">
       <div class="flex justify-between space-x-9">
@@ -61,15 +66,20 @@ export default {
               >Product</router-link
             >
             <router-link
+              to="/dash"
+              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
+              >Dashboard</router-link
+            >
+            <router-link
               to="/buy-now"
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Pricing</router-link
             >
-            <router-link
+            <!-- <router-link
               to="/about"
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >About Us</router-link
-            >
+            > -->
             <router-link
               to="/faq"
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
@@ -96,10 +106,15 @@ export default {
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >Pricing</router-link
             >
-            <router-link
+            <!-- <router-link
               to="/about"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >About Us</router-link
+            > -->
+            <router-link
+              to="/dash"
+              class="hover:underline text-black hover:text-lg hover:font-bold"
+              >Dashboard</router-link
             >
             <router-link
               to="/faq"

@@ -17,14 +17,28 @@ const router = createRouter({
       name: "home",
       component: HomeView,
       beforeEnter: (to, from) => {
-        if (from.name == "signup") {
-          setTimeout(() => {
-            router.go();
-          }, 200);
-        }
+        // if (from.name == "signup") {
+        //   setTimeout(() => {
+        //     router.go();
+        //   }, 200);
+        // }
       },
       meta: {
         needsAuth: false,
+      },
+    },
+    {
+      path: "/dash",
+      name: "dash",
+      component: () => import("@/views/dashboard.vue"),
+      meta: {
+        needsAuth: true,
+      },
+      beforeEnter: (to, from) => {
+        if (!isLoggedIn) {
+          // router.go()
+          return { name: "signup" };
+        }
       },
     },
     {
@@ -41,6 +55,13 @@ const router = createRouter({
       meta: {
         needsAuth: false,
       },
+      beforeEnter: (to, from) => {
+        if (from.name == "signup") {
+          setTimeout(() => {
+            router.go();
+          }, 200);
+        }
+      },
       component: () => import("@/views/ProductsView.vue"),
     },
     {
@@ -48,11 +69,15 @@ const router = createRouter({
       name: "pricing",
       component: () => import("@/views/PricingView.vue"),
       meta: {
-        needsAuth: false,
+        needsAuth: true,
       },
       beforeEnter: (to, from) => {
+        if (from.name == "signup" && !isLoggedIn) {
+          setTimeout(() => {
+            // router.go();
+          }, 200);
+        }
         if (!isLoggedIn) {
-          // router.go()
           return { name: "signup" };
         }
       },

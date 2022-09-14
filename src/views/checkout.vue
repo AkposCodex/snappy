@@ -19,6 +19,7 @@
   <div class="w-full h-min md:flex bg-gray-100">
     <div id="order-details" class="h-full mx-auto bg-white mt-6 p-8 md:w-1/2">
       <div
+        id="details"
         class=""
         v-if="productState.order.products.length != 0 && steps == 1"
       >
@@ -39,7 +40,7 @@
           </ul>
           <button
             @click="clear(items.index, items.price)"
-            class="shadow-md w-40 p-1 bottom-0 align-top bg-sub text-white rounded-md text-lg hover:bg-main"
+            class="shadow-md w-40 p-1 bottom-0 bg-sub text-white rounded-md text-lg hover:bg-main"
           >
             Clear product
           </button>
@@ -90,37 +91,6 @@
               Dispatch drop-off
             </button>
           </div>
-        </div>
-      </div>
-
-      <div
-        id="pick-up"
-        v-if="steps == 3"
-        class="w-4/5 rounded-lg bg-opacity-80 p-7 h-full mx-auto"
-      >
-        <div
-          class="bg-icon w-[10rem] rounded-full my-6 mx-auto bg-cover shadow-md h-[10rem]"
-        ></div>
-        <p class="text-center">
-          Click the button below to complete your rental
-        </p>
-        <div class="flex items-center">
-          <button
-            @click="home()"
-            class="p-3 rounded-lg bg-blue-400 mx-auto shadow-md border bg-white border-solid border"
-          >
-            Checkout
-          </button>
-          <!-- <paystack
-            :amount="amount * 100"
-            :email="email"
-            :paystackkey="PUBLIC_KEY"
-            :callback="callback()"
-            :close="close()"
-            :reference="reference"
-          >
-            Make Payment({{ amount }})
-          </paystack> -->
         </div>
       </div>
 
@@ -206,42 +176,62 @@
           <button @click="orderLoader" class="bg-gray-100 p-3 rounded-lg">
             <b>Get Shipment Quote</b>
           </button>
-          <button class="bg-sub text-white p-3 rounded-lg">
+          <button class="bg-sub text-white p-3 rounded-lg" @click="payOff">
             <b>Complete shipment</b>
           </button>
         </div>
         <p>Total cost of Shipping is: N{{ response }}</p>
       </div>
-      <div class="">
-        <h1>Your Bill is {{ filled + getTotal }}</h1>
-        <form action="">
-          <label for="name">Name</label>
-          <input type="text" />
-          <label for="email">Email</label>
-          <input type="email" name="" id="" />
-          <label for="">Phone number</label>
-          <input type="tel" name="" id="" />
+
+      <div
+        id="pick-up"
+        v-if="steps == 3"
+        class="w-4/5 rounded-lg bg-opacity-80 p-7 h-full mx-auto"
+      >
+        <div
+          class="bg-icon w-[10rem] rounded-full my-6 mx-auto bg-cover shadow-md h-[10rem]"
+        ></div>
+        <p class="text-center">
+          Click the button below to complete your rental
+        </p>
+        <div class="flex items-center">
+          <button
+            @click="home()"
+            class="p-3 rounded-lg bg-blue-400 mx-auto shadow-md border bg-white border-solid border"
+          >
+            Checkout
+          </button>
           <!-- <paystack
-            buttonClass="'button-class btn btn-primary'"
-            buttonText="Pay Online"
-            :paystackkey="publicKey"
+            :amount="amount * 100"
             :email="email"
-            :amount="amount"
+            :paystackkey="PUBLIC_KEY"
+            :callback="callback()"
+            :close="close()"
             :reference="reference"
-            :callback="onSuccessfulPayment"
-            :close="onCancelledPayment"
-          ></paystack> -->
-          <paystack
-            buttonClass="'button-class btn btn-primary'"
-            buttonText="Pay Online"
-            :publicKey="publicKey"
-            :email="email"
-            :amount="amount"
-            :reference="reference"
-            :onSuccess="onSuccessfulPayment"
-            :onCancel="onCancelledPayment"
-          ></paystack>
-        </form>
+          >
+            Make Payment({{ amount }})
+          </paystack> -->
+        </div>
+      </div>
+      <div id="payment" class="" v-if="steps == 4">
+        <h1 class="text-4xl text-center">Checkout</h1>
+        <p>You will be redirected to PayStack to complete your purchase</p>
+        <h1>
+          Your Bill is <b>N{{ getTotal + filled }}</b>
+        </h1>
+        <paystack
+          buttonClass="bg-bluu mt-6 text-white p-2 rounded-lg"
+          buttonText="Pay Online"
+          :publicKey="publicKey"
+          :email="userState.bio.emailAddress"
+          :amount="amount"
+          :reference="reference"
+          :onSuccess="onSuccessfulPayment"
+          :onCancel="onCancelledPayment"
+        ></paystack>
+        <button class="bg-bluu mt-6 text-white p-2 rounded-lg" @click="goBack">
+          Go Back
+        </button>
       </div>
     </div>
   </div>
@@ -264,7 +254,7 @@ export default {
       img: this.image,
       steps: 1,
       useData: false,
-      amount: 200,
+      // amount: 20000,
       publicKey: "pk_test_5cab6f608a6febecb6107d24c24d4ada68649f2a",
       email: "litle1akp@gmail.com",
       address: "",
@@ -286,6 +276,7 @@ export default {
       productState: "getProductState",
       userState: "getUserState",
       mainAddress: "getAddress",
+      orderState: "getOrderState",
       getTotal: "getTotal",
     }),
 
@@ -299,11 +290,19 @@ export default {
       }
       return text;
     },
+    amount: function () {
+      var amount = (this.filled + this.getTotal) * 100;
+      return amount;
+    },
   },
 
   methods: {
     home() {
       this.steps = 1;
+    },
+
+    payOff() {
+      this.steps = 4;
     },
 
     clear(index, price) {
@@ -314,8 +313,20 @@ export default {
       }
     },
 
-    onSuccessfulPayment: function (response) {
-      console.log(response);
+    onSuccessfulPayment: function () {
+      for (let i = 0; i < this.productState.order.products.length; i++) {
+        this.$store.dispatch("orderModule/fillOrder", {
+          uid: this.userState.id,
+          oid: uuidv4(),
+          packageName: this.productState.order.products[i].product,
+          price: this.productState.order.products[i].price,
+          qty: this.productState.order.products[i].qty,
+          status: "PENDING",
+        });
+      }
+      this.$store.dispatch("productModule/clearorder");
+      this.$router.push("/dash");
+      console.log(this.orderState);
       window.alert("Fired off");
     },
 
@@ -367,8 +378,16 @@ export default {
       }
     },
 
+    goBack() {
+      this.steps = 1;
+    },
+
     pay() {
-      this.steps = 3;
+      if (!this.orderID == "") {
+        this.steps = 4;
+      } else {
+        window.alert("Please confirm your order");
+      }
     },
 
     quote: async function () {

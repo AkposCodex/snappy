@@ -67,7 +67,7 @@
       Rent our POS for a period of time or even purchase it outright to
       access our payment platform for your business needs
     </p>
-    <div class="flex md:flex-row flex-col md:sapce-y-9 sm:justify-between border-md my-9 px-6">
+    <div class="flex md:grid-cols-3 md:grid gap-3 flex-col md:sapce-y-9 sm:justify-between border-md my-9 px-6">
       <div class="card flex sm:flex-row sm:justify-between md:justify-around md:flex-col sm:my-9 my-9">
         <div class="w-[16rem]" id="details">
           <p class="name">Starter</p>

@@ -3,6 +3,7 @@ import { object } from "yup";
 const getInitialState = () => {
   return {
     user: {
+      id: "",
       bio: {
         firstName: "",
         lastName: "",
@@ -10,6 +11,7 @@ const getInitialState = () => {
         bvn: "",
         password: "",
         phoneNumber: "",
+        customerCode: "",
       },
       businessDetails: {
         businessType: "",
@@ -43,6 +45,9 @@ export default {
     LOGIN: function (state) {
       state.user.isLoggedIn = true;
     },
+    ADD_ID: function (state, payload) {
+      state.user.id = payload;
+    },
     UPDATE_ADDRESS: function (state, payload) {
       state.user.mainAddress = payload;
     },
@@ -53,6 +58,9 @@ export default {
     LOGOUT: function (state) {
       state.user.isLoggedIn = false;
       Object.assign(state, getInitialState());
+    },
+    SET_CUSTOMERCODE: function (state, payload) {
+      state.user.bio.customerCode = payload;
     },
     CHANGE_STAGE(state) {
       state.user.stage++;
@@ -74,8 +82,14 @@ export default {
     login({ commit }) {
       return commit("LOGIN");
     },
+    updateID({ commit }, payload) {
+      return commit("ADD_ID", payload);
+    },
     logout({ commit }) {
       return commit("LOGOUT");
+    },
+    setCustomerCode({ commit }, payload) {
+      return commit("SET_CUSTOMERCODE", payload);
     },
     updateAddress({ commit }, payload) {
       return commit("UPDATE_ADDRESS", payload);

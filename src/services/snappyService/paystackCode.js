@@ -1,13 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 
 class HttpService {
   constructor(options = {}) {
     this.client = axios.create(options);
-    this.client.interceptors.response.use(
-      this.handleSuccessResponse,
-      this.handleErrorResponse
-    );
-    this.client.interceptors.request.use(this.requestInterceptor);
+    this.client.interceptors.response.use(this.handleSuccessResponse, this.handleErrorResponse);
+    this.client.interceptors.request.use(this.requestInterceptor)
     this.unauthorizedCallback = () => {};
   }
 
@@ -16,10 +13,10 @@ class HttpService {
   }
 
   removeHeaders(headerKeys) {
-    headerKeys.forEach((key) => delete this.client.defaults.headers[key]);
+    headerKeys.forEach(key => delete this.client.defaults.headers[key]);
   }
 
-  requestInterceptor(config) {
+  requestInterceptor(config){
     /* Log all Requests or edit config*/
     return config;
   }
@@ -28,16 +25,17 @@ class HttpService {
     return response;
   }
 
-  handleErrorResponse = (error) => {
+
+  handleErrorResponse = error => {
     try {
       const { status } = error.response;
 
       switch (status) {
-        case 401:
-          this.unauthorizedCallback();
-          break;
-        default:
-          break;
+      case 401:
+        this.unauthorizedCallback();
+        break;
+      default:
+        break;
       }
 
       return Promise.reject(error);
@@ -52,9 +50,9 @@ class HttpService {
 }
 
 const options = {
-  // baseURL:"https://maps.googleapis.com/maps/api/geocode",
-  baseURL: "http://test.giglogisticsse.com/api/thirdparty",
+  baseURL:"https://api.paystack.co",
+  // gigBaseURL:"http://test.giglogisticsse.com/api/thirdparty"
 };
 
-const gigService = new HttpService(options);
-export default gigService;
+const paystackService = new HttpService(options);
+export default paystackService; 

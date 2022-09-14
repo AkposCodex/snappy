@@ -21,12 +21,7 @@ class AuthService extends ApiService {
 
   init = async () => {
     const token = this.login();
-    const user = this.getUser();
-
-    if (token && user) {
-      await this.setAuthorizationHeader();
-      this.api.setUnauthorizedCallback(this.destroySession.bind(this));
-    }
+    // const user = this.getUser();
   };
 
   setAuthorizationHeader = () => {
@@ -38,38 +33,6 @@ class AuthService extends ApiService {
     }
   };
 
-  createSession = (user) => {
-    localStorage.setItem("user", JSON.stringify(user));
-    //this.setAuthorizationHeader();
-  };
-
-  destroySession = () => {
-    localStorage.clear();
-    this.api.removeHeaders(["Authorization"]);
-  };
-
-  logout = async () => {
-    const { data } = await this.apiClient.post(ENDPOINTS.LOGOUT);
-    this.destroySession();
-    return {
-      ok: true,
-      data,
-    };
-  };
-
-  forgotPassword = (data) =>
-    this.apiClient.post(ENDPOINTS.FORGOT_PASSWORD, data);
-
-  resetPassword = (data) => this.apiClient.post(ENDPOINTS.RESET_PASSWORD, data);
-
-  signup = async (signupData) => {
-    await this.apiClient.post(ENDPOINTS.SIGN_UP, signupData);
-    const { email, password } = signupData;
-    return this.login({
-      email,
-      password,
-    });
-  };
 
   loadPoints = async (e) => {
     return await this.apiClient.get(
@@ -83,26 +46,6 @@ class AuthService extends ApiService {
       password: "1234567",
       SessionObj: "",
     });
-  };
-
-  getToken = () => {
-    const user = localStorage.getItem("user");
-    return user ? JSON.parse(user).access_token : undefined;
-  };
-
-  getUser = () => {
-    const user = localStorage.getItem("user");
-    return JSON.parse(user);
-  };
-
-  updateUserInStorage = (property) => {
-    const user = localStorage.getItem("user");
-    let jsonUser = JSON.parse(user);
-    jsonUser = {
-      ...jsonUser,
-      ...property,
-    };
-    localStorage.setItem("user", JSON.stringify(jsonUser));
   };
 }
 

@@ -7,20 +7,32 @@
     <h1 class="text-2xl p-4">Settlement Account Details</h1>
     <hr class="pb-6 w-3/5" />
     <label for="" class="m-3">Bank</label>
-    <Field
-      v-model="userState.account.bank"
-      type="text"
+    <select
+      placeholder="Select Bank"
+      id=""
+      class="block border-green-700 w-4/5 border-0 border-b dark:text-black bg-gray-100 focus:border-blue-600 focus:outline-none focus:ring-0 my-3 ml-3"
       name="bank"
-      class="peer block w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-      placeholder="Bank"
-    />
+      autocomplete="billing"
+      v-model="userState.account.bank"
+      v-if="banks[0]"
+      @change="onChange"
+    >
+      <option value="null" disabled selected>Select Bank</option>
+      <option
+        :value="option.id"
+        v-for="option in banks[0].data"
+        :key="option.id"
+      >
+        {{ option.name }}
+      </option>
+    </select>
     <ErrorMessage name="bank" as="div" class="text-red-500" />
     <label for="" class="m-3">Account Name</label>
     <Field
       v-model="userState.account.accountName"
       type="text"
       name="accountName"
-      class="peer block w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+      class="peer block w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2 px-3 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
       placeholder="Account Name"
     />
     <ErrorMessage name="accountName" as="div" class="text-red-500" />
@@ -30,18 +42,24 @@
       type="text"
       name="accountNumber"
       :maxlength="10"
-      class="peer block w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-slate-100 py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+      class="peer block w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2 px-3 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
       placeholder="Account Number"
     />
     <ErrorMessage name="accountNumber" as="div" class="text-red-500" />
     <!-- <button @click="signIn()">Button here</button> -->
-    <div class="flex justify-center w-full">
-      <button
+    <div class="flex justify-center w-full pr-24">
+      <!-- <button
         type="submit"
         class="p-2 m-6 w-full bottom-0 shadow-md align-top bg-green-800 text-white rounded text-lg hover:ring ring-green-200/50 hover:bg-green-700"
       >
         Sign Up
-      </button>
+      </button> -->
+      <a
+        href="/buy-now"
+        @click="signIn()"
+        class="p-2 text-center m-6 w-3/5 bottom-0 shadow-md align-top bg-green-800 text-white rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
+        >Sign Up</a
+      >
     </div>
   </Form>
 </template>
@@ -49,6 +67,7 @@
 import { mapGetters } from "vuex";
 import { Field, Form, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import { v4 as uuidv4 } from "uuid";
 
 export default {
   components: {
@@ -58,8 +77,9 @@ export default {
   },
   data() {
     const schema = yup.object({
-      bank: yup.string().required().label("Bank"),
+      // bank: yup.required().label("Bank"),
       accountNumber: yup.string().required().label("Account Number"),
+      bankOptions: "",
       accountName: yup.string().required().label("Account Name"),
     });
     return { schema };
@@ -67,9 +87,10 @@ export default {
   methods: {
     signIn: function () {
       this.$store.dispatch("userModule/login").then(() => {
-        this.$router.push("/");
+        this.$store.dispatch("userModule/updateID", uuidv4().toString());
+        this.$router.push({name: pricing});
       });
-      console.log(this.userState.isLoggedIn);
+      console.log(this.userState.isLoggedIn, this.userState.id);
     },
     next: function () {
       this.userState.stage -= 1;
@@ -78,9 +99,12 @@ export default {
       this.$store.dispatch("userModule/changeStage");
     },
   },
-  computed: mapGetters({
-    userState: "getUserState",
-    stage: "getStage",
-  }),
+  computed: {
+    ...mapGetters({
+      userState: "getUserState",
+      banks: "getBanks",
+      stage: "getStage",
+    }),
+  },
 };
 </script>

@@ -54,5 +54,5 @@ const options = {
   // gigBaseURL:"http://test.giglogisticsse.com/api/thirdparty"
 };
 
-const httpService = new HttpService(options);
-export default httpService; 
+const geoService = new HttpService(options);
+export default geoService; 

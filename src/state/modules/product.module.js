@@ -22,6 +22,11 @@ export default {
     CLEAR_order: function (state) {
       state.productList.order.products.length = 0;
     },
+    CLEAR_QTY: function (state) {
+      state.productList.starter_qty = 0;
+      state.productList.enterprise_qty = 0;
+      state.productList.bespoke_qty = 0;
+    },
     CLEAR_total: function (state) {
       state.productList.total = 0;
     },
@@ -91,6 +96,9 @@ export default {
     },
     decrementBespoke: function ({ commit }) {
       return commit("DECREMENT_BESPOKE");
+    },
+    clearQty: function ({ commit }) {
+      return commit("CLEAR_QTY");
     },
   },
 };

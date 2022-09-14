@@ -12,13 +12,12 @@
       </p>
     </div>
 
-    <main class="flex flex-col space-y-10 w-4/5 justify-center mx-auto my-12 pt-6">
-      <div class="card flex">
-        <img src="@/assets/images/products/POS.png" class="md:w-2/5 w-2/5 mx-auto" alt="" />
-        <div class="w-2/5" id="details">
+    <main class="flex flex-col space-y-10 w-4/5 justify-center mx-auto items-center my-12 pt-6">
+      <div class="card flex flex-col md:flex-row">
+        <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5 w-3/5 h-4/5  mx-auto" alt="" />
+        <div class="md:w-2/5 w-full" id="details">
             <p class="name">Starter</p>
             <span class="pricing">N2500</span>
-            <span>/Day</span>
           <ul>
             <li class="flex items-start my-3">You receive the POS for a single day to to do transactions.</li>
             <li>Units: {{productState.starter_qty}}</li>
@@ -40,16 +39,16 @@
           </ul>
           <button
 
-            @click="checkout(2500, 'Starter Package' ,'@/assets/images/products/POS.png',productState.starter_qty)"
+            @click="checkout(2500, 'Starter Package' ,'https://www.horizonpay.ng/assets/img/partner6.png',productState.starter_qty)"
             class="bg-green-400 text-white rounded-full hover:shadow-md px-6 py-2 mt-6"
           >
             Add to Cart
           </button>
         </div>
       </div>
-      <div class="card flex">
-        <img src="@/assets/images/products/POS.png" class="md:w-2/5 w-2/5 mx-auto" alt="" />
-        <div class="w-2/5" id="details">
+      <div class="card flex flex-col md:flex-row">
+        <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5  w-3/5 h-4/5 mx-auto" alt="" />
+        <div class="md:w-2/5 w-full" id="details">
           <div>
             <p class="name">Enterprise</p>
             <span class="pricing hover:shadow-inner">N30000</span>
@@ -81,9 +80,9 @@
           </button>
         </div>
       </div>
-      <div class="card flex justify-between">
-        <img src="@/assets/images/products/POS.png" class="md:w-2/5 w-2/5 mx-auto" alt="" />
-        <div class="w-2/5" id="details">
+      <div class="card flex justify-between flex-col md:flex-row">
+        <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5  w-3/5 h-4/5 mx-auto" alt="" />
+        <div class="md:w-2/5 w-full" id="details">
           <div>
             <p class="name">Bespoke</p>
             <span class="pricing">N120000</span>
@@ -144,7 +143,8 @@ export default {
         qty,
       }).then(()=>{
         console.log(price, product, image);
-        this.$store.dispatch("productModule/updateTotal",price*qty)
+        this.$store.dispatch("productModule/updateTotal",price*qty);
+        this.$store.dispatch("productModule/clearQty");
       });
       window.alert(product + " \ added to cart");
       console.log(this.productState.order.products);
@@ -204,8 +204,8 @@ export default {
   .card {
     background-color: theme("colors.white");
     border-radius: theme("borderRadius.lg");
-    padding: theme("spacing.6");
-    /* box-shadow: theme("boxShadow.md"); */
+    padding: theme("spacing.3");
+    box-shadow: theme("boxShadow.md");
   }
 
   .price {
