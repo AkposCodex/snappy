@@ -38,7 +38,11 @@ export default {
         @click="checkout()"
         class="hidden md:block p-1 w-max text-white bg-none rounded-md m-2 shadow-lg text-sm hover:ring ring-green-200/50"
       >
-        <img src="@/assets/icons/shopping-cart-24.png" class="h-[24px] w-[24px]" alt="" />
+        <img
+          src="@/assets/icons/shopping-cart-24.png"
+          class="h-[24px] w-[24px]"
+          alt=""
+        />
       </button>
       <!-- <button
         v-if="user"
@@ -47,7 +51,6 @@ export default {
       >
         Order History 
       </button> -->
-
     </div>
     <nav class="px-6 py-4 border-b mx-auto">
       <div class="flex justify-between space-x-9">
@@ -66,11 +69,13 @@ export default {
               >Product</router-link
             >
             <router-link
+              v-if="user"
               to="/dash"
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Dashboard</router-link
             >
             <router-link
+              v-if="user"
               to="/buy-now"
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Pricing</router-link
@@ -102,16 +107,18 @@ export default {
               >Product</router-link
             >
             <router-link
+              v-if="user"
               to="/buy-now"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >Pricing</router-link
             >
-            <!-- <router-link
+            <router-link
               to="/about"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >About Us</router-link
-            > -->
+            >
             <router-link
+              v-if="user"
               to="/dash"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >Dashboard</router-link
@@ -122,6 +129,7 @@ export default {
               >Contact</router-link
             >
             <router-link
+              v-if="user"
               to="/checkout"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >Cart</router-link

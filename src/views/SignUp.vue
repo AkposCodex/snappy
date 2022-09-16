@@ -47,31 +47,33 @@
       >
         Log In
       </h1>
-      <Form @submit="signIn()" class="w-full p-6" :validation-schema="schema">
-        <div class="my-4 dark:text-white">
-          <label for="email" class="">Email Address</label>
-          <Field
-            v-model.trim="userState.bio.emailAddress"
-            type="text"
-            name="emailAddress"
-            class="peer block w-4/5 form-input mx-auto appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-            placeholder="Email Address"
-          />
-          <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
+      <Form @submit="signIn()" class="w-full p-6 flex-col flex items-center" :validation-schema="schema">
+        <div class="w-full">
+          <div class="my-4 dark:text-white">
+            <label for="email" class="">Email Address</label>
+            <Field
+              v-model.trim="userState.bio.emailAddress"
+              type="text"
+              name="emailAddress"
+              class="peer block w-full form-input appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              placeholder="Email Address"
+            />
+            <ErrorMessage name="emailAddress" as="div" class="text-red-500" />
+          </div>
+          <div class="my-4 dark:text-white">
+            <label for="password" class="">Password</label>
+            <Field
+              v-model.trim="userState.bio.password"
+              name="password"
+              type="password"
+              autocomplete="current password"
+              class="peer block w-full form-input appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+              placeholder="Password"
+            />
+            <ErrorMessage name="password" as="div" class="text-red-500" />
+          </div>
         </div>
-        <div class="my-4 dark:text-white">
-          <label for="password" class="">Password</label>
-          <Field
-            v-model.trim="userState.bio.password"
-            name="password"
-            type="password"
-            autocomplete="current password"
-            class="peer block w-4/5 mx-auto form-input appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-            placeholder="Password"
-          />
-          <ErrorMessage name="password" as="div" class="text-red-500" />
-        </div>
-        <div class="flex justify-center">
+        <div class="flex justify-center w-4/5">
           <!-- <button
             type="submit"
             class="p-2 shadow-md w-52 bottom-0 align-top bg-sub text-white rounded-full text-lg hover:bg-main"

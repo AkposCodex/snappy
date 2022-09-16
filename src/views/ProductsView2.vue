@@ -12,7 +12,7 @@
           >k</span
         >U
       </h1>
-      <p class=" hidden w-full md:text-4xl text-2xl text-right text-white">
+      <p class="hidden w-full md:text-4xl text-2xl text-right text-white">
         Choose from our selection of POS terminal devices. From the iconic
         <i>PAX-90</i> terminal to the modern <i>SRS-90</i> Android terminal
       </p>
@@ -64,12 +64,16 @@
       sizes
     </h1>
     <p>
-      Rent our POS for a period of time or even purchase it outright to
-      access our payment platform for your business needs
+      Rent our POS for a period of time or even purchase it outright to access
+      our payment platform for your business needs
     </p>
-    <div class="flex md:grid-cols-3 md:grid gap-3 flex-col md:sapce-y-9 sm:justify-between border-md my-9 px-6">
-      <div class="card flex sm:flex-row sm:justify-between md:justify-around md:flex-col sm:my-9 my-9">
-        <div class="w-[16rem]" id="details">
+    <div
+      class="flex md:grid-cols-3 md:grid gap-3 flex-col md:sapce-y-9 sm:justify-between border-md my-9 px-6"
+    >
+      <div
+        class="card flex sm:flex-row sm:justify-between items-center md:justify-around md:flex-col sm:my-9 my-9"
+      >
+        <div class="w-[16rem] h-3/5" id="details">
           <p class="name">Starter</p>
           <span class="pricing">N2500</span>
           <span>/Day</span>
@@ -124,13 +128,15 @@
           </button>
         </div>
       </div>
-      <div class="card flex sm:flex-row sm:justify-between md:justify-around md:flex-col sm:my-9 my-9">
+      <div
+        class="card flex sm:flex-row sm:justify-between items-center md:justify-around md:flex-col sm:my-9 my-9"
+      >
         <!-- <img
           src="@/assets/images/products/POS.png"
           class="md:w-[15rem] w-[15rem] mx-auto"
           alt=""
         /> -->
-        <div class="w-[16rem]" id="details">
+        <div class="w-[16rem] h-3/5" id="details">
           <div>
             <p class="name">Enterprise</p>
             <span class="pricing">N30000</span>
@@ -140,7 +146,7 @@
           </div>
         </div>
         <div class="">
-          <ul class="sm:w-min md:w-[15rem]">
+          <ul class="md:w-[15rem] sm:w-min">
             <li class="flex items-start">
               <svg
                 class="w-6 h-6 text-green-300"
@@ -155,7 +161,23 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              <p>Placeholder Text</p>
+              <p>No minimum transaction volume</p>
+            </li>
+            <li class="flex items-start">
+              <svg
+                class="w-6 h-6 text-green-300"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <p>1.5% Credit & Debit card fees capped at N150</p>
             </li>
           </ul>
           <button
@@ -166,13 +188,15 @@
           </button>
         </div>
       </div>
-      <div class="card flex sm:flex-row sm:justify-between md:justify-normal md:flex-col sm:my-9 my-9">
+      <div
+        class="card flex sm:flex-row sm:justify-between items-center md:justify-normal md:flex-col sm:my-9 my-9"
+      >
         <!-- <img
           src="@/assets/images/products/POS.png"
           class="md:w-[15rem] w-[15rem] mx-auto"
           alt=""
         /> -->
-        <div class="w-[16rem]" id="details">
+        <div class="w-[16rem] h-3/5" id="details">
           <div>
             <p class="name">Bespoke</p>
             <span class="pricing hover:shadow-inner">N120000</span>
@@ -181,7 +205,23 @@
         </div>
         <div class="">
           <ul class="md:w-[15rem] sm:w-min">
-            <li class="flex justify-between items-start">
+            <li class="flex items-start">
+              <svg
+                class="w-6 h-6 text-green-300"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <p>No minimum transaction volume</p>
+            </li>
+            <li class="flex items-start">
               <svg
                 class="w-6 h-6 text-green-300"
                 aria-hidden="true"
@@ -224,7 +264,6 @@
       </div>
     </div>
   </div>
-
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -278,7 +317,7 @@ export default {
     background-color: theme("colors.white");
     border-radius: theme("borderRadius.lg");
     padding: theme("spacing.6");
-    box-shadow: theme("boxShadow.lg");
+    box-shadow: theme("boxShadow.sm");
   }
 
   .price {

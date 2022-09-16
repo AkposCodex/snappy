@@ -4,7 +4,7 @@ export default {
 };
 </script>
 <template>
-  <div class="text-pink p-6 flex sm:flex-row flex-col ">
+  <div class="text-pink p-6 flex sm:flex-row flex-col justify-between items-center">
     <div class="sm:w-1/2 p-3">
       <div>
         <h3 class="text-4xl font-bold p-3">{{ title }}</h3>
