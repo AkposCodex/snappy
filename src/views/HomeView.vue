@@ -34,15 +34,16 @@ export default {
       id="hero"
       class="relative bg-[url('@/assets/images/clay-banks-unsplash.jpeg')] h-full md:h-[35rem] bg-center bg-cover"
     >
-      <div class="h-full backdrop-brightness-[.3]">
+      <div class="h-full backdrop-brightness-[.5]">
         <div
           class="text-white flex-col space-y-6 container mx-auto text-center right-2 py-6 px-4 z-50"
         >
-          <h1
+          <!-- <h1
             class="text-white text-6xl md:text-9xl text-center pt-[1rem] md:pt-[5rem] font-title"
           >
             RO<span class="text-teal-800 text-8xl md:text-[10rem]">k</span>U
-          </h1>
+          </h1> -->
+          <img src="@/assets/icons/logo.svg" alt="" class="w-4/5 mt-10 mx-auto">
           <h1 class="w-full text-4xl">
             Take faster card payments with Snappy Pay
           </h1>

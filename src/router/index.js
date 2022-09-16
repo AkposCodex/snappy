@@ -34,12 +34,6 @@ const router = createRouter({
       meta: {
         needsAuth: true,
       },
-      beforeEnter: (to, from) => {
-        if (!isLoggedIn) {
-          // router.go()
-          return { name: "signup" };
-        }
-      },
     },
     {
       path: "/about",
@@ -70,16 +64,6 @@ const router = createRouter({
       component: () => import("@/views/PricingView.vue"),
       meta: {
         needsAuth: true,
-      },
-      beforeEnter: (to, from) => {
-        if (from.name == "signup" && !isLoggedIn) {
-          setTimeout(() => {
-            // router.go();
-          }, 200);
-        }
-        if (!isLoggedIn) {
-          return { name: "signup" };
-        }
       },
     },
     {

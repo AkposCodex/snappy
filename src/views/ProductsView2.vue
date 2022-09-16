@@ -3,15 +3,16 @@
     class="w-full md:h-[30rem] bg-[url('https://3geepay.com.ng/wp-content/uploads/2020/07/shutterstock_1411978127-1.jpg')] bg-center bg-cover"
   >
     <div
-      class="md:h-full text-center backdrop-brightness-[.8] md:py-9 py-20 px-3"
+      class="md:h-full text-center backdrop-brightness-[.5] md:py-9 py-20 px-3"
     >
-      <h1
+      <!-- <h1
         class="text-white text-3xl text-5xl md:text-9xl text-right md:py-9 md:pt-5 font-title"
       >
         RO<span class="text-teal-800 md:text-9xl text-6xl md:text-[10rem]"
           >k</span
         >U
-      </h1>
+      </h1> -->
+      <div class="flex justify-end"><img src="@/assets/icons/logo.svg" alt="" class="w-3/5 mt-10 right"></div>
       <p class="hidden w-full md:text-4xl text-2xl text-right text-white">
         Choose from our selection of POS terminal devices. From the iconic
         <i>PAX-90</i> terminal to the modern <i>SRS-90</i> Android terminal

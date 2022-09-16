@@ -9,7 +9,7 @@ export default {
     logout() {
       this.$store.dispatch("userModule/logout").then(() => {
         this.$router.push({ name: "home" });
-        this.$router.go();
+        // this.$router.go();
       });
       console.log(this.user);
     },
@@ -64,12 +64,11 @@ export default {
         >
           <div class="pt-2">
             <router-link to="/"
-              ><img src="./assets/logo.svg" alt="" width="45" height="45"
+              ><img src="./assets/icons/logo.png" alt="" width="110" height="110"
             /></router-link>
           </div>
           <div class="hidden md:flex space-x-12 text-md">
             <router-link
-              v-if="user"
               to="/buy-now"
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Product</router-link
@@ -170,10 +169,11 @@ export default {
     <router-view />
   </body>
   <footer class="bg-gray-900 w-full p-4 font-sans">
-    <div class="flex text-white items-center w-full justify-between">
-      <h1 class="text-white text-2xl text-left font-title">
+    <div class="flex text-white items-start w-full justify-between">
+      <!-- <h1 class="text-white text-2xl text-left font-title">
         RO<span class="text-teal-800 text-3xl">k</span>U
-      </h1>
+      </h1> -->
+      <img src="@/assets/icons/logo.svg" alt="" class="" width="110" height="110">
       <!-- <div class="flex justify-center w-full text-lg space-x-10">
         <router-link v-if="user" to="/productsv2" class="text-white"
           >About</router-link
@@ -187,7 +187,7 @@ export default {
       </div> -->
     </div>
     <div
-      class="font-bold flex items-center justify-center mb-4 w-full text-white rounded-full relative text-center p-2"
+      class="font-bold flex flex-col md:flex-row items-center justify-center mb-4 w-full text-white rounded-full relative text-center p-2"
     >
       <span class="font-bold text-md">Mobile|WhatsApp:</span>
       <p class="text-md mr-4">+234 7043151949</p>

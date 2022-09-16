@@ -17,34 +17,34 @@
           How Long can I rent the terminals for?
         </summary>
 
-        <span> The rental period is dependent on which packages you buy. </span>
+        <p class="text-justify px-4 py-2"> The rental period is dependent on which packages you buy. </p>
       </details>
       <details class="mb-2 bg-gray-200 rounded-md h-min">
         <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">
           Can I change the account details on my profile?
         </summary>
 
-        <span class="px-4 py-2">
+        <p class="px-4 text-justify py-2">
           Your bank account details can be changed once you've created an
           account as long as you provide proof of ownership of the account.
-        </span>
+        </p>
       </details>
       <details class="mb-2 bg-gray-200 rounded-md h-min">
         <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">
           How many terminals I can rent at once?
         </summary>
 
-        <span class="px-4 py-2"> As many as you need. </span>
+        <p class="px-4 text-justify py-2"> As many as you need. </p>
       </details>
       <details class="mb-2 bg-gray-200 rounded-md h-min">
         <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">
           How can I communicate with you?
         </summary>
 
-        <span class="px-4 py-2 w-[full]">
+        <p class="px-4 text-justify py-2 w-[full]">
           Contact us using the contact form below or by calling our support
           hotlines: <span class="font-bold">+234 7043151949</span>
-        </span>
+        </p>
       </details>
       <!-- <details class="mb-2">
         <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">

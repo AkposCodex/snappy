@@ -42,12 +42,16 @@
       </div> -->
     </div>
     <div class="md:w-1/2 w-full p-9" v-if="!signUp">
-      <h1
-        class="text-2xl dark:text-white underline decoration-bluu underline-offset-8"
+      <Form
+        @submit="signIn()"
+        class="w-full p-6 flex-col flex items-center"
+        :validation-schema="schema"
       >
-        Log In
-      </h1>
-      <Form @submit="signIn()" class="w-full p-6 flex-col flex items-center" :validation-schema="schema">
+        <h1
+          class="text-2xl dark:text-white underline decoration-bluu underline-offset-8"
+        >
+          Log In
+        </h1>
         <div class="w-full">
           <div class="my-4 dark:text-white">
             <label for="email" class="">Email Address</label>
@@ -74,18 +78,17 @@
           </div>
         </div>
         <div class="flex justify-center w-4/5">
-          <!-- <button
+          <button
             type="submit"
             class="p-2 shadow-md w-52 bottom-0 align-top bg-sub text-white rounded-full text-lg hover:bg-main"
           >
             Log In
-          </button> -->
-          <a
-        href="/buy-now"
-        @click="signIn()"
-        class="p-2 text-center m-6 w-full bottom-0 shadow-md align-top bg-sub text-white rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
-        >Log In</a
-      >
+          </button>
+          <!-- <a
+            href="/buy-now"
+            class="p-2 text-center m-6 w-full bottom-0 shadow-md align-top bg-sub text-white rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
+            >Log In</a
+          > -->
         </div>
       </Form>
       <div class="flex flex-col items-center dark:text-white">
@@ -127,11 +130,11 @@ export default {
     signIn: function () {
       this.$store.dispatch("userModule/login").then(() => {
         console.log(this.userState.isLoggedIn);
-        setTimeout(() => {
-          this.$router.push({ name: "product" });
-          window.alert("Successfully logged in");
-          // this.$router.go();
-        }, 1000);
+        this.$router.replace({path: '/dash'});
+        // setTimeout(() => {
+        //   window.alert("Successfully logged in");
+        //   this.$router.go();
+        // }, 1000);
       });
     },
     changeStage() {
