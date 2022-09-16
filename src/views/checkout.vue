@@ -2,6 +2,7 @@
   <div class="text-center">
     <h1 class="text-6xl">Welcome, {{ userState.bio.firstName }}</h1>
     <!-- <a href="/products">Go to geocoder</a> -->
+    <button @click="log()">HERE!</button>
     <div class="text-2xl" v-if="productState.order.products.length <= 0">
       <h1>You don't have any Items added,</h1>
       <span
@@ -87,7 +88,7 @@
                 :disabled="!orderID"
                 @mouseenter="pay()"
                 buttonText="Complete shipment"
-                :publicKey="publicKey"
+                :publicKey="paystackKey"
                 :email="userState.bio.emailAddress"
                 :amount="amount"
                 :reference="reference"
@@ -191,7 +192,7 @@
             <paystack
               :disabled="!useData"
               buttonText="Complete shipment"
-              :publicKey="publicKey"
+              :publicKey="paystackKey"
               :email="userState.bio.emailAddress"
               :amount="amount"
               :reference="reference"
@@ -199,7 +200,7 @@
               :onCancel="onCancelledPayment"
             ></paystack>
           </button>
-          <p>*Shipping fees included </p>
+          <p>*Shipping fees included</p>
         </div>
         <!-- <p>Total cost of Shipping is: N{{ response }}</p> -->
       </div>
@@ -225,7 +226,6 @@ export default {
       steps: 1,
       useData: false,
       // amount: 20000,
-      publicKey: "process.env.VITE_PAYSTACKKEY_PUBLIC",
       email: "litle1akp@gmail.com",
       address: "",
       response: "",
@@ -249,6 +249,10 @@ export default {
       orderState: "getOrderState",
       getTotal: "getTotal",
     }),
+    paystackKey: function () {
+      console.log(import.meta.env.VITE_PAYSTACKKEY_PUBLIC)
+      return import.meta.env.VITE_PAYSTACKKEY_PUBLIC;
+    },
 
     reference: function () {
       var text = "";
@@ -276,7 +280,7 @@ export default {
     },
 
     log() {
-      console.log(process.env.VUE_APP_PAYSTACKKEY_PUBLIC);
+      console.log(import.meta.env);
     },
 
     clear(index, price) {
