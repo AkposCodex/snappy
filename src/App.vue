@@ -40,13 +40,13 @@ export default {
       >
         <img src="@/assets/icons/shopping-cart-24.png" class="h-[24px] w-[24px]" alt="" />
       </button>
-      <button
+      <!-- <button
         v-if="user"
         @click="this.$router.push('/products')"
         class="hidden md:block p-1 w-max text-white font-bold bg-none rounded-md m-2 shadow-lg text-sm hover:ring ring-green-200/50"
       >
         Order History 
-      </button>
+      </button> -->
 
     </div>
     <nav class="px-6 py-4 border-b mx-auto">
