@@ -184,10 +184,10 @@
             ></textarea>
           </div>
         </form>
-        <div class="flex justify-between">
-          <button @click="orderLoader" class="bg-gray-100 p-3 rounded-lg">
+        <div class="">
+          <!-- <button @click="orderLoader" class="bg-gray-100 p-3 rounded-lg">
             <b>Get Shipment Quote</b>
-          </button>
+          </button> -->
           <button class="bg-sub text-white p-3 rounded-lg" @click="payInfo()">
             <paystack
               :disabled="!useData"
@@ -200,64 +200,9 @@
               :onCancel="onCancelledPayment"
             ></paystack>
           </button>
+          <p>*Shipping fees included </p>
         </div>
-        <p>Total cost of Shipping is: N{{ response }}</p>
-      </div>
-
-      <div
-        id="pick-up"
-        v-if="steps == 3"
-        class="w-4/5 rounded-lg bg-opacity-80 p-7 h-full mx-auto"
-      >
-        <div
-          class="bg-icon w-[10rem] rounded-full my-6 mx-auto bg-cover shadow-md h-[10rem]"
-        ></div>
-        <p class="text-center">
-          Click the button below to complete your rental
-        </p>
-        <div class="flex items-center">
-          <button
-            @click="home()"
-            class="p-3 rounded-lg bg-blue-400 mx-auto shadow-md border bg-white border-solid border"
-          >
-            Checkout
-          </button>
-          <!-- <paystack
-            :amount="amount * 100"
-            :email="email"
-            :paystackkey="PUBLIC_KEY"
-            :callback="callback()"
-            :close="close()"
-            :reference="reference"
-          >
-            Make Payment({{ amount }})
-          </paystack> -->
-        </div>
-      </div>
-      <div id="payment" class="" v-if="steps == 4">
-        <h1 class="text-4xl text-center">Checkout</h1>
-        <p>You will be redirected to PayStack to complete your purchase</p>
-        <h1>
-          Your Bill is <b>N{{ getTotal + filled }}</b>
-        </h1>
-        <div class="flex space-x-3 justify-center">
-          <paystack
-            buttonClass="bg-bluu mt-6 text-white p-2 rounded-lg"
-            buttonText="Pay Online"
-            :publicKey="publicKey"
-            :email="userState.bio.emailAddress"
-            :amount="amount"
-            :reference="reference"
-            :onSuccess="onSuccessfulPayment"
-            :onCancel="onCancelledPayment"
-          ></paystack>
-          <button
-            class="bg-bluu mt-6 text-white p-2 rounded-lg"
-            @click="goBack"
-          >
-            Go Back
-          </button>
-        </div>
+        <!-- <p>Total cost of Shipping is: N{{ response }}</p> -->
       </div>
     </div>
   </div>
