@@ -2,6 +2,7 @@
   <div class="text-center">
     <h1 class="text-6xl">Welcome, {{ userState.bio.firstName }}</h1>
     <!-- <a href="/products">Go to geocoder</a> -->
+    <button @click="log">Serve</button>
     <div class="text-2xl" v-if="productState.order.products.length <= 0">
       <h1>You don't have any Items added,</h1>
       <span
@@ -16,8 +17,8 @@
       Please confirm the details of your rental and complete the checkout.
     </p>
   </div>
-  <div class="w-full h-min md:flex bg-gray-100">
-    <div id="order-details" class="h-full mx-auto bg-white mt-6 p-8 md:w-1/2">
+  <div class="w-full h-min md:flex">
+    <div id="order-details" class="h-full mx-auto bg-whitep-8 md:w-4/5">
       <div
         id="details"
         class=""
@@ -58,9 +59,10 @@
             class="m-2"
           /><label for="confimation">Confirm Order Details</label>
           <details>
+            <summary>Attestation</summary>
             <ul>
               <li>I agree that the above details are correct</li>
-              <li>I agree to pay the above sum on time</li>
+              <li>I agree to pay the above sum immediately</li>
               <li>
                 I agree to return the products after their alloted time has
                 expired
@@ -82,7 +84,17 @@
               @click="pay()"
               class="p-2 rounded-lg text-sm hover:text-white bg-white mr-3 mt-1 shadow-md border hover:bg-teal-500 border-none border border-zinc-400"
             >
-              In-person Delivery
+              <paystack
+                :disabled="!orderID"
+                @mouseenter="pay()"
+                buttonText="Complete shipment"
+                :publicKey="publicKey"
+                :email="userState.bio.emailAddress"
+                :amount="amount"
+                :reference="reference"
+                :onSuccess="onSuccessfulPayment"
+                :onCancel="onCancelledPayment"
+              ></paystack>
             </button>
             <button
               @click="btnClick()"
@@ -176,8 +188,17 @@
           <button @click="orderLoader" class="bg-gray-100 p-3 rounded-lg">
             <b>Get Shipment Quote</b>
           </button>
-          <button class="bg-sub text-white p-3 rounded-lg" @click="payOff">
-            <b>Complete shipment</b>
+          <button class="bg-sub text-white p-3 rounded-lg" @click="payInfo()">
+            <paystack
+              :disabled="!useData"
+              buttonText="Complete shipment"
+              :publicKey="publicKey"
+              :email="userState.bio.emailAddress"
+              :amount="amount"
+              :reference="reference"
+              :onSuccess="onSuccessfulPayment"
+              :onCancel="onCancelledPayment"
+            ></paystack>
           </button>
         </div>
         <p>Total cost of Shipping is: N{{ response }}</p>
@@ -219,19 +240,24 @@
         <h1>
           Your Bill is <b>N{{ getTotal + filled }}</b>
         </h1>
-        <paystack
-          buttonClass="bg-bluu mt-6 text-white p-2 rounded-lg"
-          buttonText="Pay Online"
-          :publicKey="publicKey"
-          :email="userState.bio.emailAddress"
-          :amount="amount"
-          :reference="reference"
-          :onSuccess="onSuccessfulPayment"
-          :onCancel="onCancelledPayment"
-        ></paystack>
-        <button class="bg-bluu mt-6 text-white p-2 rounded-lg" @click="goBack">
-          Go Back
-        </button>
+        <div class="flex space-x-3 justify-center">
+          <paystack
+            buttonClass="bg-bluu mt-6 text-white p-2 rounded-lg"
+            buttonText="Pay Online"
+            :publicKey="publicKey"
+            :email="userState.bio.emailAddress"
+            :amount="amount"
+            :reference="reference"
+            :onSuccess="onSuccessfulPayment"
+            :onCancel="onCancelledPayment"
+          ></paystack>
+          <button
+            class="bg-bluu mt-6 text-white p-2 rounded-lg"
+            @click="goBack"
+          >
+            Go Back
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -255,11 +281,11 @@ export default {
       steps: 1,
       useData: false,
       // amount: 20000,
-      publicKey: "pk_test_5cab6f608a6febecb6107d24c24d4ada68649f2a",
+      publicKey: "process.env.VITE_PAYSTACKKEY_PUBLIC",
       email: "litle1akp@gmail.com",
       address: "",
       response: "",
-      orderID: "",
+      orderID: false,
       filled: "",
       first: () => {
         sum(this.productState.order.products.price);
@@ -303,6 +329,10 @@ export default {
 
     payOff() {
       this.steps = 4;
+    },
+
+    log() {
+      console.log(process.env.VUE_APP_PAYSTACKKEY_PUBLIC);
     },
 
     clear(index, price) {
@@ -383,11 +413,15 @@ export default {
     },
 
     pay() {
-      if (!this.orderID == "") {
-        this.steps = 4;
-      } else {
+      if (this.orderID == false) {
         window.alert("Please confirm your order");
-      }
+      } else return;
+    },
+
+    payInfo() {
+      if (this.useData == false) {
+        window.alert("Please confirm your address");
+      } else return;
     },
 
     quote: async function () {
@@ -406,8 +440,8 @@ export default {
       recieverAddress = response.data.result[0].formatted_address;
     },
     completeorder() {
-      this.orderID = uuidv4();
-      this.$store.dispatch("productModule/completeorder", this.orderID);
+      this.orderID = !this.orderID;
+      // this.$store.dispatch("productModule/completeorder", this.orderID);
     },
     orderLoader() {
       this.response = this.filled;

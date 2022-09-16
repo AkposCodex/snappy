@@ -32,11 +32,16 @@ export default {
 
 <template>
   <body class="font-sans text-black">
-    <div class="flex justify-end w-full bg-sub">
+    <div
+      class="justify-end hidden md:flex space-x-9 items-center px-9 w-full bg-sub"
+    >
+      <router-link v-if="user" to="/dash" class="text-white text-lg font-bold"
+        >Dashboard</router-link
+      >
       <button
         v-if="user"
         @click="checkout()"
-        class="hidden md:block p-1 w-max text-white bg-none rounded-md m-2 shadow-lg text-sm hover:ring ring-green-200/50"
+        class="p-1 w-max text-white bg-none rounded-md m-2 shadow-lg text-sm hover:ring ring-green-200/50"
       >
         <img
           src="@/assets/icons/shopping-cart-24.png"
@@ -64,21 +69,10 @@ export default {
           </div>
           <div class="hidden md:flex space-x-12 text-md">
             <router-link
-              to="/productsv2"
-              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
-              >Product</router-link
-            >
-            <router-link
-              v-if="user"
-              to="/dash"
-              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
-              >Dashboard</router-link
-            >
-            <router-link
               v-if="user"
               to="/buy-now"
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
-              >Pricing</router-link
+              >Product</router-link
             >
             <!-- <router-link
               to="/about"
@@ -89,6 +83,11 @@ export default {
               to="/faq"
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Contact</router-link
+            >
+            <router-link
+              to="/productsv2"
+              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
+              >About Us</router-link
             >
           </div>
           <a
@@ -104,19 +103,19 @@ export default {
             <router-link
               to="/productsv2"
               class="hover:underline text-black hover:text-lg hover:font-bold"
-              >Product</router-link
+              >About Us</router-link
             >
             <router-link
               v-if="user"
               to="/buy-now"
               class="hover:underline text-black hover:text-lg hover:font-bold"
-              >Pricing</router-link
+              >Products</router-link
             >
-            <router-link
+            <!-- <router-link
               to="/about"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >About Us</router-link
-            >
+            > -->
             <router-link
               v-if="user"
               to="/dash"
@@ -170,29 +169,34 @@ export default {
     </nav>
     <router-view />
   </body>
-  <footer class="bg-gray-800 w-full p-4">
-    <div class="flex">
+  <footer class="bg-gray-900 w-full p-4 font-sans">
+    <div class="flex text-white items-center w-full justify-between">
       <h1 class="text-white text-2xl text-left font-title">
         RO<span class="text-teal-800 text-3xl">k</span>U
       </h1>
-      <p class="text-xl right-0">
-        Powered by <span class="text-2xl font-bold text-sub">3</span
-        ><span class="text-2xl font-bold"
-          ><span class="text-main font-bold">G</span>eePay</span
-        >, a licensed PTSP by CBN
-      </p>
+      <!-- <div class="flex justify-center w-full text-lg space-x-10">
+        <router-link v-if="user" to="/productsv2" class="text-white"
+          >About</router-link
+        >
+        <router-link v-if="user" to="/faq" class="text-white"
+          >Contact</router-link
+        >
+        <router-link v-if="user" to="/buy-now" class="text-white"
+          >Products</router-link
+        >
+      </div> -->
     </div>
-    <div class="flex">
-      <div id="quick-links">
-        <h1>Quick Links</h1>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
+    <div
+      class="font-bold flex items-center justify-center mb-4 w-full text-white rounded-full relative text-center p-2"
+    >
+      <span class="font-bold text-md">Mobile|WhatsApp:</span>
+      <p class="text-md mr-4">+234 7043151949</p>
+      <span class="font-bold text-md">Email:</span>
+      <p class="text-md">frontdesk@snappy.com.ng</p>
     </div>
+    <p class="text-md text-white text-center">
+      Powered by 3GeePay, a licensed PTSP by CBN
+    </p>
   </footer>
 </template>
 <style>
