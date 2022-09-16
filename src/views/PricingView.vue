@@ -27,7 +27,6 @@
             <p class="name">Starter</p>
             <span class="pricing text-3xl md:text-4xl">N2500/<span class="text-2xl">Day</span></span>
           <ul>
-            <li class="flex items-start p-1">  You receive the POS for a single day to to do transactions.</li>
             <li class="p-1">
                 Recommended for trade fairs and parties that only go on for a few
               days</li>
@@ -117,9 +116,6 @@
             <p class="name">Enterprise</p>
             <span class="pricing text-3xl md:text-4xl">N30000/<span class="text-2xl">Month</span></span>
           </div>
-          <ul>
-            <li>You recieve the POS for a month to do business.</li>
-          </ul>
           <hr class="my-3 w-full">
           <ul class="">
             <li class="flex items-start">
@@ -288,7 +284,7 @@
     </main>
 
     <div class="bg-green-600 hidden text-white font-bold text-3xl text-center p-9">
-        <h1>What are the benefits of <span class="font-title">ROkU?</span></h1>
+        <h1>What are the benefits of <span class="font-title">Snappy?</span></h1>
         <p class="text-2xl">- &#128293 FIRE MARKETTING</p>
         <p class="text-2xl">- &#128293 FIRE MARKETTING</p>
         <p class="text-2xl">- &#128293 FIRE MARKETTING</p>

@@ -61,7 +61,7 @@ export default {
       </div>
     </div>
     <section class="details">
-      <h1 class="text-5xl text-center dark:text-white">Meet the Roku app.</h1>
+      <h1 class="text-5xl text-center dark:text-white">Meet the Snappy app.</h1>
       <p
         class="text-lg sm:w-3/5 p-4 dark:text-white text-center mx-auto sm:mb-9"
       >
@@ -96,8 +96,8 @@ export default {
 
       <Landingbutton
         title="Enjoy instant insights."
-        sub_title="THE ROKU APP"
-        content="Download the Roku app and get transaction breakdowns and transfer notifications wherever, whenever. And with the app, PCI compliance takes a matter of minutes."
+        sub_title="THE SNAPPY APP"
+        content="Download the Snappy app and get transaction breakdowns and transfer notifications wherever, whenever. And with the app, PCI compliance takes a matter of minutes."
         reversed="w-[12rem]"
         inner_html="Get started"
         class="dark:text-white"

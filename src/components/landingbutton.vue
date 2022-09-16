@@ -6,7 +6,7 @@ export default {
       if (this.user) {
         this.$router.push({ path: "/sign-up" });
       }
-      this.$router.push({ path: "/products" });
+      this.$router.push({ path: "/buy-now" });
       console.log(this.user);
     },
   },

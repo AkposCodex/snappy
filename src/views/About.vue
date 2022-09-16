@@ -9,7 +9,7 @@
   </div>
   <div class="p-12">
     <article class="w-[90%] mx-auto flex-col space-y-2">
-      <h1 class="text-center font-bold text-2xl md:text-4xl">About Roku</h1>
+      <h1 class="text-center font-bold text-2xl md:text-4xl">About Snappy</h1>
       <p class="text-xl flex">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iste
         et ipsam minima, dolorem similique voluptatum ea nobis enim animi? Lorem
