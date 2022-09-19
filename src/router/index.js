@@ -31,14 +31,6 @@ const router = createRouter({
       },
     },
     {
-      path: "/about",
-      name: "about",
-      component: AboutView,
-      meta: {
-        needsAuth: false,
-      },
-    },
-    {
       path: "/products",
       name: "product",
       meta: {
