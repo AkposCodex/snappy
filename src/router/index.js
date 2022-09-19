@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import store from "../state/store";
+import AboutView from "../views/about.vue"
 
 const isLoggedIn = store.getters.getUser;
 
@@ -79,7 +80,7 @@ const router = createRouter({
     {
       path: "/about-us",
       name: "productsv2",
-      component: () => import("@/views/about.vue"),
+      component: AboutView,
       meta: {
         needsAuth: true,
       },

@@ -100,7 +100,7 @@ export default {
             class="absolute top-12 space-y-3 z-50 bg-white rounded right-0 p-6 flex flex-col shadow-md text-md"
           >
             <router-link
-              to="/productsv2"
+              to="/about-us"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >About Us</router-link
             >
