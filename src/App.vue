@@ -84,7 +84,7 @@ export default {
               >Contact</router-link
             >
             <router-link
-              to="/productsv2"
+              to="/about-us"
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >About Us</router-link
             >

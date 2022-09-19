@@ -38,17 +38,19 @@
             <span class="text-black font-bold">DONE</span> : Your rental is
             completed and the POS has been returned.
           </p>
-          <button id="show-modal" @click="showModal = true">Show Modal</button>
+          <!-- <button id="show-modal" @click="showModal = true">Show Modal</button> -->
           <!-- use the modal component -->
           <transition name="modal">
-            <ModalComponent v-if="showModal" @close="showModal = false">
-              <!--
-        you can use custom content here to overwrite
-        default content
-      -->
-              <template v-slot:header>
+            <ModalComponent
+              v-if="showModal"
+              @close="showModal = false"
+              Header="A new Header"
+              Body="Some Body"
+              Footer="A new Footer"
+            >
+              <!-- <template v-slot:header>
                 <h3>custom header</h3>
-              </template>
+              </template> -->
             </ModalComponent>
           </transition>
         </div>
@@ -58,7 +60,9 @@
         <!-- <img src="@/assets/svg/undraw_in_sync_re_jlqd.svg" alt=""> -->
       </div>
       <section class="orders">
-        <div class="grid gap-9 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mx-3 my-9">
+        <div
+          class="grid gap-9 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mx-3 my-9"
+        >
           <div
             v-for="orders in order.order"
             class="card w-full shadow-[0_3px_6px_1px_rgba(0,0,0,0.2)]"

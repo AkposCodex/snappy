@@ -305,12 +305,10 @@ export default {
       this.$store.dispatch("productModule/clearorder");
       this.$router.push("/dash");
       console.log(this.orderState);
-      window.alert("Fired off");
     },
 
     onCancelledPayment: function () {
       console.log("Payment cancelled by user");
-      window.alert("Cut off");
     },
 
     prev: function () {

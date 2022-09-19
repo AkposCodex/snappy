@@ -41,6 +41,28 @@
         </button>
       </div> -->
     </div>
+    <transition name="modal">
+      <ModalComponent
+        v-if="showModal"
+        @close="transition"
+        Header=""
+        Body="Login Successful"
+        Footer=""
+      >
+      <template v-slot:header>
+        <div>
+          <img src="@/assets/icons/logo.svg" alt="" width="150" height="150" class="mx-auto">
+        </div>
+
+      </template>
+        <template v-slot:body>
+              <div class="flex flex-col justify-between items-center ">
+                <p class="text-2xl font-sans">Login Successful</p>
+                <!-- <img src="@/assets/icons/logo.svg" alt="" width="150" height="150"> -->
+              </div>
+            </template>
+      </ModalComponent>
+    </transition>
     <div class="md:w-1/2 w-full p-9" v-if="!signUp">
       <Form
         @submit="signIn()"
@@ -123,19 +145,22 @@ export default {
     });
     return {
       // signUp: false,
+      showModal: false,
       schema,
     };
   },
   methods: {
     signIn: function () {
       this.$store.dispatch("userModule/login").then(() => {
+        this.showModal = true;
         console.log(this.userState.isLoggedIn);
-        this.$router.replace({path: '/dash'});
-        // setTimeout(() => {
-        //   window.alert("Successfully logged in");
-        //   this.$router.go();
-        // }, 1000);
+        setTimeout(() => {
+          // this.$router.go();
+        }, 1000);
       });
+    },
+    transition(){
+      this.$router.replace({ path: "/dash" });
     },
     changeStage() {
       this.$store.dispatch("userModule/changeStage");

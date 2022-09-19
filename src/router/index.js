@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import store from "../state/store";
 import AboutView from "../views/About.vue";
-import PricingView from "../views/PricingView.vue";
+// import PricingView from "../views/PricingView.vue";
 import ProductsView from "../views/ProductsView.vue";
 import { computed } from "vue";
 import { mapGetters } from "vuex";
@@ -61,7 +61,7 @@ const router = createRouter({
     {
       path: "/buy-now",
       name: "pricing",
-      component: () => import("@/views/PricingView.vue"),
+      component: () => import("@/views/ProductView.vue"),
       meta: {
         needsAuth: true,
       },
@@ -90,9 +90,9 @@ const router = createRouter({
       },
     },
     {
-      path: "/productsv2",
+      path: "/about-us",
       name: "productsv2",
-      component: () => import("@/views/ProductsView2.vue"),
+      component: () => import("@/views/about.vue"),
       meta: {
         needsAuth: true,
       },
