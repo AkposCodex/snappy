@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-  <body class="font-sans text-black">
+  <body class="font-sans text-black dark">
     <div
       class="justify-end hidden md:flex space-x-9 items-center px-9 w-full bg-sub"
     >
@@ -57,7 +57,7 @@ export default {
         Order History 
       </button> -->
     </div>
-    <nav class="px-6 py-4 border-b mx-auto">
+    <nav class="px-6 py-4 border-b dark:bg-white mx-auto">
       <div class="flex justify-between space-x-9">
         <div
           class="flex justify-between relative w-full items-center space-x-6"

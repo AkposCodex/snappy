@@ -67,6 +67,7 @@
 import { mapGetters } from "vuex";
 import { Field, Form, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import { useToast } from "vue-toastification";
 import { v4 as uuidv4 } from "uuid";
 
 export default {
@@ -74,6 +75,11 @@ export default {
     Form,
     Field,
     ErrorMessage,
+  },
+  setup() {
+    // Get toast interface
+    const toast = useToast();
+    return { toast };
   },
   data() {
     const schema = yup.object({
@@ -88,7 +94,11 @@ export default {
     signIn: function () {
       this.$store.dispatch("userModule/login").then(() => {
         this.$store.dispatch("userModule/updateID", uuidv4().toString());
-        this.$router.push({name: pricing});
+        // this.$router.push({ name: pricing });
+        this.toast.success("Login Successful", { timeout: 1500 });
+        setTimeout(() => {
+          this.$router.replace({ name: "pricing" });
+        }, 2000);
       });
       console.log(this.userState.isLoggedIn, this.userState.id);
     },

@@ -49,18 +49,15 @@
         Body="Login Successful"
         Footer=""
       >
-      <template v-slot:header>
-        <div>
-          <img src="@/assets/icons/logo.svg" alt="" width="150" height="150" class="mx-auto">
-        </div>
-
-      </template>
         <template v-slot:body>
-              <div class="flex flex-col justify-between items-center ">
-                <p class="text-2xl font-sans">Login Successful</p>
-                <img src="@/assets/icons/checkmark-96.png" alt="" >
-              </div>
-            </template>
+          <div class="flex flex-col justify-between items-center">
+            <p class="text-2xl font-sans">Login Successful</p>
+            <img src="@/assets/icons/checkmark-96.png" alt="" />
+          </div>
+        </template>
+        <template v-slot:footer>
+          <div></div>
+        </template>
       </ModalComponent>
     </transition>
     <div class="md:w-1/2 w-full p-9" v-if="!signUp">
@@ -125,12 +122,19 @@
 import { mapGetters } from "vuex";
 import { Field, Form, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import { useToast } from "vue-toastification";
 
 export default {
   components: {
     Form,
     Field,
     ErrorMessage,
+  },
+
+  setup() {
+    // Get toast interface
+    const toast = useToast();
+    return { toast };
   },
 
   props: ["signUp"],
@@ -152,16 +156,17 @@ export default {
   methods: {
     signIn: function () {
       this.$store.dispatch("userModule/login").then(() => {
-        this.showModal = true;
+        // this.showModal = true;
         console.log(this.userState.isLoggedIn);
+        this.toast.success("Login Successful", {timeout:1500});
         setTimeout(() => {
-          // this.$router.go();
-        }, 1000);
+          this.$router.replace({ path: "/dash" });
+        }, 2000);
       });
     },
-    transition(){
-      this.$router.replace({ path: "/dash" });
-    },
+    // transition() {
+    //   this.$router.replace({ path: "/dash" });
+    // },
     changeStage() {
       this.$store.dispatch("userModule/changeStage");
     },

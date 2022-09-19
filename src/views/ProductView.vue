@@ -27,9 +27,9 @@
             <p class="name">Starter</p>
             <span class="pricing text-3xl md:text-4xl">N2500/<span class="text-2xl">Day</span></span>
           <ul>
-            <li class="p-1">
+            <!-- <li class="p-1">
                 Recommended for trade fairs and parties that only go on for a few
-              days</li>
+              days</li> -->
           </ul>
           <hr class="my-3 w-full">
           <ul class="">
@@ -114,6 +114,7 @@
         <div class="md:w-2/5 w-full" id="details">
           <div>
             <p class="name">Enterprise</p>
+            <p>Seasonal business</p>
             <span class="pricing text-3xl md:text-4xl">N30000/<span class="text-2xl">Month</span></span>
           </div>
           <hr class="my-3 w-full">
@@ -293,14 +294,19 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
+import { useToast } from "vue-toastification";
 import { Products } from "../services/productsv2.service";
 export default {
   props: ["price"],
+  setup() {
+    // Get toast interface
+    const toast = useToast();
+    return { toast };
+  },
   methods: {
     checkout: function (price, product, image, qty) {
       if(qty<=0){
-      window.alert("Add an item to the cart pls");
-
+        this.toast.warning("Please pick a Quantity", {timeout:2000});
       }else{
         this.$store.dispatch("productModule/updateorder", {
         price: price *qty,
@@ -312,7 +318,7 @@ export default {
         this.$store.dispatch("productModule/updateTotal",price*qty);
         this.$store.dispatch("productModule/clearQty");
       });
-      window.alert(product + " \ added to cart");
+      this.toast.success("Item added to cart", {timeout:1500});
       console.log(this.productState.order.products);
       }
       // this.$router.push({

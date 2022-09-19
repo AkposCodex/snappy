@@ -63,7 +63,7 @@ export default {
     <section class="details">
       <h1 class="text-5xl text-center dark:text-white">Meet the Snappy app.</h1>
       <p
-        class="text-lg sm:w-3/5 p-4 dark:text-white text-center mx-auto sm:mb-9"
+        class="text-lg sm:w-3/5 p-4 dark:text-red-700 text-center mx-auto sm:mb-9"
       >
         A card machine and payment solution that combines sleek design and powerful technology – for
         reliable, fast and secure payments at the till, the table or on the
@@ -73,7 +73,7 @@ export default {
         title="Sync your transactions."
         sub_title="INTEGRATED PAYMENTS"
         content="Enjoy effortless integrated payments – software that wirelessly connects your card machine to your EPOS in the cloud. For a smooth experience and easy end-of-day reporting."
-        class="md:flex-row-reverse hidden dark:text-white"
+        class="md:flex-row-reverse hidden dark:bg-red-700"
         image="https://dojo.tech/media/ypjiwmgn/homepage-asset_01.jpg?center=0.4999819679846001,0.47394164354520407&mode=crop&quality=70&width=640&height=441&rnd=132918143489800000"
       />
       <LandingComponent
