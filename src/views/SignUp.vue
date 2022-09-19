@@ -58,7 +58,7 @@
         <template v-slot:body>
               <div class="flex flex-col justify-between items-center ">
                 <p class="text-2xl font-sans">Login Successful</p>
-                <!-- <img src="@/assets/icons/logo.svg" alt="" width="150" height="150"> -->
+                <img src="@/assets/icons/checkmark-96.png" alt="" >
               </div>
             </template>
       </ModalComponent>
