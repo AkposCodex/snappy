@@ -1,6 +1,6 @@
 <template>
   <section class="" id="faq">
-    <div class="text-center text-2xl p-16">
+    <div class="text-center text-2xl dark:text-white p-16">
       <h1 class="font-bold text-3xl uppercase mb-6">
         FAQ: Frequently Asked Questions
       </h1>
@@ -146,9 +146,9 @@
       </div>
     </div>
   </section>
-  <p class="font-bold w-full text-center text-xl">Contact us</p>
+  <p class="font-bold w-full text-center dark:text-white text-xl">Contact us</p>
   <div
-    class="font-bold flex items-center justify-center mb-4 w-full text-black rounded-full relative text-center p-2"
+    class="font-bold flex items-center dark:text-white justify-center mb-4 w-full text-black rounded-full relative text-center p-2"
   >
     <span class="font-bold text-lg">Mobile|WhatsApp:</span>
     <p class="text-lg mr-4">+234 7043151949</p>

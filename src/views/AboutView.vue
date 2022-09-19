@@ -19,8 +19,8 @@
       </p>
     </div>
   </div>
-  <div class="text-center py-20">
-    <h1 class="text-3xl font-bold text-gray-800">
+  <div class="text-center py-20 dark:text-white">
+    <h1 class="text-3xl font-bold text-gray-200">
       Payment in a <span class="text-sub font-bold">S</span>nap!
     </h1>
     <p class="text-xl">

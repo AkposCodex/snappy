@@ -43,7 +43,11 @@ export default {
           >
             RO<span class="text-teal-800 text-8xl md:text-[10rem]">k</span>U
           </h1> -->
-          <img src="@/assets/icons/logo.svg" alt="" class="w-4/5 mt-10 mx-auto">
+          <img
+            src="@/assets/icons/logo.svg"
+            alt=""
+            class="w-4/5 mt-10 mx-auto"
+          />
           <h1 class="w-full text-4xl">
             Take faster card payments with Snappy Pay
           </h1>
@@ -63,11 +67,11 @@ export default {
     <section class="details">
       <h1 class="text-5xl text-center dark:text-white">Meet the Snappy app.</h1>
       <p
-        class="text-lg sm:w-3/5 p-4 dark:text-red-700 text-center mx-auto sm:mb-9"
+        class="text-lg sm:w-3/5 p-4 dark:text-white text-center mx-auto sm:mb-9"
       >
-        A card machine and payment solution that combines sleek design and powerful technology – for
-        reliable, fast and secure payments at the till, the table or on the
-        move.
+        A card machine and payment solution that combines sleek design and
+        powerful technology – for reliable, fast and secure payments at the
+        till, the table or on the move.
       </p>
       <LandingComponent
         title="Sync your transactions."
@@ -104,9 +108,9 @@ export default {
         image="https://3geepay.com.ng/wp-content/uploads/2020/07/3gp-thumb3.jpg"
       />
     </section>
-    <div class="p-9 text-center flex-col space-y-6">
+    <div class="p-9 text-center dark:text-white flex-col space-y-6">
       <h2 class="text-2xl font-title">SIGN UP</h2>
-      <p class="text-lg dark:text-white">
+      <p class="text-lg">
         Signing up requires only your personal information and your BVN in order
         to get you set up on the platform
       </p>

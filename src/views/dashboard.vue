@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="col-span-3">
-      <section class="head">
+      <section class="head dark:text-white">
         <h1 class="text-5xl p-6">This is your Order History</h1>
         <div class="grid gap-6 p-6 grid-cols-2">
           <p>

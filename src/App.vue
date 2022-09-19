@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-  <body class="font-sans text-black dark">
+  <body class="font-sans text-black">
     <div
       class="justify-end hidden md:flex space-x-9 items-center px-9 w-full bg-sub"
     >
@@ -57,7 +57,7 @@ export default {
         Order History 
       </button> -->
     </div>
-    <nav class="px-6 py-4 border-b dark:bg-white mx-auto">
+    <nav class="px-6 py-4 border-b dark:bg-white text-black mx-auto">
       <div class="flex justify-between space-x-9">
         <div
           class="flex justify-between relative w-full items-center space-x-6"
@@ -70,7 +70,7 @@ export default {
           <div class="hidden md:flex space-x-12 text-md">
             <router-link
               to="/buy-now"
-              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
+              class="hover:underline dark:text-black hover:text-lg hover:font-bold"
               >Product</router-link
             >
             <!-- <router-link
@@ -80,12 +80,12 @@ export default {
             > -->
             <router-link
               to="/faq"
-              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
+              class="hover:underline dark:text-black hover:text-lg hover:font-bold"
               >Contact</router-link
             >
             <router-link
               to="/about-us"
-              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
+              class="hover:underline dark:text-black hover:text-lg hover:font-bold"
               >About Us</router-link
             >
           </div>

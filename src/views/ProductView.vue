@@ -2,11 +2,11 @@
   <div class="w-full mx-auto pt-10">
     <!-- <h1 class="text-black text-4xl p-[3rem] font-title">RO<span
               class="text-teal-800 text-6xl">k</span>U</h1> -->
-    <div class="px-9">
-      <h1 class="text-center font-bold text-black text-3xl">
+    <div class="px-9 dark:text-white">
+      <h1 class="text-center font-bold dark:text-white text-3xl">
         Purchase the Key to a Greater Business Solution
       </h1>
-      <h1 class="text-xl text-center text-gray-800 pt-3">
+      <h1 class="text-xl text-center dark:text-gray-200 pt-3">
       Our Pricing Plans provide a degree of flexibility for businesses of all
       sizes
     </h1>
@@ -21,7 +21,7 @@
     </div>
 
     <main class="flex flex-col space-y-10 w-full justify-center mx-auto items-center my-12 pt-6">
-      <div class="card flex flex-col md:flex-row md:w-4/5 m-[8px] justify-center space-x-9 items-center">
+      <div class="card flex flex-col dark:bg-gray-600 dark:text-gray-200 md:flex-row md:w-4/5 m-[8px] justify-center space-x-9 items-center">
         <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5 w-full h-4/5 " alt="" />
         <div class="md:w-2/5 w-full" id="details">
             <p class="name">Starter</p>
@@ -102,14 +102,14 @@
             
             <button
               @click="checkout(2500, 'Starter Package' ,'https://www.horizonpay.ng/assets/img/partner6.png',productState.starter_qty)"
-              class="bg-green-400 text-white rounded-full hover:shadow-md px-6 py-2 mt-6"
+              class="bg-green-400 text-white dark:bg-sub rounded-full hover:shadow-md px-6 py-2 mt-6"
             >
               Add to Cart
             </button>
           </div>
         </div>
       </div>
-      <div class="card flex flex-col md:flex-row md:w-4/5 m-[8px] justify-center space-x-9 items-center">
+      <div class="card flex flex-col dark:bg-gray-600 dark:text-gray-200 md:flex-row md:w-4/5 m-[8px] justify-center space-x-9 items-center">
         <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5  w-full h-4/5" alt="" />
         <div class="md:w-2/5 w-full" id="details">
           <div>
@@ -187,14 +187,14 @@
             </div>
             <button
               @click="checkout(30000, 'Enterprise Package' ,'@/assets/images/products/POS.png',productState.enterprise_qty)"
-              class="bg-green-400 text-white rounded-full hover:shadow-md px-6 py-2 mt-6"
+              class="bg-green-400 text-white dark:bg-sub rounded-full hover:shadow-md px-6 py-2 mt-6"
             >
               Add to Cart
             </button>
           </div>
         </div>
       </div>
-      <div class="card flex flex-col md:flex-row md:w-4/5 m-[8px] justify-center space-x-9 items-center">
+      <div class="card flex flex-col dark:bg-gray-600 dark:text-gray-200 md:flex-row md:w-4/5 m-[8px] justify-center space-x-9 items-center">
         <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5  w-full h-4/5" alt="" />
         <div class="md:w-2/5 w-full mx-auto" id="details">
           <div>
@@ -275,7 +275,7 @@
             </div>
             <button
               @click="checkout(120000, 'Bespoke Package' ,'@/assets/images/products/POS.png',productState.bespoke_qty)"
-              class="bg-green-400 text-white rounded-full hover:shadow-md px-6 py-2 mt-6"
+              class="bg-green-400 text-white dark:bg-sub rounded-full hover:shadow-md px-6 py-2 mt-6"
             >
               Add to Cart
             </button>
@@ -375,7 +375,6 @@ export default {
 
 @layer components {
   .card {
-    background-color: theme("colors.white");
     border-radius: theme("borderRadius.lg");
     padding: theme("spacing.3");
     box-shadow: theme("boxShadow.md");
