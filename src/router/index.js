@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import store from "../state/store";
-import AboutView from "../views/about.vue"
+import AboutView from "@/views/AboutView.vue"
 
 const isLoggedIn = store.getters.getUser;
 
