@@ -32,7 +32,7 @@ export default {
     <img
       :src="image"
       alt=""
-      class="sm:rounded-[4rem] sm:w-3/6 rounded-[4rem] p-6 h-[14rem]"
+      class="sm:rounded-[4rem] sm:w-3/6 rounded-[4rem] p-6  md:h-1/2 sm:h-[14rem]"
     />
   </div>
 </template>

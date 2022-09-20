@@ -12,7 +12,7 @@ export default {
         <p class="pl-3">{{ content }}</p>
       </div>
     </div>
-    <img :src="image" alt="" class="sm:rounded-[4rem] sm:w-3/6 rounded-[4rem] p-6 h-[14rem]" />
+    <img :src="image" alt="" class="sm:rounded-[4rem] sm:w-3/6 rounded-[4rem] p-6 md:h-1/2 sm:h-[14rem]" />
     <!-- <button
             class="p-2 w-52 text-white bottom-0 bg-green-800 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700">Get
             Started</button> -->
