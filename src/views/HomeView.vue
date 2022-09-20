@@ -12,7 +12,7 @@ export default {
         this.$router.push({ name: "signup", params: { signUp: true } });
         console.log(this.user);
       } else {
-        this.$router.push({ path: "/productsv2" });
+        this.$router.push({ path: "/about-us" });
         console.log(this.user);
       }
     },
@@ -32,35 +32,38 @@ export default {
   <main>
     <div
       id="hero"
-      class="relative bg-[url('@/assets/images/clay-banks-unsplash.jpeg')] h-full md:h-[35rem] bg-center bg-cover"
+      class="relative bg-[url('@/assets/images/clay-banks-unsplash.jpeg')] h-[100vh] md:h-[25rem] bg-center bg-cover"
     >
-      <div class="h-full backdrop-brightness-[.5]">
+      <div class="h-full /*backdrop-brightness-[.5]*/ w-full relative">
         <div
-          class="text-white flex-col space-y-6 container mx-auto text-center right-2 py-6 px-4 z-50"
+          class="text-black absolute bg-white bg-opacity-70 w-[100vw] bottom-0 container text-center py-2 px-4 z-50"
         >
-          <!-- <h1
-            class="text-white text-6xl md:text-9xl text-center pt-[1rem] md:pt-[5rem] font-title"
-          >
-            RO<span class="text-teal-800 text-8xl md:text-[10rem]">k</span>U
-          </h1> -->
-          <img
-            src="@/assets/icons/logo.svg"
+          <!-- <img
+            src="@/assets/icons/snappypayv1.svg"
             alt=""
-            class="w-4/5 mt-10 mx-auto"
-          />
-          <h1 class="w-full text-4xl">
-            Take faster card payments with Snappy Pay
-          </h1>
-          <p class="text-xl">
-            Join thousands of businesses – from start-ups to expanding
-            enterprises – using a Snappy card machine and payment solution.
-          </p>
-          <button
+            class="w-4/5 mt-3 mx-auto"
+          /> -->
+          <div class="">
+            <h1 class="w-full text-4xl">
+              Take faster card payments with Snappy Pay
+            </h1>
+            <p class="text-xl">
+              Join thousands of businesses – from start-ups to expanding
+              enterprises – using a Snappy card machine and payment solution.
+            </p>
+            <button
             @click="btnClick()"
-            class="p-2 w-52 bottom-0 bg-sub rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
+            class="p-2 m-2 w-52 bottom-0 bg-sub rounded-full text-lg text-white hover:ring ring-green-200/50 hover:bg-main"
           >
             Get Started
           </button>
+          </div>
+          <!-- <img
+            src="https://www.horizonpay.ng/assets/img/partner6.png"
+            class=" mx-auto w-[350px] h-4/5"
+            alt=""
+          /> -->
+          
         </div>
       </div>
     </div>

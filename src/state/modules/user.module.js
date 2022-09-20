@@ -1,4 +1,5 @@
 import { object } from "yup";
+import productModule from "./product.module";
 
 const getInitialState = () => {
   return {
@@ -86,7 +87,8 @@ export default {
       return commit("ADD_ID", payload);
     },
     logout({ commit }) {
-      return commit("LOGOUT");
+      return commit("LOGOUT")
+      // .then(commit("productModule/cleartotal"));
     },
     setCustomerCode({ commit }, payload) {
       return commit("SET_CUSTOMERCODE", payload);

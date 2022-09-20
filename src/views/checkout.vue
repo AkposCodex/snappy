@@ -86,8 +86,7 @@
             >
               <paystack
                 :disabled="!orderID"
-                @mouseenter="pay()"
-                buttonText="Complete shipment"
+                buttonText="Pick Up"
                 :publicKey="paystackKey"
                 :email="userState.bio.emailAddress"
                 :amount="amount"
@@ -191,7 +190,7 @@
           <button class="bg-sub text-white p-3 rounded-lg" @click="payInfo()">
             <paystack
               :disabled="!useData"
-              buttonText="Complete shipment"
+              buttonText="Complete Shipment"
               :publicKey="paystackKey"
               :email="userState.bio.emailAddress"
               :amount="amount"
@@ -214,19 +213,19 @@ import paystack from "vue3-paystack";
 import { v4 as uuidv4 } from "uuid";
 import shippingService from "../services/snappyService/ShippingService";
 import { sum } from "lodash";
+import { useToast } from "vue-toastification";
 
 export default {
+  setup() {
+    // Get toast interface
+    const toast = useToast();
+    return { toast };
+  },
   data() {
     return {
-      start: "18th August",
-      end: "25th August",
-      cost: this.price,
-      prod: this.product,
-      img: this.image,
       steps: 1,
       useData: false,
       // amount: 20000,
-      email: "litle1akp@gmail.com",
       address: "",
       response: "",
       orderID: false,
@@ -250,7 +249,6 @@ export default {
       getTotal: "getTotal",
     }),
     paystackKey: function () {
-      console.log(import.meta.env.VITE_PAYSTACKKEY_PUBLIC)
       return import.meta.env.VITE_PAYSTACKKEY_PUBLIC;
     },
 
@@ -281,6 +279,7 @@ export default {
 
     log() {
       console.log(import.meta.env);
+      console.log(this.getTotal);
     },
 
     clear(index, price) {
@@ -308,7 +307,8 @@ export default {
     },
 
     onCancelledPayment: function () {
-      console.log("Payment cancelled by user");
+      this.toast.warning("You've cancelled your order", { timeout: 1500 });
+
     },
 
     prev: function () {
@@ -350,7 +350,7 @@ export default {
           PreShipmentItems: this.productState.order.products,
         });
       } else {
-        window.alert("Please confirm your order");
+        this.toast.warning("Please confirm your order", { timeout: 1500 });
       }
     },
 
@@ -360,13 +360,13 @@ export default {
 
     pay() {
       if (this.orderID == false) {
-        window.alert("Please confirm your order");
+        this.toast.warning("Please confirm your order", { timeout: 1500 });
       } else return;
     },
 
     payInfo() {
       if (this.useData == false) {
-        window.alert("Please confirm your address");
+        this.toast.warning("Please confirm your address", { timeout: 1500 });
       } else return;
     },
 

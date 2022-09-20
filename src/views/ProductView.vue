@@ -20,18 +20,20 @@
       </p> -->
     </div>
 
-    <main class="flex flex-col space-y-10 w-full justify-center mx-auto items-center my-12 pt-6">
-      <div class="card flex flex-col dark:bg-gray-600 dark:text-gray-200 md:flex-row md:w-4/5 m-[8px] justify-center space-x-9 items-center">
-        <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5 w-full h-4/5 " alt="" />
+    <main class="flex flex-col space-y-10 items-center w-full mx-auto  my-12 pt-6">
+      <!-- <div class="card flex flex-col dark:bg-gray-600 dark:text-gray-200 md:flex-row md:w-full m-[8px] justify-center space-x-9 items-center">
+        <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5 w-3/5 h-4/5 " alt="" />
+        <div class="text-center w-full mx-auto">
+          <p class="name">Starter</p>
+          <span class="pricing text-3xl md:text-4xl">N2500/<span class="text-2xl">Day</span></span>
+        </div>
         <div class="md:w-2/5 w-full" id="details">
-            <p class="name">Starter</p>
-            <span class="pricing text-3xl md:text-4xl">N2500/<span class="text-2xl">Day</span></span>
           <ul>
-            <!-- <li class="p-1">
+            <li class="p-1">
                 Recommended for trade fairs and parties that only go on for a few
-              days</li> -->
+              days</li>
           </ul>
-          <hr class="my-3 w-full">
+          <hr class="my-3 w-4/5">
           <ul class="">
             <li class="flex items-start">
               <svg
@@ -79,7 +81,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              <p>1.5% card fees capped at N150</p>
+              <p>1.5% card fees capped at N1000</p>
             </li>
           </ul>
           <div class="" v-if="user">
@@ -108,16 +110,19 @@
             </button>
           </div>
         </div>
-      </div>
-      <div class="card flex flex-col dark:bg-gray-600 dark:text-gray-200 md:flex-row md:w-4/5 m-[8px] justify-center space-x-9 items-center">
+      </div> -->
+      <!-- <div class="card flex flex-col dark:bg-gray-600 dark:text-gray-200 md:flex-row md:w-4/5 m-[8px] justify-center space-x-9 items-center">
         <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5  w-full h-4/5" alt="" />
-        <div class="md:w-2/5 w-full" id="details">
+        <div class="md:w-2/5 w-full mx-auto" id="details">
           <div>
             <p class="name">Enterprise</p>
-            <p>Seasonal business</p>
+            <ul>
+              <li class="p-1">
+                  Recommended for Seasonal businesses </li>
+            </ul>
             <span class="pricing text-3xl md:text-4xl">N30000/<span class="text-2xl">Month</span></span>
           </div>
-          <hr class="my-3 w-full">
+          <hr class="my-3 w-4/5">
           <ul class="">
             <li class="flex items-start">
               <svg
@@ -165,7 +170,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              <p>1.5% card fees capped at N150</p>
+              <p>1% card fees capped at N1000</p>
             </li>
           </ul>
           <div class="" v-if="user">
@@ -193,8 +198,8 @@
             </button>
           </div>
         </div>
-      </div>
-      <div class="card flex flex-col dark:bg-gray-600 dark:text-gray-200 md:flex-row md:w-4/5 m-[8px] justify-center space-x-9 items-center">
+      </div> -->
+      <!-- <div class="card flex flex-col dark:bg-gray-600 dark:text-gray-200 md:flex-row md:w-4/5 m-[8px] justify-center space-x-9 items-center">
         <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5  w-full h-4/5" alt="" />
         <div class="md:w-2/5 w-full mx-auto" id="details">
           <div>
@@ -204,7 +209,7 @@
           <ul>
             <li>Up front purchase of the terminal unit</li>
           </ul>
-          <hr class="my-3 w-full">
+          <hr class="my-3 w-4/5">
 
           <ul class="">
             <li class="flex items-start">
@@ -253,7 +258,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              <span>1% card fees capped at N100</span>
+              <span>0.5% card fees capped at N1000</span>
             </li>
           </ul>
           <div class="" v-if="user">
@@ -279,6 +284,153 @@
             >
               Add to Cart
             </button>
+          </div>
+        </div>
+      </div> -->
+      <div class="card w-[95%]" id="starter">
+        <div class="md:border-dashed md:w-full md:border-2 md:border-[#F1F1F2] md:p-5 md:rounded-2xl flex flex-col md:flex-row space-y-3 md:space-x-9 md:justify-center items-center">
+          <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5 w-4/5 h-4/5 " alt="" />
+          <div class="flex flex-col space-y-3 items-center">
+            <div class="">
+              <p class="name text-center md:text-4xl">Starter</p>
+              <span class="pricing text-3xl md:text-3xl">N2,500 / <span class="text-2xl">Day</span></span>
+            </div>
+            <div class="rounded-3xl border-[#F1F1F2] border-dashed /*border-double*/ p-3 md:p-9 border-2 ">
+              <ul>
+            <li class="p-1">
+                Recommended for trade fairs and parties that only go on for a few
+              days</li>
+          </ul>
+              <ul class="flex items-start space-y-2 flex-col">
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">No minimum transaction volume</p>
+                </li>
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">24Hr Customer Support</p>
+                </li>
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">1.5% transaction fees capped at N1000 </p>
+                </li>
+              </ul>
+            </div>
+            <div class="flex space-x-4" v-if="user">
+                <button
+                    class="font-bold rounded-full bg-sub text-white px-2"
+                    @click="incrStarter()"
+                >+</button>
+                <p>{{productState.starter_qty}}</p>
+                <button
+                    class="font-bold rounded-full bg-sub text-white px-2"
+                    @click="decrStarter"
+                >-</button>
+            </div>
+            <button
+                  @click="checkout(2500, 'Starter Package' ,'@/assets/images/products/POS.png',productState.starter_qty)"
+                  class="bg-sub text-white flex space-x-4 items-center justify-center  dark:bg-sub w-4/5 rounded-full shadow-md py-2"
+                >
+                <img
+              src="@/assets/icons/shopping-cart-24.png"
+              class="h-[24px] w-[24px]"
+              alt=""
+            /> <p>Add to Cart</p>
+                </button>
+          </div>
+        </div>
+      </div>
+      <div class="card w-[95%]" id="enterprise">
+        <div class="md:border-dashed md:w-full md:border-2 md:border-[#F1F1F2] md:p-5 md:rounded-2xl flex flex-col md:flex-row space-y-3 md:space-x-9 md:justify-center items-center">
+          <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5 w-4/5 h-4/5 " alt="" />
+          <div class="flex flex-col space-y-3 items-center">
+            <div class="">
+              <p class="name text-center md:text-4xl">Enterprise</p>
+              <span class="pricing text-3xl md:text-3xl">N30,000 / <span class="text-2xl">Month</span></span>
+            </div>
+            <div class="rounded-3xl border-[#F1F1F2] border-dashed /*border-double*/ p-3 md:p-9 border-2 ">
+              <ul>
+              <li class="p-1">
+                  Recommended for Seasonal businesses </li>
+            </ul>
+              <ul class="flex items-start space-y-2 flex-col">
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">No minimum transaction volume</p>
+                </li>
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">24Hr Customer Support</p>
+                </li>
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">1% transaction fees capped at N1000 </p>
+                </li>
+              </ul>
+            </div>
+            <div class="flex space-x-4" v-if="user">
+                <button
+                    class="font-bold rounded-full bg-sub text-white px-2"
+                    @click="incrEnterprise()"
+                >+</button>
+                <p>{{productState.enterprise_qty}}</p>
+                <button
+                    class="font-bold rounded-full bg-sub text-white px-2"
+                    @click="decrEnterprise()"
+                >-</button>
+            </div>
+            <button
+                  @click="checkout(30000, 'Enterprise Package' ,'@/assets/images/products/POS.png',productState.enterprise_qty)"
+                  class="bg-sub text-white flex space-x-4 items-center justify-center  dark:bg-sub w-4/5 rounded-full shadow-md py-2"
+                >
+                <img
+              src="@/assets/icons/shopping-cart-24.png"
+              class="h-[24px] w-[24px]"
+              alt=""
+            /> <p>Add to Cart</p>
+                </button>
+          </div>
+        </div>
+      </div>
+      <div class="card w-[95%]" id="bespoke">
+        <div class="md:border-dashed md:w-full md:border-2 md:border-[#F1F1F2] md:p-5 md:rounded-2xl flex flex-col md:flex-row space-y-3 md:space-x-9 md:justify-center items-center">
+          <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5 w-4/5 h-4/5 " alt="" />
+          <div class="flex flex-col space-y-3 items-center">
+            <div class="">
+              <p class="name text-center md:text-4xl">Bespoke</p>
+              <span class="pricing text-3xl md:text-3xl">N120,000<span class="text-2xl"></span></span>
+            </div>
+            <div class="rounded-3xl border-[#F1F1F2] border-dashed /*border-double*/ p-3 md:p-9 border-2 ">
+              <ul>
+            <li>Up front purchase of the terminal unit</li>
+          </ul>
+              <ul class="flex items-start space-y-2 flex-col">
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">No minimum transaction volume</p>
+                </li>
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">24Hr Customer Support</p>
+                </li>
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">0.5% transaction fees capped at N1000 </p>
+                </li>
+              </ul>
+            </div>
+            <div class="flex space-x-4" v-if="user">
+                <button
+                    class="font-bold rounded-full bg-sub text-white px-2"
+                    @click="incrBespoke()"
+                >+</button>
+                <p>{{productState.bespoke_qty}}</p>
+                <button
+                    class="font-bold rounded-full bg-sub text-white px-2"
+                    @click="decrBespoke()"
+                >-</button>
+            </div>
+            <button
+                  @click="checkout(120000, 'Bespoke Package' ,'@/assets/images/products/POS.png',productState.bespoke_qty)"
+                  class="bg-sub text-white flex space-x-4 items-center justify-center  dark:bg-sub w-4/5 rounded-full shadow-md py-2"
+                >
+                <img
+              src="@/assets/icons/shopping-cart-24.png"
+              class="h-[24px] w-[24px]"
+              alt=""
+            /> <p>Add to Cart</p>
+                </button>
           </div>
         </div>
       </div>
@@ -330,19 +482,25 @@ export default {
       this.$store.dispatch("productModule/incrementStarter");
     },
     decrStarter(){
-      this.$store.dispatch("productModule/decrementStarter");
+      if(this.productState.starter_qty<=0){
+        return;
+      }this.$store.dispatch("productModule/decrementStarter");
     },
     incrEnterprise(){
       this.$store.dispatch("productModule/incrementEnterprise");
     },
     decrEnterprise(){
-      this.$store.dispatch("productModule/decrementEnterprise");
+      if(this.productState.enterprise_qty<=0){
+        return;
+      }this.$store.dispatch("productModule/decrementEnterprise");
     },
     incrBespoke(){
       this.$store.dispatch("productModule/incrementBespoke");
     },
     decrBespoke(){
-      this.$store.dispatch("productModule/decrementBespoke");
+      if(this.productState.bespoke_qty<=0){
+        return;
+      }else{this.$store.dispatch("productModule/decrementBespoke");}
     },
      purchase: function (price, product, image, qty) {
       this.$store.dispatch("productModule/updateProducts", {

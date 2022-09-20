@@ -8,6 +8,7 @@ export default {
     },
     logout() {
       this.$store.dispatch("userModule/logout").then(() => {
+        this.$store.dispatch("productModule/clearorder")
         this.$router.push({ name: "home" });
         // this.$router.go();
       });
@@ -25,7 +26,7 @@ export default {
   },
   computed: mapGetters({
     user: "getUser",
-    userState: "getUSerState",
+    userState: "getUserState",
   }),
 };
 </script>
@@ -33,15 +34,15 @@ export default {
 <template>
   <body class="font-sans text-black">
     <div
-      class="justify-end hidden md:flex space-x-9 items-center px-9 w-full bg-sub"
+      class="justify-end hidden md:flex space-x-9 items-center px-9 w-full bg-sub dark:bg-main"
     >
       <router-link v-if="user" to="/dash" class="text-white text-lg font-bold"
-        >Dashboard</router-link
+        >Welcome, {{userState.bio.firstName}}</router-link
       >
       <button
         v-if="user"
         @click="checkout()"
-        class="p-1 w-max text-white bg-none rounded-md m-2 shadow-lg text-sm hover:ring ring-green-200/50"
+        class="p-1 w-max text-white bg-none rounded-md m-2 shadow-sm text-sm hover:ring ring-green-200/50"
       >
         <img
           src="@/assets/icons/shopping-cart-24.png"
@@ -57,20 +58,20 @@ export default {
         Order History 
       </button> -->
     </div>
-    <nav class="px-6 py-4 border-b dark:bg-white text-black mx-auto">
+    <nav class="px-2 py-4 border-b dark:bg-transparent text-black mx-auto">
       <div class="flex justify-between space-x-9">
         <div
           class="flex justify-between relative w-full items-center space-x-6"
         >
-          <div class="pt-2">
+          <div class="">
             <router-link to="/"
-              ><img src="./assets/icons/logo.png" alt="" width="110" height="110"
+              ><img src="./assets/icons/snappypayv1.svg" alt="" width="110" height="110"
             /></router-link>
           </div>
           <div class="hidden md:flex space-x-12 text-md">
             <router-link
               to="/buy-now"
-              class="hover:underline dark:text-black hover:text-lg hover:font-bold"
+              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Product</router-link
             >
             <!-- <router-link
@@ -80,12 +81,12 @@ export default {
             > -->
             <router-link
               to="/faq"
-              class="hover:underline dark:text-black hover:text-lg hover:font-bold"
+              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Contact</router-link
             >
             <router-link
               to="/about-us"
-              class="hover:underline dark:text-black hover:text-lg hover:font-bold"
+              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >About Us</router-link
             >
           </div>
@@ -152,14 +153,14 @@ export default {
           <button
             v-if="user"
             @click="logout()"
-            class="hidden md:block p-2 w-32 items-center text-white bottom-0 bg-sub rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
+            class="hidden md:block p-2 w-32 items-center text-white bottom-0 bg-sub dark:bg-main rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
           >
             Log Out
           </button>
           <button
             v-if="!user"
             @click="btnClick()"
-            class="hidden md:block p-2 w-52 items-center text-white bottom-0 bg-sub rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
+            class="hidden md:block p-2 w-52 items-center text-white bottom-0 bg-sub dark:bg-main rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
           >
             Log In
           </button>
@@ -168,12 +169,12 @@ export default {
     </nav>
     <router-view />
   </body>
-  <footer class="bg-gray-900 w-full p-4 font-sans">
+  <footer class="bg-gray-700 w-full p-4 font-sans">
     <div class="flex text-white items-start w-full justify-between">
       <!-- <h1 class="text-white text-2xl text-left font-title">
         RO<span class="text-teal-800 text-3xl">k</span>U
       </h1> -->
-      <img src="@/assets/icons/logo.svg" alt="" class="" width="110" height="110">
+      <img src="@/assets/icons/snappypayv1.svg" alt="" class="" width="110" height="110">
       <!-- <div class="flex justify-center w-full text-lg space-x-10">
         <router-link v-if="user" to="/productsv2" class="text-white"
           >About</router-link
@@ -190,7 +191,7 @@ export default {
       class="font-bold flex flex-col md:flex-row items-center justify-center mb-4 w-full text-white rounded-full relative text-center p-2"
     >
       <span class="font-bold text-md">Mobile|WhatsApp:</span>
-      <p class="text-md mr-4">+234 7043151949</p>
+      <a href="https://wa.me/%2B2347043151949?text=Good%20Day%2C%0AI%20have%20enquiries%20concerning%20SNAPPY%20pay" class="text-md mr-4">+234 7043151949</a>
       <span class="font-bold text-md">Email:</span>
       <p class="text-md">frontdesk@snappy.com.ng</p>
     </div>

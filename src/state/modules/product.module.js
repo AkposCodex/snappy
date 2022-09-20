@@ -1,8 +1,6 @@
 import { ProductService } from "../../services/products.service";
-
-export default {
-  namespaced: true,
-  state: {
+const getInitialState = () => {
+  return {
     productList: {
       order: {
         id: "",
@@ -14,13 +12,19 @@ export default {
       enterprise_qty: 0,
       bespoke_qty: 0,
     },
-  },
+  };
+};
+const state = getInitialState();
+
+export default {
+  namespaced: true,
+  state,
   mutations: {
     ADD_order: function (state, payload) {
       state.productList.order.products.push(payload);
     },
     CLEAR_order: function (state) {
-      state.productList.order.products.length = 0;
+      Object.assign(state, getInitialState());
     },
     CLEAR_QTY: function (state) {
       state.productList.starter_qty = 0;

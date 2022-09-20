@@ -35,7 +35,7 @@
             period has expired and pending return.
           </p>
           <p>
-            <span class="text-black font-bold">DONE</span> : Your rental is
+            <span class="text-black dark:text-gray-500 font-bold">DONE</span> : Your rental is
             completed and the POS has been returned.
           </p>
           <!-- <button id="show-modal" @click="showModal = true">Show Modal</button> -->
@@ -61,23 +61,23 @@
       </div>
       <section class="orders">
         <div
-          class="grid gap-9 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mx-3 my-9"
+          class="grid gap-3 sm:gap-9 lg:grid-cols-3 md:grid-cols-2 grid-cols-2 mx-3 my-9"
         >
           <div
             v-for="orders in order.order"
-            class="card w-full shadow-[0_3px_6px_1px_rgba(0,0,0,0.2)]"
+            class="card dark:bg-gray-500 dark:text-gray-200 w-full shadow-[0_3px_6px_1px_rgba(0,0,0,0.2)]"
           >
             <img
               src="@/assets/images/products/Payment-Tablet-Terminal.png"
               alt=""
-              class="h-[150px] mx-auto w-[150px]"
+              class="sm:h-[150px] h-[90px] mx-auto w-[90px] md:w-[150px]"
             />
             <div class="">
-              <p class="font-bold text-xl">{{ orders.packageName }}</p>
-              <div class="flex">
+              <p class="font-bold text-lg">{{ orders.packageName }}</p>
+              <div class="flex items-center space-x-3">
                 <img
                   src="@/assets/icons/calendar-24.png"
-                  class="h-[24px] w-[24px]"
+                  class="h-[18px] w-[18px]"
                   alt=""
                 />
                 <p>{{ date }}</p>
@@ -87,12 +87,12 @@
               <br />
               <p
                 :class="{
-                  'text-red-700': orders.status == 'PENDING',
-                  'text-[#00690C]': orders.status == 'DELIVERED',
+                  'dark:text-red-400 text-red-700': orders.status == 'PENDING',
+                  'dark:text-[#64B6AC] text-[#00690C]': orders.status == 'DELIVERED',
                   'text-[#008F6D]': orders.status == 'DUE',
-                  'text-black': orders.status == 'DONE',
+                  'dark:text-gray-500 text-black': orders.status == 'DONE',
                 }"
-                class="text-xl"
+                class="text-md"
               >
                 {{ orders.status }}
               </p>
@@ -127,7 +127,7 @@ export default {
   .card {
     background-color: theme("colors.white");
     border-radius: theme("borderRadius.3xl");
-    padding: theme("spacing.6");
+    padding: theme("spacing.3");
     /* box-shadow: theme("boxShadow.md"); */
   }
 

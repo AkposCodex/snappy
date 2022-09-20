@@ -12,7 +12,7 @@
           >k</span
         >U
       </h1> -->
-      <div class="flex justify-end"><img src="@/assets/icons/logo.svg" alt="" class="w-3/5 mt-10 right"></div>
+      <div class="flex justify-end"><img src="@/assets/icons/snappypayv1.svg" alt="" class="w-3/5 mt-10 right"></div>
       <p class="hidden w-full md:text-4xl text-2xl text-right text-white">
         Choose from our selection of POS terminal devices. From the iconic
         <i>PAX-90</i> terminal to the modern <i>SRS-90</i> Android terminal
@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="text-center py-20 dark:text-white">
-    <h1 class="text-3xl font-bold text-gray-200">
+    <h1 class="text-3xl font-bold text-black">
       Payment in a <span class="text-sub font-bold">S</span>nap!
     </h1>
     <p class="text-xl">

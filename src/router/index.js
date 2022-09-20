@@ -62,6 +62,8 @@ const router = createRouter({
       meta: {
         needsAuth: false,
       },
+      beforeEnter: () =>{
+      }
     },
     {
       path: "/checkout",
@@ -71,10 +73,6 @@ const router = createRouter({
         needsAuth: true,
       },
       beforeEnter: (to, from) => {
-        if (!isLoggedIn) {
-          // router.go()
-          return { name: "signup" };
-        }
       },
     },
     {

@@ -26,7 +26,7 @@
 
         <p class="px-4 text-justify py-2">
           Your bank account details can be changed once you've created an
-          account as long as you provide proof of ownership of the account.
+          account as long as your credentials match that of the account.
         </p>
       </details>
       <details class="mb-2 bg-gray-200 rounded-md h-min">
@@ -43,7 +43,7 @@
 
         <p class="px-4 text-justify py-2 w-[full]">
           Contact us using the contact form below or by calling our support
-          hotlines: <span class="font-bold">+234 7043151949</span>
+          hotlines: <a href="https://wa.me/%2B2347043151949?text=Good%20Day%2C%0AI%20have%20enquiries%20concerning%20SNAPPY%20pay" class="font-bold">+234 7043151949</a>
         </p>
       </details>
       <!-- <details class="mb-2">
@@ -72,7 +72,7 @@
   </section>
   <section
     id="contact"
-    class="before:content-['Finna act up'] flex items-center after:content-['Finna act up'] after:text-9xl after:text-red-200 block after:rounded-full after:w-[15rem] after:bg-bluu after:bg-opacity-40 after:shadow-lg after:h-[15rem] after:bottom-[15rem] after:left-[1rem] after:absolute after:backdrop-blur p-6 md:p-14"
+    class="before:content-['Finna act up'] flex-col flex md:flex-row items-center after:content-['Finna act up'] after:text-9xl after:text-red-200 block after:rounded-full after:w-[15rem] after:bg-bluu after:bg-opacity-40 after:shadow-lg after:h-[15rem] after:bottom-[15rem] after:left-[1rem] after:absolute after:backdrop-blur p-6 md:p-14"
   >
     <div class="w-full justify-between relative">
       <div
@@ -140,7 +140,7 @@
       <div class="text-center z-20">
         <h3 class="text-2xl">Address</h3>
         <p class="text-xl">
-          26B Ibeju Lekki Street, Dolphin Estate, Ikoyi Obalende,<br />
+          Ibeju Lekki Street, Dolphin Estate, Ikoyi,<br />
           Lagos Nigeria.
         </p>
       </div>
@@ -148,10 +148,10 @@
   </section>
   <p class="font-bold w-full text-center dark:text-white text-xl">Contact us</p>
   <div
-    class="font-bold flex items-center dark:text-white justify-center mb-4 w-full text-black rounded-full relative text-center p-2"
+    class="font-bold flex flex-col md:flex-row items-center dark:text-white justify-center mb-4 w-full text-black rounded-full relative text-center p-2"
   >
     <span class="font-bold text-lg">Mobile|WhatsApp:</span>
-    <p class="text-lg mr-4">+234 7043151949</p>
+    <a href="https://wa.me/%2B2347043151949?text=Good%20Day%2C%0AI%20have%20enquiries%20concerning%20SNAPPY%20pay" class="text-lg mr-4">+234 7043151949</a>
     <span class="font-bold text-lg">Email:</span>
     <p class="text-lg">frontdesk@snappy.com.ng</p>
   </div>
