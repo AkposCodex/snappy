@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full md:h-[30rem] bg-[url('https://3geepay.com.ng/wp-content/uploads/2020/07/shutterstock_1411978127-1.jpg')] bg-center bg-cover"
+    class="w-full md:h-[30rem] bg-[url('@/assets/images/snappy-about-header.jpeg')] bg-center bg-cover"
   >
     <div
       class="md:h-full text-center backdrop-brightness-[.5] md:py-9 py-20 px-3"
@@ -36,33 +36,34 @@
     sub_title="SAME-DAY TRANSFERS"
     content="Enjoy seamless payment and quick settlement to take your business to the next level. Join us as the first payment service in Nigeria to offer same day settlements into your preferred account."
     class="dark:text-white text-gray-800"
-    image="https://3geepay.com.ng/wp-content/uploads/2020/07/shutterstock_600927191.jpg"
+    image="/src/assets/images/snappy-sameday-transfers.jpeg"
   />
   <LandingComponent
     title="Speak to a human."
     sub_title="24/7 CUSTOMER SUPPORT"
     content="Our friendly round-the-clock support team is on hand to help 24/7, and we’ll pick up the phone in seconds. Most issues can be fixed remotely, so your business keeps moving no problem."
     class="md:flex-row-reverse text-gray-800 dark:text-white"
-    image="https://3geepay.com.ng/wp-content/uploads/2020/07/3gp-thumb4.jpg"
+    image="/src/assets/images/snappy-support.jpeg"
+
   />
   <LandingComponent
     title="Take payments in seconds."
     sub_title="FASTER TRANSACTIONS"
     content="With Snappy Pay you can take card payments 80% faster than the industry average – so there are just two seconds between you and another happy customer."
     class="dark:text-white text-gray-800"
-    image="https://3geepay.com.ng/wp-content/uploads/2020/07/3gpay-thumb-14.jpg"
+    image="/src/assets/images/snappy-faster-payments.jpeg"
+
   />
   <LandingComponent
     title="Keep connected, always."
     sub_title="MOBILE CONNECTIVITY"
     content="Wi-Fi connectivity comes as standard, so temperamental Mobile networks woes won’t affect your customers’ payment experience – no matter where they’re seated."
     class="dark:text-white text-gray-800 md:flex-row-reverse"
-    image="https://3geepay.com.ng/wp-content/uploads/2020/07/3gp-thumb3.jpg"
+    image="/src/assets/images/snappy-instant-app.jpeg"
   />
 </template>
 <script>
 import { mapGetters } from "vuex";
-import { Products } from "../services/productsv2.service";
 
 export default {
   methods: {
@@ -91,7 +92,6 @@ export default {
   },
   data() {
     return {
-      productList: Products.getProductList(),
       open: false,
     };
   },
@@ -108,29 +108,5 @@ export default {
 @tailwind utilities;
 
 @layer components {
-  .card {
-    background-color: theme("colors.white");
-    border-radius: theme("borderRadius.lg");
-    padding: theme("spacing.6");
-    box-shadow: theme("boxShadow.sm");
-  }
-
-  .price {
-  }
-
-  .pricing {
-    padding-bottom: theme("spacing.2");
-    font-size: theme("fontSize.lg");
-  }
-
-  .name {
-    font-size: theme("fontSize.xl");
-    font-weight: theme("fontWeight.bold");
-  }
-
-  .subscript {
-    font-size: theme("fontSize.sm");
-    color: theme("colors.gray.400");
-  }
 }
 </style>

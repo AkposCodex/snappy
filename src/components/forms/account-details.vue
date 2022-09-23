@@ -57,7 +57,7 @@
       <a
         href="/buy-now"
         @click="signIn()"
-        class="p-2 text-center m-6 w-3/5 bottom-0 shadow-md align-top bg-green-800 text-white rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
+        class="p-2 text-center m-6 w-3/5 bottom-0 shadow-md align-top bg-main text-white rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
         >Sign Up</a
       >
     </div>

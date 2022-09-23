@@ -1,4 +1,3 @@
-import { ProductService } from "../../services/products.service";
 const getInitialState = () => {
   return {
     productList: {
@@ -6,7 +5,6 @@ const getInitialState = () => {
         id: "",
         products: [],
       },
-      list: ProductService.getProductList(),
       total: 0,
       starter_qty: 0,
       enterprise_qty: 0,
@@ -38,6 +36,8 @@ export default {
       state.productList.order.id = payload;
     },
     REMOVE_ITEM: function (state, payload) {
+      if (payload.index == state.productList.order.products.length)
+        state.productList.order.products.pop(payload.index, 1);
       state.productList.order.products.splice(payload.index, 1);
       state.productList.total -= payload.price;
     },

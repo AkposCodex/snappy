@@ -32,11 +32,11 @@ export default {
   <main>
     <div
       id="hero"
-      class="relative bg-[url('@/assets/images/clay-banks-unsplash.jpeg')] h-[100vh] md:h-[25rem] bg-center bg-cover"
+      class="relative bg-[url('@/assets/images/snappy-home-header.jpeg')] h-[100vh] md:h-[25rem] bg-center bg-cover"
     >
       <div class="h-full /*backdrop-brightness-[.5]*/ w-full relative">
         <div
-          class="text-black absolute bg-white bg-opacity-70 w-[100vw] bottom-0 container text-center py-2 px-4 z-50"
+          class="text-black absolute bg-white bg-opacity-70 w-full bottom-0 text-center py-2 px-4 z-50"
         >
           <!-- <img
             src="@/assets/icons/snappypayv1.svg"
@@ -89,7 +89,7 @@ export default {
         content="Process card transactions 80% faster than the industry average. Shorter queues mean happier customers – and a till that won’t stop ringing."
         reversed="w-[12rem]"
         class="dark:text-white"
-        image="https://3geepay.com.ng/wp-content/uploads/2020/07/3gpay-thumb-14.jpg"
+        image="/src/assets/images/snappy-faster-payments.jpeg"
       />
       <Landingbutton
         title="Get paid, Today!"
@@ -98,7 +98,7 @@ export default {
         reversed="w-[12rem]"
         class="md:flex-row-reverse dark:text-white"
         inner_html="Get started"
-        image="https://3geepay.com.ng/wp-content/uploads/2020/07/shutterstock_600927191.jpg"
+        image="/src/assets/images/snappy-sameday-transfers.jpeg"
       />
 
       <Landingbutton
@@ -108,7 +108,7 @@ export default {
         reversed="w-[12rem]"
         inner_html="Get started"
         class="dark:text-white"
-        image="https://3geepay.com.ng/wp-content/uploads/2020/07/3gp-thumb3.jpg"
+        image="/src/assets/images/snappy-instant-app.jpeg"
       />
     </section>
     <div class="p-9 text-center dark:text-white flex-col space-y-6">

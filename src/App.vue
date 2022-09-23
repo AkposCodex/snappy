@@ -34,7 +34,7 @@ export default {
 <template>
   <body class="font-sans text-black">
     <div
-      class="justify-end hidden md:flex space-x-9 items-center px-9 w-full bg-sub dark:bg-main"
+      class="justify-end hidden md:flex space-x-9 items-center px-9 w-full bg-sub dark:bg-main dark:bg-opacity-40"
     >
       <router-link v-if="user" to="/dash" class="text-white text-lg font-bold"
         >Welcome, {{userState.bio.firstName}}</router-link
@@ -93,12 +93,12 @@ export default {
           <a
             href="#"
             @click="show()"
-            class="bg-sub md:hidden dark:text-white p-3 rounded-lg text-white"
+            class="bg-sub dark:bg-main dark:bg-opacity-40 md:hidden dark:text-white p-3 rounded-lg text-white"
             >Menu</a
           >
           <div
             v-if="menu"
-            class="absolute top-12 space-y-3 z-50 bg-white rounded right-0 p-6 flex flex-col shadow-md text-md"
+            class="absolute md:hidden top-12 space-y-3 z-50 bg-white rounded right-0 p-6 flex flex-col shadow-md text-md"
           >
             <router-link
               to="/about-us"
@@ -106,7 +106,6 @@ export default {
               >About Us</router-link
             >
             <router-link
-              v-if="user"
               to="/buy-now"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >Products</router-link
@@ -117,7 +116,6 @@ export default {
               >About Us</router-link
             > -->
             <router-link
-              v-if="user"
               to="/dash"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >Dashboard</router-link
@@ -153,14 +151,14 @@ export default {
           <button
             v-if="user"
             @click="logout()"
-            class="hidden md:block p-2 w-32 items-center text-white bottom-0 bg-sub dark:bg-main rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
+            class="hidden md:block p-2 w-32 items-center text-white bottom-0 bg-sub dark:bg-main dark:bg-opacity-40 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
           >
             Log Out
           </button>
           <button
             v-if="!user"
             @click="btnClick()"
-            class="hidden md:block p-2 w-52 items-center text-white bottom-0 bg-sub dark:bg-main rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
+            class="hidden md:block p-2 w-32 items-center text-white bottom-0 bg-sub dark:bg-main dark:bg-opacity-40 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
           >
             Log In
           </button>

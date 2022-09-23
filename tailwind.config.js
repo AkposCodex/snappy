@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: false,
+  media: false,
   content: [
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
-    "./node_modules/flowbite/**/*.js",
+
     "@/assets/images/products/Payment-Tablet-Terminal.png",
     "@/assets/images/products/POS.png",
   ],

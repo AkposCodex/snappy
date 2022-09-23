@@ -74,7 +74,7 @@
     <div class="flex justify-end w-full pr-24">
       <button
         type="submit"
-        class="p-2 m-6 shadow-md w-52 bottom-0 mb-6 align-top bg-green-800 text-white rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
+        class="p-2 m-6 shadow-md w-52 bottom-0 mb-6 align-top bg-main text-white rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
       >
         Next
       </button>

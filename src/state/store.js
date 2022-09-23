@@ -23,7 +23,7 @@ const store = createStore({
         address: encodeURIComponent(data.address),
         key: data.apiKey,
       });
-      const latLng = resp.data.results[0].geometry.location;
+      const latLng = resp.data.results;
 
       console.log(resp, latLng);
       return latLng;

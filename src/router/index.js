@@ -47,6 +47,11 @@ const router = createRouter({
       component: () => import("@/views/ProductsView.vue"),
     },
     {
+      path: "/geotest",
+      name: "geotest",
+      component: () => import('@/views/ProductsView.vue')
+    },
+    {
       path: "/buy-now",
       name: "pricing",
       component: () => import("@/views/ProductView.vue"),
@@ -98,6 +103,18 @@ const router = createRouter({
     },
   ],
 });
+// router.beforeResolve((to,from,next) =>{
+//   if(to.name){
+//     NProgress.start()
+//   }
+//   next()
+// })
+
+// router.afterEach((to, from) => {
+//   // Complete the animation of the route progress bar.
+//   NProgress.done()
+// })
+
 
 // router.beforeEach((to, from, next) => {
 //   if (!isLoggedIn && to.meta.needsAuth) {
