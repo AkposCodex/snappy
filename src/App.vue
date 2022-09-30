@@ -10,7 +10,6 @@ export default {
       this.$store.dispatch("userModule/logout").then(() => {
         this.$store.dispatch("productModule/clearorder");
         this.$router.push({ name: "home" });
-        // this.$router.go();
       });
       console.log(this.user);
     },
@@ -59,13 +58,6 @@ export default {
           {{productState.order.products.length}}
         </div>
       </button>
-      <!-- <button
-        v-if="user"
-        @click="this.$router.push('/products')"
-        class="hidden md:block p-1 w-max text-white font-bold bg-none rounded-md m-2 shadow-lg text-sm hover:ring ring-green-200/50"
-      >
-        Order History 
-      </button> -->
     </div>
     <nav class="px-2 py-4 border-b dark:bg-transparent text-black mx-auto">
       <div class="flex justify-between space-x-9">
@@ -87,11 +79,6 @@ export default {
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Product</router-link
             >
-            <!-- <router-link
-              to="/about"
-              class="hover:underline dark:text-white hover:text-lg hover:font-bold"
-              >About Us</router-link
-            > -->
             <router-link
               to="/contact"
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
@@ -120,16 +107,11 @@ export default {
               >About Us</router-link
             >
             <router-link
-              to="/"
+              to="/product"
               @click="menu = false"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >Products</router-link
             >
-            <!-- <router-link
-              to="/about"
-              class="hover:underline text-black hover:text-lg hover:font-bold"
-              >About Us</router-link
-            > -->
             <router-link
               to="/dash"
               @click="menu = false"
@@ -137,7 +119,7 @@ export default {
               >Dashboard</router-link
             >
             <router-link
-              to="/faq"
+              to="/contact"
               @click="menu = false"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >Contact</router-link
@@ -193,27 +175,6 @@ export default {
   </body>
   <footer class="bg-gray-700 w-full p-4 font-sans">
     <div class="flex text-white items-start w-full justify-between">
-      <!-- <h1 class="text-white text-2xl text-left font-title">
-        RO<span class="text-teal-800 text-3xl">k</span>U
-      </h1> -->
-      <img
-        src="@/assets/icons/snappypayv1.svg"
-        alt=""
-        class=""
-        width="110"
-        height="110"
-      />
-      <!-- <div class="flex justify-center w-full text-lg space-x-10">
-        <router-link v-if="user" to="/productsv2" class="text-white"
-          >About</router-link
-        >
-        <router-link v-if="user" to="/faq" class="text-white"
-          >Contact</router-link
-        >
-        <router-link v-if="user" to="/buy-now" class="text-white"
-          >Products</router-link
-        >
-      </div> -->
     </div>
     <div
       class="font-bold flex flex-col md:flex-row items-center justify-center mb-4 w-full text-white rounded-full relative text-center p-2"
