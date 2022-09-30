@@ -7,7 +7,7 @@
       <h1>You don't have any Items added,</h1>
       <span
         >Return to <i>Product</i> to rent a
-        <a href="/buy-now" class="text-main font-bold">POS</a></span
+        <a href="/product" class="text-main font-bold">POS</a></span
       >
     </div>
   </div>
@@ -20,7 +20,7 @@
   <div class="w-full h-min md:flex dark:text-white">
     <div
       id="order-details"
-      class="h-full md:mx-auto bg-whitep-8 w-4/5 md:w-[90%]"
+      class="h-full md:mx-auto bg-whitep-8 md:w-[90%]"
     >
       <div
         id="details"
@@ -29,14 +29,14 @@
       >
         <h1 class="text-3xl mx-3 my-6">Order Details</h1>
         <div
-          class=""
+          class="p-6"
           :class="{
             'grid gap-9 grid-cols-2 h-min md:grid-rows-1 grid-rows-2':
               isShipping,
           }"
         >
           <table
-            class="table-auto w-full text-center"
+            class="table-fixed w-full text-center"
             :class="{
               'md:col-span-1 col-span-2 md:col-start-2 row-start-1': isShipping,
             }"
@@ -44,22 +44,22 @@
             <thead>
               <tr>
                 <th
-                  class="border-b border-slate-300 text-left font-bold text-md md:text-xl"
+                  class="border-b border-slate-300 text-center text-left font-bold text-md md:text-xl"
                 >
                   Package
                 </th>
                 <th
-                  class="border-b border-slate-300 text-left font-bold text-md md:text-xl"
+                  class="border-b border-slate-300 text-center text-left font-bold text-md md:text-xl"
                 >
                   Price
                 </th>
                 <th
-                  class="border-b border-slate-300 text-left font-bold text-md md:text-xl"
+                  class="border-b border-slate-300 text-center text-left font-bold text-md md:text-xl"
                 >
                   Sum Total
                 </th>
                 <th
-                  class="border-b border-slate-300 text-left font-bold text-md md:text-xl"
+                  class="border-b border-slate-300 text-center text-left font-bold text-md md:text-xl"
                 >
                   Quantity
                 </th>
@@ -94,19 +94,19 @@
               </tr>
               <tr>
                 <td
-                  colspan="2"
+                  colspan="4"
                   class="font-bold text-sm md:text-lg border-b border-slate-300 text-center p-1"
                 >
                   Total
                 </td>
-                <td class="border-b border-slate-300"></td>
-                <td class="border-b border-slate-300"></td>
+                <!-- <td class="border-b border-slate-300"></td> -->
+                <!-- <td class="border-b border-slate-300"></td> -->
                 <td
-                  class="font-bold text-sm md:text-lg border-b border-slate-300 text-right py-1"
+                  class="font-bold text-sm md:text-lg text-center border-b border-slate-300 py-1"
                 >
                   {{ getTotal }}
                 </td>
-                <td class="border-b border-slate-300 py-1"></td>
+                <!-- <td class="border-b border-slate-300 py-1"></td> -->
               </tr>
               <tr v-if="isShipping">
                 <td class="border-b border-slate-300"></td>
@@ -125,26 +125,26 @@
               </tr>
               <tr>
                 <td
-                  colspan="2"
+                  colspan="4"
                   class="font-bold text-sm md:text-lg border-b border-slate-300 text-center p-1"
                 >
                   Grand Total - Inclusive of VAT(7.5%)
                 </td>
-                <td class="border-b border-slate-300"></td>
-                <td class="border-b border-slate-300"></td>
+                <!-- <td class="border-b border-slate-300"></td> -->
+                <!-- <td class="border-b border-slate-300"></td> -->
                 <td
-                  class="font-bold text-sm md:text-lg border-b border-slate-300 text-right py-1"
+                  class="font-bold text-sm md:text-lg text-center border-b border-slate-300 py-1"
                   v-if="!isShipping"
                 >
                   {{ getTotal + getTotal * 0.075 }}
                 </td>
                 <td
-                  class="font-bold text-sm md:text-lg border-b border-slate-300 text-right py-1"
+                  class="font-bold text-sm md:text-lg border-b text-center border-slate-300 text-right py-1"
                   v-if="isShipping"
                 >
                   {{ filled + getTotal + getTotal * 0.075 }}
                 </td>
-                <td class="border-b border-slate-300 py-1"></td>
+                <!-- <td class="border-b border-slate-300 py-1"></td> -->
               </tr>
             </tbody>
           </table>

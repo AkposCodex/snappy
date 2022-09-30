@@ -25,7 +25,7 @@ const getInitialState = () => {
         localGovernment: "",
       },
       mainAddress: "",
-      account: { bank: "", accountNumber: "" },
+      account: { bank: "", accountNumber: "", accountName: "", bankCode: "" },
       stage: 1,
       isLoggedIn: false,
       details: [],

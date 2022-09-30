@@ -44,7 +44,7 @@ export default {
         v-if="user"
         @click="checkout()"
         type="button"
-        class="inline-flex relative items-center p-3 text-sm font-medium text-center text-white rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        class="inline-flex relative items-center p-3 text-sm font-medium text-center text-white rounded-lg"
       >
         <img
           src="@/assets/icons/shopping-cart-24.png"
@@ -53,7 +53,7 @@ export default {
         />
         <span class="sr-only">Cart</span>
         <div
-          class="inline-flex absolute -top-2 m-3 -right-2 justify-center items-center w-4 h-4 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-white dark:border-gray-900"
+          class="inline-flex absolute -top-2 m-3 -right-2 justify-center items-center w-4 h-4 text-xs font-bold text-white bg-main rounded-full border-2 border-white dark:border-gray-900"
         >
           {{productState.order.products.length}}
         </div>
@@ -174,10 +174,8 @@ export default {
     <router-view />
   </body>
   <footer class="bg-gray-700 w-full p-4 font-sans">
-    <div class="flex text-white items-start w-full justify-between">
-    </div>
     <div
-      class="font-bold flex flex-col md:flex-row items-center justify-center mb-4 w-full text-white rounded-full relative text-center p-2"
+      class="font-bold flex flex-col md:flex-row items-center justify-center mb-1 w-full text-white rounded-full relative text-center p-1"
     >
       <span class="font-bold text-md">Mobile|WhatsApp:</span>
       <a
