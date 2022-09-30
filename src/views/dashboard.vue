@@ -1,7 +1,7 @@
 <template>
   <div class="md:grid md:grid-cols-4 auto-cols-min grid-flow-col w-full">
     <div
-      class="md:w-full h-[100vh] md:block hidden bg-main dark:bg-opacity-40 p-2 text-white relative"
+      class="md:w-full h-full md:block hidden bg-main dark:bg-opacity-40 p-2 text-white relative"
     >
       <div id="top" class="">
         <div
@@ -10,20 +10,107 @@
           <!-- <img src="https://images.unsplash.com/photo-1512372923090-7b14fb496d44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" class="h-16 mx-auto rounded-lg"/> -->
         </div>
         <ul>
-          <li class="rounded-md bg-white bg-opacity-25 p-3">
-            <a href="">Orders</a>
+          <li>
+            <button
+              class="rounded-md p-3 w-full"
+              :class="{ 'bg-white bg-opacity-40': tile == 1 }"
+              @click="tile = 1"
+            >
+              Orders
+            </button>
           </li>
           <br />
-          <li class="rounded-md p-3"><a href="">Profile</a></li>
+          <li>
+            <button
+              class="rounded-md p-3 w-full"
+              :class="{ 'bg-white bg-opacity-40': tile == 2 }"
+              @click="tile = 4"
+            >
+              Profile
+            </button>
+          </li>
           <br />
-          <li></li>
+          <li>
+            <button
+              class="rounded-md p-3 w-full"
+              :class="{ 'bg-white bg-opacity-40': tile == 2 }"
+              @click="tile = 2"
+            >
+              Inventory
+            </button>
+          </li>
+          <br />
+          <li>
+            <button
+              class="rounded-md p-3 w-full"
+              :class="{ 'bg-white bg-opacity-40': tile == 3 }"
+              @click="tile = 3"
+            >
+              Transaction History
+            </button>
+          </li>
         </ul>
       </div>
     </div>
-    <div class="col-span-3" v-if="pos" id="order-history">
+    <div id="hd-top" class="bg-main md:hidden w-full z-20 h-auto">
+      <div class="flex justify-end">
+        <button class="p-2" @click="visible = !visible">
+          <img src="@/assets/icons/menu-50.png" alt="" width="32" height="32" />
+        </button>
+      </div>
+      <div v-if="visible">
+        <ul>
+          <li class="mx-3">
+            <button
+              class="rounded-md p-3 text-white w-full"
+              :class="{ 'bg-white bg-opacity-40': tile == 1 }"
+              @click="
+                tile = 1;
+                visible = false;
+              "
+            >
+              Orders
+            </button>
+          </li>
+          <br />
+          <li class="mx-3">
+            <button class="rounded-md p-3 text-white w-full" @click="">
+              Profile
+            </button>
+          </li>
+          <br />
+          <li class="mx-3">
+            <button
+              class="rounded-md p-3 text-white w-full"
+              :class="{ 'bg-white bg-opacity-40': tile == 2 }"
+              @click="
+                tile = 2;
+                visible = false;
+              "
+            >
+              Inventory
+            </button>
+          </li>
+          <br />
+          <li class="mx-3">
+            <button
+              class="rounded-md p-3 text-white w-full"
+              :class="{ 'bg-white bg-opacity-40': tile == 3 }"
+              @click="
+                tile = 3;
+                visible = false;
+              "
+            >
+              Transaction History
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-span-3" v-if="tile == 1" id="order-history">
       <section class="head dark:text-white">
         <h1 class="text-5xl p-6">This is your Order History</h1>
-        <div class="grid gap-6 p-6 grid-cols-2">
+        <!-- <div class="grid gap-6 p-6 grid-cols-2">
           <p>
             <span class="text-red-700 font-bold">PENDING</span> : Your order has
             been placed and is pending approval and delivery
@@ -40,8 +127,6 @@
             <span class="text-black dark:text-gray-500 font-bold">DONE</span> :
             Your rental is completed and the POS has been returned.
           </p>
-          <!-- <button id="show-modal" @click="showModal = true">Show Modal</button> -->
-          <!-- use the modal component -->
           <transition name="modal">
             <ModalComponent
               v-if="showModal"
@@ -50,14 +135,29 @@
               Body="Some Body"
               Footer="A new Footer"
             >
-              <!-- <template v-slot:header>
-                <h3>custom header</h3>
-              </template> -->
+
             </ModalComponent>
           </transition>
+        </div> -->
+        <div class="p-6" v-if="order.order.length == 0">
+          <div class="flex w-full justify-center">
+            <img
+              src="../assets/svg/undraw_wishes_icyp.svg"
+              alt=""
+              width="300"
+            />
+          </div>
+          <p class="text-center">
+            You haven't bought anything yet. When you make a purchase or rent a
+            terminal your orders will show up here
+          </p>
         </div>
       </section>
-      <div id="bot" class="w-[20rem] p-2 mx-auto my-9">
+      <div
+        id="bot"
+        class="w-[20rem] p-2 mx-auto my-9"
+        v-if="!order.order.length == 0"
+      >
         <img src="../assets/svg/undraw_delivery_truck_vt6p.svg" alt="" />
         <!-- <img src="@/assets/svg/undraw_in_sync_re_jlqd.svg" alt=""> -->
       </div>
@@ -104,112 +204,138 @@
         </div>
       </section>
     </div>
-    <div class="col-span-3 py-3" v-if="pos" id="order-history">
-      <h1 class="text-center text-3xl">Transaction History</h1>
-      <!-- <table class="table-fixed w-full">
-        <thead class="text-center">
-          <tr>
-            <td class="bg-main text-white p-3 border-x">S/N</td>
-            <td class="bg-main text-white p-3 border-x">Item</td>
-            <td class="bg-main text-white p-3 border-x">Quantity</td>
-            <td class="bg-main text-white p-3 border-x">rrn</td>
-            <td class="bg-main text-white p-3 border-x">Amount</td>
-            <td class="bg-main text-white p-3 border-x">Status</td>
-            <td class="bg-main text-white p-3 border-x">Response Date</td>
-          </tr>
-        </thead>
-        <tbody calss="bg-slate-300">
-          <tr>
-            <td class="bg-white text-black text-center p-3 border-x border-black">1</td>
-            <td class="bg-white text-black text-center p-3 border-x border-black">Cadbury milk chocolate</td>
-            <td class="bg-white text-black text-center p-3 border-x border-black">2</td>
-            <td class="bg-white text-black text-center p-3 border-x border-black">3999uj3jjhhnn29</td>
-            <td class="bg-white text-black text-center p-3 border-x border-black">₦30,000.00</td>
-            <td class="bg-white text-black text-center p-3 border-x border-black">SUCCESS</td>
-            <td class="bg-white text-black text-center p-3 border-x border-black">2022-09-23 11:15:31 am</td>
-          </tr>
-        </tbody>
-      </table> -->
-      <div
-        class="w-auto flex col-span-3 px-6 py-3 justify-center space-x-9 items-center rounded-lg shadow-none bg-white dark:bg-opacity-40"
-      >
-        <img src="@/assets/icons/pos-64.png" alt="" width="32" height="32" />
-        <table class="text-[13px] w-full table-auto">
-          <thead class="text-md">
-            <tr>
-              <td>Dano Milk 500g</td>
-            </tr>
+    <div class="col-span-3 py-3" v-if="tile == 3" id="transaction-history">
+      <div class="md:hidden">
+        <h1 class="text-center text-3xl">Transaction History</h1>
+        <!-- <div
+          class="w-auto flex col-span-3 px-6 py-3 justify-center space-x-9 items-center rounded-lg shadow-none bg-white dark:bg-opacity-40"
+        >
+          <img src="@/assets/icons/pos-64.png" alt="" width="32" height="32" />
+          <table class="text-[13px] w-full table-auto">
+            <thead class="text-md">
+              <tr>
+                <td>Dano Milk 500g</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-gray-400">15 Units</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-md text-main">₦130000</p>
+        </div> -->
+        <div
+          class="rounded-3xl shadow-sm justify-between px-3 py-6 bg-gray-100 m-3 flex"
+        >
+          <p>PURCHASE</p>
+          <div class="">
+            <P>Dano Milk 500g</P>
+            <p class="text-gray-500">15 Units</p>
+          </div>
+          <p class="text-green-700">₦130000</p>
+        </div>
+        <div
+          class="rounded-3xl shadow-sm justify-between px-3 py-6 bg-gray-100 m-3 flex"
+        >
+          <p>TRANSFER</p>
+          <div class="">
+            <P>SUCCESS</P>
+            <p class="text-gray-500">1 units</p>
+          </div>
+          <p class="text-green-700">₦300</p>
+        </div>
+        <div
+          class="rounded-3xl shadow-sm justify-between px-3 py-6 bg-gray-100 m-3 flex"
+        >
+          <p>TRANSFER</p>
+          <div class="">
+            <P>SUCCESS</P>
+            <p class="text-gray-500">1 units</p>
+          </div>
+          <p class="text-green-700">₦300</p>
+        </div>
+        <div
+          class="rounded-3xl shadow-sm justify-between px-3 py-6 bg-gray-100 m-3 flex"
+        >
+          <p>TRANSFER</p>
+          <div class="">
+            <P>SUCCESS</P>
+            <p class="text-gray-500">1 units</p>
+          </div>
+          <p class="text-green-700">₦300</p>
+        </div>
+      </div>
+      <div class="hidden md:block">
+        <h1 class="text-left p-6 text-3xl">Transaction History</h1>
+        <table class="table-auto w-full ml-3">
+          <thead class="border-b md:text-xl text-gray-500 border-gray-300">
+            <td>Description</td>
+            <td>Quantity</td>
+            <td>Date</td>
+            <td>Transaction Type</td>
+            <td>Amount</td>
           </thead>
           <tbody>
             <tr>
-              <td class="text-gray-400">15 Units</td>
+              <td class="m-0 p-3 border-b border-gray-300">
+                <div class="flex space-x-3 items-center">
+                  <img
+                    src="@/assets/icons/pos-64.png"
+                    alt=""
+                    width="40"
+                    height="40"
+                    class="bg-gray-100 p-0.5 rounded-lg"
+                  />
+                  <p>Dano Milk</p>
+                </div>
+              </td>
+              <td class="p-3 border-b border-gray-300">20</td>
+              <td class="p-3 border-b border-gray-300">2022-09-30 12:00</td>
+              <td class="p-3 border-b border-gray-300">PURCHASE</td>
+              <td class="p-3 border-b border-gray-300 text-green-500">3500</td>
+            </tr>
+            <tr>
+              <td class="m-0 p-3 border-b border-gray-300">
+                <div class="flex space-x-3 items-center">
+                  <img
+                    src="@/assets/icons/pos-64.png"
+                    alt=""
+                    width="40"
+                    height="40"
+                    class="bg-gray-100 p-0.5 rounded-lg"
+                  />
+                  <p>Dano Milk</p>
+                </div>
+              </td>
+              <td class="p-3 border-b border-gray-300">10</td>
+              <td class="p-3 border-b border-gray-300">2022-09-30 12:00</td>
+              <td class="p-3 border-b border-gray-300">PURCHASE</td>
+              <td class="p-3 border-b border-gray-300 text-green-500">3500</td>
+            </tr>
+            <tr>
+              <td class="m-0 p-3 border-b border-gray-300">
+                <div class="flex space-x-3 items-center">
+                  <img
+                    src="@/assets/icons/send-64.png"
+                    alt=""
+                    width="40"
+                    height="40"
+                    class="bg-gray-100 p-0.5 rounded-lg"
+                  />
+                  <p>Akpos David</p>
+                </div>
+              </td>
+              <td class="p-3 border-b border-gray-300">1</td>
+              <td class="p-3 border-b border-gray-300">2022-09-30 12:00</td>
+              <td class="p-3 border-b border-gray-300">TRANSFER</td>
+              <td class="p-3 border-b border-gray-300 text-orange-500">3500</td>
             </tr>
           </tbody>
         </table>
-        <p class="text-md text-main">₦130000</p>
-      </div>
-      <hr />
-      <div
-        class="w-auto flex px-6 py-3 justify-center space-x-9 items-center rounded-lg shadow-none bg-white dark:bg-opacity-40"
-      >
-        <img src="@/assets/icons/send-64.png" alt="" width="32" height="32" />
-        <table class="text-[13px] w-full table-auto">
-          <thead class="text-md">
-            <tr>
-              <td>Akpos David</td>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <p class="text-md text-main">₦300</p>
-      </div>
-      <hr />
-      <div
-        class="w-auto flex px-6 py-3 justify-center space-x-9 items-center rounded-lg shadow-none bg-white dark:bg-opacity-40"
-      >
-        <img src="@/assets/icons/send-64.png" alt="" width="32" height="32" />
-        <table class="text-[13px] w-full table-auto">
-          <thead class="text-md">
-            <tr>
-              <td>Akpos David</td>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <p class="text-md text-main">₦300</p>
-      </div>
-      <hr />
-      <div
-        class="w-auto flex px-6 py-3 justify-center space-x-9 items-center rounded-lg shadow-none bg-white dark:bg-opacity-40"
-      >
-        <img src="@/assets/icons/send-64.png" alt="" width="32" height="32" />
-        <table class="text-[13px] w-full table-auto">
-          <thead class="text-md">
-            <tr>
-              <td>Akpos David</td>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <p class="text-md text-main">₦300</p>
-      </div>
-      <hr />
-      <div
-        class="w-auto flex px-6 py-3 justify-center space-x-9 items-center rounded-lg shadow-none bg-white dark:bg-opacity-40"
-      >
-        <img src="@/assets/icons/send-64.png" alt="" width="32" height="32" />
-        <table class="text-[13px] w-full table-auto">
-          <thead class="text-md">
-            <tr>
-              <td>Akpos David</td>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-        <p class="text-md text-main">₦300</p>
       </div>
     </div>
-    <div id="inventory" class="col-span-3">
+    <div class="col-span-3" v-if="tile == 2" id="inventory">
       <div id="header" class="flex justify-between p-3">
         <h1 class="text-left uppercase text-3xl">Inventory</h1>
         <button
@@ -227,60 +353,185 @@
           Body="Login Successful"
           Footer=""
         >
+          <template v-slot:header>
+            <h1 class="text-4xl font-sans">Update Inventory</h1>
+          </template>
           <template v-slot:body>
-            <form action="">
-              <label for="name">Product Name</label><br />
-              <input type="text" name="name" id="productName" /><br>
-              <label for="quantity">Quantity</label><br />
-              <input type="number" name="quantity" id="quantity" /><br>
-              <label for="price">Price</label><br />
-              <input type="number" name="price" id="price" /><br>
-              <label for="CostPrice">Cost Price</label><br />
-              <input type="number" name="CostPrice" id="costPrice" /><br>
+            <form action="" class="font-sans">
+              <label for="name">Product Name</label>
+              <input
+                type="text"
+                class="rounded-lg mb-4 w-4/5 block border-gray-300 focus:ring-2 focus:ring-gray-500 focus:outline-none focus:ring-opacity-50"
+                name="name"
+                id="productName"
+              />
+              <label for="quantity">Quantity</label>
+              <input
+                type="number"
+                class="rounded-lg mb-4 w-2/5 block border-gray-300 focus:ring-2 focus:ring-gray-500 focus:outline-none focus:ring-opacity-50"
+                name="quantity"
+                id="quantity"
+              />
+              <div class="flex space-x-3 w-max rounded-lg">
+                <div class="">
+                  <label for="CostPrice">Cost Price</label>
+                  <input
+                    type="text"
+                    class="rounded-lg w-full block border-gray-300 focus:ring-2 focus:ring-gray-500 focus:outline-none focus:ring-opacity-50"
+                    name="CostPrice"
+                    id="costPrice"
+                  />
+                </div>
+                <div class="">
+                  <label for="price">Price</label>
+                  <input
+                    type="text"
+                    class="rounded-lg mb-4 w-full block border-gray-300 focus:ring-2 focus:ring-gray-500 focus:outline-none focus:ring-opacity-50"
+                    name="price"
+                    id="price"
+                  />
+                </div>
+              </div>
             </form>
-            <button @click="showModal = false">Add Product</button>
-            <button @click="showModal = false">Cancel タスケテクダサイマヅ</button>
           </template>
           <template v-slot:footer>
-            <div></div>
+            <div class="flex w-full justify-between">
+              <button
+                @click="showModal = false"
+                class="p-3 bg-main text-white rounded-lg"
+              >
+                Add Product
+              </button>
+              <button
+                @click="showModal = false"
+                class="p-3 border-gray-400 border-2 text-black rounded-lg"
+              >
+                Cancel
+              </button>
+            </div>
           </template>
         </ModalComponent>
       </transition>
-      <table class="table-fixed w-full ml-3">
+      <table class="table-auto w-full ml-3">
         <thead class="border-b md:text-xl border-gray-300">
-          <td class="border-r border-gray-300 md:p-4 bg-main text-white">Product Name</td>
-          <td class="border-x border-gray-300 md:p-4 bg-main text-white">Stock</td>
-          <td class="border-x border-gray-300 md:p-4 bg-main text-white">Cost Price(₦)</td>
-          <td class="border-x border-gray-300 md:p-4 bg-main text-white">Unit Price(₦)</td>
+          <td class="border-b border-gray-300 md:p-4 text-gray-500">S/N</td>
+          <td class="border-b border-gray-300 md:p-4 text-gray-500">
+            Product Name
+          </td>
+          <td class="border-b border-gray-300 md:p-4 text-gray-500">Stock</td>
+          <td class="border-b border-gray-300 md:p-4 text-gray-500">
+            Cost Price(₦)
+          </td>
+          <td class="border-b border-gray-300 md:p-4 text-gray-500">
+            Unit Price(₦)
+          </td>
+          <td class="border-b border-gray-300 md:p-4 text-gray-500">Actions</td>
         </thead>
         <tbody>
           <tr>
-            <td class="border-r border-gray-300 p-3">Cream Cheese</td>
-            <td class="border-x border-gray-300 p-3">500</td>
-            <td class="border-x border-gray-300 p-3">500</td>
-            <td class="border-x border-gray-300 p-3">200</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">1</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">
+              Cream Cheese
+            </td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">500</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">200</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">500</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">
+              <button @click="clear(index, items.price)" class="w-full">
+                <img
+                  src="@/assets/icons/trash.svg"
+                  class="mx-auto"
+                  alt=""
+                  width="15"
+                  height="15"
+                />
+              </button>
+            </td>
           </tr>
           <tr>
-            <td class="border-r border-gray-300 p-3">Cream Cheese</td>
-            <td class="border-x border-gray-300 p-3">500</td>
-            <td class="border-x border-gray-300 p-3">500</td>
-            <td class="border-x border-gray-300 p-3">200</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">2</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">
+              Cream Cheese
+            </td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">500</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">200</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">500</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">
+              <button @click="clear(index, items.price)" class="w-full">
+                <img
+                  src="@/assets/icons/trash.svg"
+                  class="mx-auto"
+                  alt=""
+                  width="15"
+                  height="15"
+                />
+              </button>
+            </td>
           </tr>
           <tr>
-            <td class="border-r border-gray-300 p-3">Cream Cheese</td>
-            <td class="border-x border-gray-300 p-3">500</td>
-            <td class="border-x border-gray-300 p-3">500</td>
-            <td class="border-x border-gray-300 p-3">200</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">3</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">
+              Cream Cheese
+            </td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">500</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">200</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">500</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">
+              <button @click="clear(index, items.price)" class="w-full">
+                <img
+                  src="@/assets/icons/trash.svg"
+                  class="mx-auto"
+                  alt=""
+                  width="15"
+                  height="15"
+                />
+              </button>
+            </td>
           </tr>
           <tr>
-            <td class="border-r border-gray-300 p-3">Cream Cheese</td>
-            <td class="border-x border-gray-300 p-3">500</td>
-            <td class="border-x border-gray-300 p-3">500</td>
-            <td class="border-x border-gray-300 p-3">200</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">4</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">
+              Cream Cheese
+            </td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">500</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">200</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">500</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">
+              <button @click="clear(index, items.price)" class="w-full">
+                <img
+                  src="@/assets/icons/trash.svg"
+                  class="mx-auto"
+                  alt=""
+                  width="15"
+                  height="15"
+                />
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">5</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">
+              Final Fantasy VII
+            </td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">500</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">1300</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">1700</td>
+            <td class="border-b border-gray-200 md:p-3 mx-auto">
+              <button @click="clear(index, items.price)" class="w-full">
+                <img
+                  src="@/assets/icons/trash.svg"
+                  class="mx-auto"
+                  alt=""
+                  width="15"
+                  height="15"
+                />
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
+    <div class="col-span-3" id="profile" v-if="tile == 4"></div>
   </div>
 </template>
 <script>
@@ -291,6 +542,8 @@ export default {
     return {
       date: newDate.replace("2022", "22'"),
       showModal: false,
+      tile: 1,
+      visible: false,
     };
   },
   computed: {
@@ -300,37 +553,8 @@ export default {
     show() {
       this.showModal = !this.showModal;
     },
+    clear() {},
   },
 };
 </script>
-<style>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer components {
-  .card {
-    background-color: theme("colors.white");
-    border-radius: theme("borderRadius.3xl");
-    padding: theme("spacing.3");
-    /* box-shadow: theme("boxShadow.md"); */
-  }
-
-  .price {
-  }
-
-  .pricing {
-    padding-bottom: theme("spacing.6");
-    font-size: theme("fontSize.4xl");
-  }
-
-  .name {
-    font-size: theme("fontSize.2xl");
-  }
-
-  .subscript {
-    font-size: theme("fontSize.sm");
-    color: theme("colors.yellow.900");
-  }
-}
-</style>
+<style></style>

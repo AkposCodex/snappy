@@ -1,8 +1,8 @@
 <template>
-  <Form @submit="changeStage" class="w-full px-auto dark:text-white p-6" :validation-schema="schema">
+  <Form @submit="changeStage" class="w-4/5 px-auto dark:text-white p-6" :validation-schema="schema">
     <h1 class="text-xl px-4">Bio-Data</h1>
     <hr class="pb-6 w-3/5" />
-    <div class="justify-between w-4/5">
+    <div class="justify-between w-full">
       <div class="">
         <label for="" class="m-3">First Name</label>
         <Field
@@ -12,7 +12,7 @@
           class="peer block w-full form-input ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder=" First Name "
         />
-        <ErrorMessage name="firstName" class="text-red-500" />
+        <ErrorMessage name="firstName" class="ml-3 text-red-500" />
         <br />
       </div>
       <div class="">
@@ -24,11 +24,11 @@
           class="peer block w-full form-input ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder=" Last Name "
         />
-        <ErrorMessage name="lastName" as="div" class="text-red-500" />
+        <ErrorMessage name="lastName" as="div" class="ml-3 text-red-500" />
         <br />
       </div>
     </div>
-    <div class="w-4/5">
+    <div class="w-full">
       <label for="" class="m-3">Email Address</label>
       <Field
         v-model.trim="userState.bio.emailAddress"
@@ -38,10 +38,10 @@
         placeholder="Email Address"
         :rules="validEmail"
       />
-      <ErrorMessage name="emailAddress" class="text-red-500" />
+      <ErrorMessage name="emailAddress" class="ml-3 text-red-500" />
       <br />
     </div>
-    <div class="justify-between w-4/5">
+    <div class="justify-between w-full">
       <div>
         <label for="" class="m-3">Phone Number</label>
         <Field
@@ -52,7 +52,7 @@
           class="peer block w-full form-input ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder="Phone Number"
         />
-        <ErrorMessage name="phoneNumber" class="text-red-500" />
+        <ErrorMessage name="phoneNumber" class="ml-3 text-red-500" />
         <br />
       </div>
       <div>
@@ -66,15 +66,15 @@
           class="peer block w-full form-input ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder="BVN"
         />
-        <ErrorMessage name="bvn" as="div" class="text-red-500" />
+        <ErrorMessage name="bvn" as="div" class="ml-3 text-red-500" />
         <br />
       </div>
     </div>
     <!-- <button @click="signIn()">Button here</button> -->
-    <div class="flex justify-end w-full pr-24">
+    <div class="flex justify-end w-full">
       <button
         type="submit"
-        class="p-2 m-6 shadow-md w-52 bottom-0 mb-6 align-top bg-main text-white rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
+        class="p-2 shadow-md w-52 bottom-0 mb-6 align-top bg-main text-white rounded-full text-lg hover:ring ring-green-200/50 hover:bg-green-700"
       >
         Next
       </button>

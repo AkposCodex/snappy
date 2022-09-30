@@ -17,7 +17,9 @@
           How Long can I rent the terminals for?
         </summary>
 
-        <p class="text-justify px-4 py-2"> The rental period is dependent on which packages you buy. </p>
+        <p class="text-justify px-4 py-2">
+          The rental period is dependent on which packages you buy.
+        </p>
       </details>
       <details class="mb-2 bg-gray-200 rounded-md h-min">
         <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">
@@ -34,7 +36,7 @@
           How many terminals I can rent at once?
         </summary>
 
-        <p class="px-4 text-justify py-2"> As many as you need. </p>
+        <p class="px-4 text-justify py-2">As many as you need.</p>
       </details>
       <details class="mb-2 bg-gray-200 rounded-md h-min">
         <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">
@@ -43,7 +45,29 @@
 
         <p class="px-4 text-justify py-2 w-[full]">
           Contact us using the contact form below or by calling our support
-          hotlines: <a href="https://wa.me/%2B2347043151949?text=Good%20Day%2C%0AI%20have%20enquiries%20concerning%20SNAPPY%20pay" class="font-bold">+234 7043151949</a>
+          hotlines:
+          <a
+            href="https://wa.me/%2B2347043151949?text=Good%20Day%2C%0AI%20have%20enquiries%20concerning%20SNAPPY%20pay"
+            class="font-bold"
+            >+234 7043151949</a
+          >
+        </p>
+      </details>
+      <details class="mb-2 bg-gray-200 rounded-md h-min">
+        <summary class="font-semibold bg-gray-100 rounded-md py-2 px-4">
+          My orders are tagged with PENDING,DELIVERED,DUE and DONE. What does it
+          all mean?
+        </summary>
+
+        <p class="px-4 text-justify py-2 w-[full]">
+          <span class="text-red-700 font-bold">PENDING</span> means your order
+          has been placed and is pending approval and delivery. <br>
+          <span class="text-[#00690C] font-bold">DELIVERED</span> means your order
+          has been delivered and you are using the POS. <br>
+          <span class="text-[#008F6D] font-bold">DUE</span> means your rental
+            period has expired and pending return. <br> 
+            <span class="text-black dark:text-gray-500 font-bold">DONE</span> means
+            your rental is completed and the POS has been returned.
         </p>
       </details>
       <!-- <details class="mb-2">
@@ -78,11 +102,7 @@
       <div
         class="w-full md:w-4/5 mx-auto shadow-xl bg-white z-20 p-6 rounded-lg"
       >
-        <h1
-          class="text-lg font-bold text-black w-max p-2 my-3"
-        >
-          Contact Us
-        </h1>
+        <h1 class="text-lg font-bold text-black w-max p-2 my-3">Contact Us</h1>
         <p class="w-full text-lg">
           Feel free to send us a message to inquire about anything related to
           Snappy Pay
@@ -151,7 +171,11 @@
     class="font-bold flex flex-col md:flex-row items-center dark:text-white justify-center mb-4 w-full text-black rounded-full relative text-center p-2"
   >
     <span class="font-bold text-lg">Mobile|WhatsApp:</span>
-    <a href="https://wa.me/%2B2347043151949?text=Good%20Day%2C%0AI%20have%20enquiries%20concerning%20SNAPPY%20pay" class="text-lg mr-4">+234 7043151949</a>
+    <a
+      href="https://wa.me/%2B2347043151949?text=Good%20Day%2C%0AI%20have%20enquiries%20concerning%20SNAPPY%20pay"
+      class="text-lg mr-4"
+      >+234 7043151949</a
+    >
     <span class="font-bold text-lg">Email:</span>
     <p class="text-lg">frontdesk@snappy.com.ng</p>
   </div>

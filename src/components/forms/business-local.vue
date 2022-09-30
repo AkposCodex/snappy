@@ -6,27 +6,29 @@
     class="dark:text-white"
     :validation-schema="schema"
   >
-    <label for="" class="m-3">Address(Street Address & House Number)</label>
-    <Field
-      v-model="street"
-      rows="3"
-      type="text"
-      name="address"
-      class="peer block w-4/5 form-input p-4 my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-      placeholder="ex: 4 federal housing road adetokunbo ademola street"
-    ></Field>
-    <ErrorMessage name="address" as="div" class="text-red-500" />
-    <div class=" w-full">
+    <div class="w-full my-3">
+      <label for="" class="m-3">Address(Street Address & House Number)</label>
+      <Field
+        v-model="street"
+        rows="3"
+        type="text"
+        name="address"
+        class="peer block w-4/5 form-input p-4 mt-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+        placeholder="ex: 4 federal housing road adetokunbo ademola street"
+      ></Field>
+      <ErrorMessage name="address" as="div" class="ml-3 text-red-500" />
+    </div>
+    <div class="w-full my-3">
       <div>
         <label for="" class="m-3">City</label>
         <Field
           v-model="city"
           type="text"
           name="state"
-          class="peer block w-4/5 form-input p-4 my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+          class="peer block w-4/5 form-input p-4 mt-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder="ex: Victoria Island"
         />
-        <ErrorMessage name="state" as="div" class="text-red-500" />
+        <ErrorMessage name="state" as="div" class="ml-3 text-red-500" />
       </div>
       <div>
         <label for="" class="m-3">State</label>
@@ -34,21 +36,23 @@
           v-model="state"
           type="text"
           name="country"
-          class="peer block w-4/5 form-input p-4 my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+          class="peer block w-4/5 form-input p-4 mt-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
           placeholder="ex: Lagos"
         />
-        <ErrorMessage name="country" as="div" class="text-red-500" />
+        <ErrorMessage name="country" as="div" class="ml-3 text-red-500" />
       </div>
     </div>
-    <label for="" class="m-3">Local Government</label>
-    <Field
-      v-model="lga"
-      type="text"
-      name="localGovernment"
-      class="peer block w-4/5 form-input p-4 my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-      placeholder="Local Government"
-    />
-    <ErrorMessage name="localGovernment" as="div" class="text-red-500" />
+    <div class="w-full my-3">
+      <label for="" class="m-3">Local Government</label>
+      <Field
+        v-model="lga"
+        type="text"
+        name="localGovernment"
+        class="peer block w-4/5 form-input p-4 mt-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+        placeholder="Local Government"
+      />
+      <ErrorMessage name="localGovernment" as="div" class="ml-3 text-red-500" />
+    </div>
     <div class="flex justify-end w-full pr-24">
       <button
         type="submit"
@@ -109,7 +113,7 @@ export default {
         lat: response.lat,
         lon: response.lng,
       });
-      console.log("Lat Lng response: "+response.lat + response.lng);
+      console.log("Lat Lng response: " + response.lat + response.lng);
       console.log(this.address);
     },
   },

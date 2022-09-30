@@ -36,7 +36,7 @@ export default {
     >
       <div class="h-full /*backdrop-brightness-[.5]*/ w-full relative">
         <div
-          class="text-black absolute bg-white bg-opacity-70 w-full bottom-0 text-center py-2 px-4 z-50"
+          class="text-black absolute bg-white bg-opacity-70 w-full bottom-0 text-center py-2 px-4 z-40"
         >
           <!-- <img
             src="@/assets/icons/snappypayv1.svg"

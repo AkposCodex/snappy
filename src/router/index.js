@@ -52,7 +52,7 @@ const router = createRouter({
       component: () => import('@/views/ProductsView.vue')
     },
     {
-      path: "/buy-now",
+      path: "/product",
       name: "pricing",
       component: () => import("@/views/ProductView.vue"),
       meta: {
@@ -94,8 +94,8 @@ const router = createRouter({
       redirect: "/",
     },
     {
-      path: "/faq",
-      name: "faq",
+      path: "/contact",
+      name: "contact",
       component: () => import("@/views/faq.vue"),
       meta: {
         needsAuth: false,

@@ -51,7 +51,7 @@ const store = createStore({
     },
     loadBanks: async function ({ commit }, payload) {
       const resp = await paystackService.getBanks();
-      console.log(resp);
+      console.log(resp.data, resp.data.data);
       return commit("ADD_BANKS", (payload = resp.data));
     },
     createUser: async (context, e) => {

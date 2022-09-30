@@ -8,7 +8,7 @@ export default {
     },
     logout() {
       this.$store.dispatch("userModule/logout").then(() => {
-        this.$store.dispatch("productModule/clearorder")
+        this.$store.dispatch("productModule/clearorder");
         this.$router.push({ name: "home" });
         // this.$router.go();
       });
@@ -26,7 +26,9 @@ export default {
   },
   computed: mapGetters({
     user: "getUser",
+    orderState: "getOrderState",
     userState: "getUserState",
+    productState: "getProductState",
   }),
 };
 </script>
@@ -37,18 +39,25 @@ export default {
       class="justify-end hidden md:flex space-x-9 items-center px-9 w-full bg-sub dark:bg-main dark:bg-opacity-40"
     >
       <router-link v-if="user" to="/dash" class="text-white text-lg font-bold"
-        >Welcome, {{userState.bio.firstName}}</router-link
+        >Welcome, {{ userState.bio.firstName }}</router-link
       >
       <button
         v-if="user"
         @click="checkout()"
-        class="p-1 w-max text-white bg-none rounded-md m-2 shadow-sm text-sm hover:ring ring-green-200/50"
+        type="button"
+        class="inline-flex relative items-center p-3 text-sm font-medium text-center text-white rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         <img
           src="@/assets/icons/shopping-cart-24.png"
           class="h-[24px] w-[24px]"
           alt=""
         />
+        <span class="sr-only">Cart</span>
+        <div
+          class="inline-flex absolute -top-2 m-3 -right-2 justify-center items-center w-4 h-4 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-white dark:border-gray-900"
+        >
+          {{productState.order.products.length}}
+        </div>
       </button>
       <!-- <button
         v-if="user"
@@ -65,12 +74,16 @@ export default {
         >
           <div class="">
             <router-link to="/"
-              ><img src="./assets/icons/snappypayv1.svg" alt="" width="110" height="110"
+              ><img
+                src="./assets/icons/snappypayv1.svg"
+                alt=""
+                width="110"
+                height="110"
             /></router-link>
           </div>
           <div class="hidden md:flex space-x-12 text-md">
             <router-link
-              to="/buy-now"
+              to="/product"
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Product</router-link
             >
@@ -80,7 +93,7 @@ export default {
               >About Us</router-link
             > -->
             <router-link
-              to="/faq"
+              to="/contact"
               class="hover:underline dark:text-white hover:text-lg hover:font-bold"
               >Contact</router-link
             >
@@ -102,11 +115,13 @@ export default {
           >
             <router-link
               to="/about-us"
+              @click="menu = false"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >About Us</router-link
             >
             <router-link
-              to="/buy-now"
+              to="/"
+              @click="menu = false"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >Products</router-link
             >
@@ -117,16 +132,19 @@ export default {
             > -->
             <router-link
               to="/dash"
+              @click="menu = false"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >Dashboard</router-link
             >
             <router-link
               to="/faq"
+              @click="menu = false"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >Contact</router-link
             >
             <router-link
               v-if="user"
+              @click="menu = false"
               to="/checkout"
               class="hover:underline text-black hover:text-lg hover:font-bold"
               >Cart</router-link
@@ -141,7 +159,10 @@ export default {
             <a
               href="#"
               v-if="!user"
-              @click="btnClick()"
+              @click="
+                btnClick();
+                menu = false;
+              "
               class="md:hidden hover:underline hover:text-lg hover:font-bold"
               >Log In</a
             >
@@ -150,7 +171,10 @@ export default {
         <div class="hidden md:flex space-x-3">
           <button
             v-if="user"
-            @click="logout()"
+            @click="
+              logout();
+              menu = false;
+            "
             class="hidden md:block p-2 w-32 items-center text-white bottom-0 bg-sub dark:bg-main dark:bg-opacity-40 rounded-full text-lg hover:ring ring-green-200/50 hover:bg-main"
           >
             Log Out
@@ -172,7 +196,13 @@ export default {
       <!-- <h1 class="text-white text-2xl text-left font-title">
         RO<span class="text-teal-800 text-3xl">k</span>U
       </h1> -->
-      <img src="@/assets/icons/snappypayv1.svg" alt="" class="" width="110" height="110">
+      <img
+        src="@/assets/icons/snappypayv1.svg"
+        alt=""
+        class=""
+        width="110"
+        height="110"
+      />
       <!-- <div class="flex justify-center w-full text-lg space-x-10">
         <router-link v-if="user" to="/productsv2" class="text-white"
           >About</router-link
@@ -189,7 +219,11 @@ export default {
       class="font-bold flex flex-col md:flex-row items-center justify-center mb-4 w-full text-white rounded-full relative text-center p-2"
     >
       <span class="font-bold text-md">Mobile|WhatsApp:</span>
-      <a href="https://wa.me/%2B2347043151949?text=Good%20Day%2C%0AI%20have%20enquiries%20concerning%20SNAPPY%20pay" class="text-md mr-4">+234 7043151949</a>
+      <a
+        href="https://wa.me/%2B2347043151949?text=Good%20Day%2C%0AI%20have%20enquiries%20concerning%20SNAPPY%20pay"
+        class="text-md mr-4"
+        >+234 7043151949</a
+      >
       <span class="font-bold text-md">Email:</span>
       <p class="text-md">frontdesk@snappy.com.ng</p>
     </div>

@@ -10,7 +10,7 @@
     <select
       v-model="userState.businessDetails.businessType"
       name="businessType"
-      class="block border-green-700 w-4/5 border-0 border-b dark:text-black bg-gray-100 focus:border-blue-600 focus:outline-none focus:ring-0 my-3 ml-3"
+      class="block border-green-700 w-4/5 border-0 border-b dark:text-black bg-gray-100 focus:border-blue-600 focus:outline-none focus:ring-0 mt-3 ml-3"
     >
       <option value="">Choose an option</option>
       <option value="SME">Small to Medium sized enterprise</option>
@@ -22,10 +22,10 @@
       v-model="userState.businessDetails.businessName"
       type="text"
       name="businessName"
-      class="peer block w-4/5 form-input my-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2 px-2 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+      class="peer block w-4/5 form-input mt-3 ml-3 appearance-none border-0 border-b border-green-700 bg-gray-100 py-2 px-2 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
       placeholder="Business name"
     />
-    <ErrorMessage name="businessName" as="div" class="text-red-500" />
+    <ErrorMessage name="businessName" as="div" class="ml-3 text-red-500" />
 
     <div class="flex justify-end w-full pr-24">
       <button

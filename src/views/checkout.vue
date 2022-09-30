@@ -1,9 +1,9 @@
 <template>
   <div class="text-center dark:text-white">
-    <h1 class="text-6xl">Welcome, {{ userState.bio.firstName }}</h1>
+    <h1 class="text-3xl md:text-6xl">Welcome, {{ userState.bio.firstName }}</h1>
     <!-- <a href="/products">Go to geocoder</a> -->
     <button @click="log()">HERE!</button>
-    <div class="text-2xl" v-if="productState.order.products.length <= 0">
+    <div class="text-xl md:text-2xl" v-if="productState.order.products.length <= 0">
       <h1>You don't have any Items added,</h1>
       <span
         >Return to <i>Product</i> to rent a
@@ -18,7 +18,10 @@
     </p>
   </div>
   <div class="w-full h-min md:flex dark:text-white">
-    <div id="order-details" class="h-full mx-auto bg-whitep-8 w-4/5 md:w-[90%]">
+    <div
+      id="order-details"
+      class="h-full md:mx-auto bg-whitep-8 w-4/5 md:w-[90%]"
+    >
       <div
         id="details"
         class="w-full"
@@ -33,7 +36,7 @@
           }"
         >
           <table
-            class="md:table-auto table-fixed w-full"
+            class="table-auto w-full text-center"
             :class="{
               'md:col-span-1 col-span-2 md:col-start-2 row-start-1': isShipping,
             }"
@@ -41,22 +44,22 @@
             <thead>
               <tr>
                 <th
-                  class="border-b border-slate-300 text-left font-bold text-xl"
+                  class="border-b border-slate-300 text-left font-bold text-md md:text-xl"
                 >
                   Package
                 </th>
                 <th
-                  class="border-b border-slate-300 text-left font-bold text-xl"
+                  class="border-b border-slate-300 text-left font-bold text-md md:text-xl"
                 >
                   Price
                 </th>
                 <th
-                  class="border-b border-slate-300 text-left font-bold text-xl"
+                  class="border-b border-slate-300 text-left font-bold text-md md:text-xl"
                 >
                   Sum Total
                 </th>
                 <th
-                  class="border-b border-slate-300 text-left font-bold text-xl"
+                  class="border-b border-slate-300 text-left font-bold text-md md:text-xl"
                 >
                   Quantity
                 </th>
@@ -82,7 +85,7 @@
                 <td class="border-b border-slate-300 py-1">
                   <button
                     @click="clear(index, items.price)"
-                    class="shadow-md md:w-40 w-min p-3 dark:bg-main dark:bg-opacity-40 bottom-0 bg-sub text-white rounded-md text-lg hover:bg-main"
+                    class="shadow-md md:w-40 w-min p-1 md:p-3 dark:bg-main dark:bg-opacity-40 bottom-0 bg-sub text-white rounded-md text-sm md:text-lg hover:bg-main"
                     :class="{ 'w-min': isShipping }"
                   >
                     Clear product
@@ -90,15 +93,16 @@
                 </td>
               </tr>
               <tr>
-                <td class="border-b border-slate-300"></td>
-                <td class="border-b border-slate-300"></td>
                 <td
-                  class="font-bold text-lg border-b border-slate-300 text-right p-1"
+                  colspan="2"
+                  class="font-bold text-sm md:text-lg border-b border-slate-300 text-center p-1"
                 >
                   Total
                 </td>
+                <td class="border-b border-slate-300"></td>
+                <td class="border-b border-slate-300"></td>
                 <td
-                  class="font-bold text-lg border-b border-slate-300 text-right py-1"
+                  class="font-bold text-sm md:text-lg border-b border-slate-300 text-right py-1"
                 >
                   {{ getTotal }}
                 </td>
@@ -108,33 +112,34 @@
                 <td class="border-b border-slate-300"></td>
                 <td class="border-b border-slate-300"></td>
                 <td
-                  class="font-bold text-lg border-b border-slate-300 text-right p-1"
+                  class="font-bold text-sm md:text-lg border-b border-slate-300 text-right p-1"
                 >
                   Shipping
                 </td>
                 <td
-                  class="font-bold text-lg border-b border-slate-300 text-right py-1"
+                  class="font-bold text-sm md:text-lg border-b border-slate-300 text-right py-1"
                 >
                   {{ filled }}
                 </td>
                 <td class="border-b border-slate-300 py-3"></td>
               </tr>
               <tr>
-                <td class="border-b border-slate-300"></td>
-                <td class="border-b border-slate-300"></td>
                 <td
-                  class="font-bold text-lg border-b border-slate-300 text-right p-1"
+                  colspan="2"
+                  class="font-bold text-sm md:text-lg border-b border-slate-300 text-center p-1"
                 >
                   Grand Total - Inclusive of VAT(7.5%)
                 </td>
+                <td class="border-b border-slate-300"></td>
+                <td class="border-b border-slate-300"></td>
                 <td
-                  class="font-bold text-lg border-b border-slate-300 text-right py-1"
+                  class="font-bold text-sm md:text-lg border-b border-slate-300 text-right py-1"
                   v-if="!isShipping"
                 >
                   {{ getTotal + getTotal * 0.075 }}
                 </td>
                 <td
-                  class="font-bold text-lg border-b border-slate-300 text-right py-1"
+                  class="font-bold text-sm md:text-lg border-b border-slate-300 text-right py-1"
                   v-if="isShipping"
                 >
                   {{ filled + getTotal + getTotal * 0.075 }}
@@ -320,7 +325,6 @@ import shippingService from "../services/snappyService/ShippingService";
 // import { sum } from "lodash";
 import { useToast } from "vue-toastification";
 
-
 export default {
   setup() {
     // Get toast interface
@@ -404,8 +408,8 @@ export default {
     },
 
     onSuccessfulPayment: function () {
-    let newDate = new Date().toDateString();
-    // date: newDate.replace("2022", "22'"),
+      let newDate = new Date().toDateString();
+      // date: newDate.replace("2022", "22'"),
       for (let i = 0; i < this.productState.order.products.length; i++) {
         this.$store.dispatch("orderModule/fillOrder", {
           uid: this.userState.id,
