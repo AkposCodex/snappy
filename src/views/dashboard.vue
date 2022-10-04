@@ -509,7 +509,7 @@
         </tbody>
       </table>
     </div>
-    <div class="col-span-3 w-full p-3 mx-auto" id="profile" v-if="tile == 4">
+    <div class="col-span-3 w-full p-3 mx-auto" id="profile" v-if="tile == 9">
       <div class="flex justify-between">
         <img
           src="@/assets/svg/undraw_personal_info_re_ur1n.svg"
@@ -686,6 +686,183 @@
         </div>
       </div>
     </div>
+    <div class="col-span-3 w-full p-3 mx-auto" id="profile" v-if="tile == 4">
+      <div class="tabs">
+        <div class="w-full p-4 bg-gray-200 mb-4">
+          <ul class="flex justify-between w-3/5 mx-auto">
+            <li>
+              <button
+                @click="tab = 1"
+                :class="{ 'bg-white bg-opacity-70': tab == 1 }"
+                class="p-2 rounded-md"
+              >
+                Personal Info
+              </button>
+            </li>
+            <li>
+              <button
+                @click="tab = 2"
+                :class="{ 'bg-white bg-opacity-70': tab == 2 }"
+                class="p-2 rounded-md"
+              >
+                Business Details
+              </button>
+            </li>
+            <li>
+              <button
+                @click="tab = 3"
+                :class="{ 'bg-white bg-opacity-70': tab == 3 }"
+                class="p-2 rounded-md"
+              >
+                Bank Details
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="" v-if="tab == 1">
+          <label for="firstname">First name</label>
+          <p id="firstname" class="p-3 border-2 w-3/5 rounded-md">
+            {{ user.bio.firstName }}
+          </p>
+          <br />
+          <label for="">Last name</label>
+          <p id="lastname" class="p-3 border-2 w-3/5 rounded-md">
+            {{ user.bio.lastName }}
+          </p>
+          <br />
+          <label for="emailaddress">Email Address </label>
+          <div class="flex">
+            <!-- <p id="emailaddress" class="p-3 border-2 w-3/5 rounded-md">
+                {{ user.bio.emailAddress }}
+              </p> -->
+            <input
+              :disabled="!editable1"
+              class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
+              type="text"
+              name=""
+              id=""
+              v-model="user.bio.emailAddress"
+            />
+            <div class="w-[24px]">
+              <button
+                @click="
+                  editable1 = !editable1;
+                  editing();
+                  isEditing = !isEditing;
+                "
+              >
+                <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="" v-if="tab == 2">
+          <label for="businessname">Business Type </label>
+          <p id="businessname" class="p-3 border-2 w-3/5 rounded-md">
+            {{ user.businessDetails.businessType }}
+          </p>
+          <br />
+          <label for="businessname">Business Name </label>
+          <p id="businessname" class="p-3 border-2 w-3/5 rounded-md">
+            {{ user.businessDetails.businessName }}
+          </p>
+          <br />
+          <label for="phonenumber">Phone Number</label>
+          <div class="flex">
+            <!-- <p id="phonenumber" class="p-3 border-2 w-3/5 rounded-md">
+                {{ user.bio.phoneNumber }}
+              </p> -->
+            <input
+              :disabled="!editable2"
+              class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
+              type="text"
+              name=""
+              id=""
+              v-model="user.bio.phoneNumber"
+            />
+            <div class="w-[24px]">
+              <button
+                @click="
+                  editable2 = !editable2;
+                  editing();
+                  isEditing = !isEditing;
+                "
+              >
+                <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
+              </button>
+            </div>
+          </div>
+          <br />
+          <label for="address">Address</label>
+          <div class="flex">
+            <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
+                {{ user.mainAddress }}
+              </p> -->
+            <textarea
+              disabled="true"
+              class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
+              type="text"
+              name=""
+              id=""
+              v-model="user.mainAddress"
+            ></textarea>
+            <div class="w-[24px]">
+              <button
+                @click="
+                  editable2 = !editable2;
+                  isEditing = !isEditing;
+                  editing();
+                "
+              >
+                <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="" v-if="tab == 3">
+          <label for="address">Bank Code</label>
+          <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
+            {{ user.account.bank }}
+          </p> -->
+          <br />
+          <input
+            :disabled="!editable3"
+            class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
+            type="text"
+            name=""
+            id=""
+            v-model="user.account.bank"
+          />
+          <br /><br />
+          <label for="address">Acount Name</label>
+          <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
+            {{ user.account.accountName }}
+          </p> --><br />
+          <input
+            :disabled="!editable3"
+            class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
+            type="text"
+            name=""
+            id=""
+            v-model="user.account.accountName"
+          /><br />
+          <br />
+          <label for="address">Acount Number</label>
+          <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
+            {{ user.account.accountNumber }}
+          </p> --><br />
+          <input
+            :disabled="!editable3"
+            class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
+            type="text"
+            name=""
+            id=""
+            v-model="user.account.accountNumber"
+          />
+          <br />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -708,6 +885,7 @@ export default {
       editable1: false,
       editable2: false,
       editable3: false,
+      tab: 1,
     };
   },
   computed: {
