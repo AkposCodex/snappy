@@ -20,7 +20,7 @@ class AuthService extends ApiService {
   }
 
   init = async () => {
-    const token = this.login();
+    // const token = this.login();
     // const user = this.getUser();
   };
 

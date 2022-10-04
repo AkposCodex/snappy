@@ -1,141 +1,297 @@
-<template>
-  <div class="">
-    <form action="">
-      <label for="">Address</label>
-      <input type="text" name="" id="" v-model="addr" />
-    </form>
-
-    <button @click="pointLoader()">Here</button><br />
-    <button @click="loginLoader()">GIG login</button><br />
-    <button @click="stationLoader()">GIG stations</button><br />
-    <button @click="orderLoader()">GIG stations</button>
-    <div class="" v-for="resp in response.Object">
-      <div class="">{{ resp.StationId }}</div>
+<template lang="">
+  <div class="w-full mx-auto pt-10">
+    <!-- <h1 class="text-black text-4xl p-[3rem] font-title">RO<span
+              class="text-teal-800 text-6xl">k</span>U</h1> -->
+    <div class="px-9 dark:text-white">
+      <h1 class="text-center font-bold dark:text-white text-3xl">
+        Purchase the Key to a Greater Business Solution
+      </h1>
+      <h1 class="text-xl text-center dark:text-gray-200 pt-3">
+      Our Pricing Plans provide a degree of flexibility for businesses of all
+      sizes
+    </h1>
+    <p class=" text-center">
+      Rent our POS for a period of time or even purchase it outright to access
+      our payment platform for your business needs
+    </p>
+      <!-- <p class="text-center">
+        Below are our plans to get you started on the path to success. <br />
+        Choose from any of the plans to get started.
+      </p> -->
     </div>
-    <select
-      name="bankOptions"
-      id=""
-      autocomplete="billing"
-      v-model="bankOptions"
-      v-if="banks[0]"
-      @change="onChange"
-    >
-      <option value="null"></option>
-      <option
-        :value="option.id"
-        v-for="option in banks[0].data"
-        :key="option.id"
-      >
-        {{ option.name }}
-      </option>
-    </select>
+
+    <main class="flex flex-col space-y-10 items-center w-full mx-auto  my-12 pt-6">
+      <div class="dark:bg-opacity-40 bg-white p-6 shadow-md rounded-3xl w-[95%] " id="starter">
+        <div class="md:border-dashed md:w-full md:border-2 md:border-[#F1F1F2] md:p-5 md:rounded-2xl flex flex-col md:flex-row space-y-3 md:space-x-9 md:justify-center items-center">
+          <img src="@/assets/images/snappy-pos.png" class="md:w-2/5 w-4/5 h-4/5 " alt="" />
+          <div class="flex flex-col w-full dark:text-white space-y-3 items-center">
+            <div class="">
+              <p class="name text-center md:text-4xl">Starter</p>
+              <span class="pricing text-3xl md:text-3xl">N2,500 / <span class="text-2xl">Day</span></span>
+            </div>
+            <div class="rounded-3xl border-[#F1F1F2] border-dashed w-full /*border-double*/ p-3 md:p-9 border-2 ">
+            <ul>
+            <li class="p-1">
+                Recommended for trade fairs and parties that only go on for a few
+              days</li>
+            </ul>
+              <ul id="features" class="flex items-start space-y-2 flex-col">
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">No minimum transaction volume</p>
+                </li>
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">24Hr Customer Support</p>
+                </li>
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">1.5% transaction fees capped at N1000 </p>
+                </li>
+              </ul>
+            </div>
+            <div class="w-full flex flex-col items-center space-y-3" v-if="user">
+              <div class="flex space-x-4" >
+                  <button
+                      class="font-bold rounded-full bg-sub text-white px-2"
+                      @click="incrStarter()"
+                  >+</button>
+                  <p>{{productState.starter_qty}}</p>
+                  <button
+                      class="font-bold rounded-full bg-sub text-white px-2"
+                      @click="decrStarter"
+                  >-</button>
+              </div>
+              <button
+                    @click="checkout(2500, 'Starter Package' ,productState.starter_qty)"
+                    class="bg-sub text-white flex space-x-4 items-center justify-center  dark:bg-sub w-4/5 rounded-full shadow-md py-2"
+                  >
+                  <img
+                src="@/assets/icons/shopping-cart-24.png"
+                class="h-[24px] w-[24px]"
+                alt=""
+              /> <p>Add to Cart</p>
+                  </button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="dark:bg-opacity-40 bg-white p-6 shadow-md rounded-3xl w-[95%]" id="enterprise">
+        <div class="md:border-dashed md:w-full md:border-2 md:border-[#F1F1F2] md:p-5 md:rounded-2xl flex flex-col md:flex-row space-y-3 md:space-x-9 md:justify-center items-center">
+          <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5 w-4/5 h-4/5 " alt="" />
+          <div class="flex flex-col w-full dark:text-white space-y-3 items-center">
+            <div class="">
+              <p class="name text-center md:text-4xl">Enterprise</p>
+              <span class="pricing text-3xl md:text-3xl">N30,000 / <span class="text-2xl">Month</span></span>
+            </div>
+            <div class="rounded-3xl border-[#F1F1F2] w-full border-dashed  /*border-double*/ p-3 md:p-9 border-2 ">
+              <ul>
+              <li class="p-1">
+                  Recommended for Seasonal businesses </li>
+            </ul>
+              <ul class="flex items-start space-y-2 flex-col">
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">No minimum transaction volume</p>
+                </li>
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">24Hr Customer Support</p>
+                </li>
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">1% transaction fees capped at N1000 </p>
+                </li>
+              </ul>
+            </div>
+            <div class="w-full flex flex-col items-center space-y-3" v-if="user">
+              <div class="flex space-x-4">
+                  <button
+                      class="font-bold rounded-full bg-sub text-white px-2"
+                      @click="incrEnterprise()"
+                  >+</button>
+                  <p>{{productState.enterprise_qty}}</p>
+                  <button
+                      class="font-bold rounded-full bg-sub text-white px-2"
+                      @click="decrEnterprise()"
+                  >-</button>
+              </div>
+              <button
+                    @click="checkout(30000, 'Enterprise Package' ,productState.enterprise_qty)"
+                    class="bg-sub text-white flex space-x-4 items-center justify-center  dark:bg-sub w-4/5 rounded-full shadow-md py-2"
+                  >
+                  <img
+                src="@/assets/icons/shopping-cart-24.png"
+                class="h-[24px] w-[24px]"
+                alt=""
+              /> <p>Add to Cart</p>
+                  </button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="dark:bg-opacity-40 bg-white p-6 shadow-md rounded-3xl w-[95%]" id="bespoke">
+        <div class="md:border-dashed md:w-full md:border-2 md:border-[#F1F1F2] md:p-5 md:rounded-2xl flex flex-col md:flex-row space-y-3 md:space-x-9 md:justify-center items-center">
+          <img src="https://www.horizonpay.ng/assets/img/partner6.png" class="md:w-2/5 w-4/5 h-4/5 " alt="" />
+          <div class="flex flex-col w-full dark:text-white space-y-3 items-center">
+            <div class="">
+              <p class="name text-center md:text-4xl">Bespoke</p>
+              <span class="pricing text-3xl md:text-3xl">N120,000<span class="text-2xl"></span></span>
+            </div>
+            <div class="rounded-3xl border-[#F1F1F2] w-full border-dashed /*border-double*/ p-3 md:p-9 border-2 ">
+              <ul>
+            <li>Up front purchase of the terminal unit</li>
+          </ul>
+              <ul class="flex items-start space-y-2 flex-col">
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">No minimum transaction volume</p>
+                </li>
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">24Hr Customer Support</p>
+                </li>
+                <li class="flex justify-center space-x-2 items-center">
+                  <div class="w-[24px] h-[24px] bg-[url('@/assets/icons/light-light.svg')] dark:bg-[url('@/assets/icons/light-dark.svg')]"></div><p class="text-[14px] md:text-lg">0.5% transaction fees capped at N1000 </p>
+                </li>
+              </ul>
+            </div>
+            <div class="w-full flex flex-col items-center space-y-3" v-if="user">
+              <div class="flex space-x-4" >
+                  <button
+                      class="font-bold rounded-full bg-sub text-white px-2"
+                      @click="incrBespoke()"
+                  >+</button>
+                  <p>{{productState.bespoke_qty}}</p>
+                  <button
+                      class="font-bold rounded-full bg-sub text-white px-2"
+                      @click="decrBespoke()"
+                  >-</button>
+              </div>
+              <button
+                    @click="checkout(120000, 'Bespoke Package' ,productState.bespoke_qty)"
+                    class="bg-sub text-white flex space-x-4 items-center justify-center  dark:bg-sub w-4/5 rounded-full shadow-md py-2"
+                  >
+                  <img
+                src="@/assets/icons/shopping-cart-24.png"
+                class="h-[24px] w-[24px]"
+                alt=""
+              /> <p>Add to Cart</p>
+                  </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="bg-green-600 hidden text-white font-bold text-3xl text-center p-9">
+        <h1>What are the benefits of <span class="font-title">Snappy?</span></h1>
+        <p class="text-2xl">- &#128293 FIRE MARKETTING</p>
+        <p class="text-2xl">- &#128293 FIRE MARKETTING</p>
+        <p class="text-2xl">- &#128293 FIRE MARKETTING</p>
+    </div>
   </div>
-  <div class=""><button @click="bankLoader()">Load Banks</button><br /></div>
-  <div class=""><button @click="createUser()">Create User</button><br /></div>
-  <div class=""><button @click="verifyUser()">Verify User</button><br /></div>
 </template>
 <script>
 import { mapGetters } from "vuex";
-import shippingService from "../services/snappyService/ShippingService";
+import { useToast } from "vue-toastification";
 export default {
-  components: {},
-  data() {
-    return {
-      field: this.response,
-      addr: "",
-      apiKey: "AIzaSyBVaxlAuXmjnyKunDaTn_Sl9s8GWsixWzQ",
-      sportsData: ["Badminton", "Cricket", "Football", "Golf", "Tennis"],
-      bankOptions: "",
-      NG: "NG",
-    };
+  props: ["price"],
+  setup() {
+    // Get toast interface
+    const toast = useToast();
+    return { toast };
   },
   methods: {
-    onChange(event) {
-      console.log(this.bankOptions);
-    },
-    pointLoader() {
-      console.log("accessed");
-      this.$store.dispatch("loadPoints", {
-        address: this.addr,
+    checkout: function (price, product, qty) {
+      if(qty<=0){
+        this.toast.warning("Please pick a Quantity", {timeout:2000});
+      }else{
+        this.$store.dispatch("productModule/updateorder", {
+        price: price *qty,
+        product,
+        qty,
+      }).then(()=>{
+        console.log(price, product, image);
+        this.$store.dispatch("productModule/updateTotal",price*qty);
+        this.$store.dispatch("productModule/clearQty");
       });
-      console.log("address" + this.addr);
+      this.toast.success("Item added to cart", {timeout:1500});
+      console.log(this.productState.order.products);
+      }
+      // this.$router.push({
+      //   name: "checkout",
+      //   params: { price: price, product: product, image: image },
+      // });
     },
-    // loginLoader() {
-    //   this.$store.dispatch("loadShipmentPrice", data);
-    // },
-    stationLoader() {
-      this.$store.dispatch("loadStations");
+    incrStarter(){
+      this.$store.dispatch("productModule/incrementStarter");
     },
-    orderLoader() {
-      this.$store.dispatch("loadShipmentPrice", {
-        ReceiverAddress: this.mainAddress,
-        CustomerCode: "ECO001449",
-        SenderLocality: "Eti Osa",
-        SenderAddress:
-          "26B Ibeju Lekki Street, Dolphin Estate, Ikoyi Obalende, Lagos, Nigeria",
-        VehicleType: "BIKE",
-        ReceiverPhoneNumber: this.user.bio.phoneNumber,
-        SenderPhoneNumber: "07043151949",
-        SenderName: "SNAPPY PAY",
-        UserId: "f02ff192-11af-46b6-bd0a-bf118d0c3d47",
-        ReceiverStationId: "4",
-        SenderStationId: "4",
-        ReceiverLocation: this.user.geoLocation,
-        SenderLocation: shippingService.senderLocation,
-        PreShipmentItems: [
-          {
-            Quantity: "1",
-            Weight: "1",
-            ItemType: "Normal",
-            WeightRange: "0",
-            ItemName: "Shoe Lace",
-            Value: "1000",
-            ShipmentType: "Regular",
-          },
-        ],
+    decrStarter(){
+      if(this.productState.starter_qty<=0){
+        return;
+      }this.$store.dispatch("productModule/decrementStarter");
+    },
+    incrEnterprise(){
+      this.$store.dispatch("productModule/incrementEnterprise");
+    },
+    decrEnterprise(){
+      if(this.productState.enterprise_qty<=0){
+        return;
+      }this.$store.dispatch("productModule/decrementEnterprise");
+    },
+    incrBespoke(){
+      this.$store.dispatch("productModule/incrementBespoke");
+    },
+    decrBespoke(){
+      if(this.productState.bespoke_qty<=0){
+        return;
+      }else{this.$store.dispatch("productModule/decrementBespoke");}
+    },
+     purchase: function (price, product, image, qty) {
+      this.$store.dispatch("productModule/updateProducts", {
+        price,
+        product,
+        image,
+        qty,
       });
-    },
-    bankLoader() {
-      this.$store.dispatch("loadBanks");
-      console.log("banks lmao: ", this.banks);
-    },
-    async createUser() {
-      const resp = await this.$store.dispatch("createUser", {
-        email: "johndoe@gmail.com",
-        first_name: this.user.bio.firstName,
-        last_name: this.user.bio.lastName,
-        phone: this.user.bio.phoneNumber,
-      });
-      this.$store.dispatch(
-        "userModule/setCustomerCode",
-        resp.data.data.customer_code
-      );
-      console.log(this.user.bio.customerCode);
-      console.log(resp.data.data);
-    },
-    verifyUser() {
-      console.log("Starting");
-      this.$store.dispatch("verifyUser", {
-        country: this.NG,
-        type: "bank_account",
-        account_number: this.user.account.accountNumber,
-        bvn: this.user.bio.bvn,
-        bank_code: this.user.account.bank,
-        first_name: this.user.bio.firstName,
-        last_name: this.user.bio.lastName,
-      });
+      console.log(price, product, image);
+      console.log(this.productState.products);
+      window.alert(product + " \ added to cart");
+      // this.$router.push({
+      //   name: "checkout",
+      //   params: { price: price, product: product, image: image },
+      // });
     },
   },
   computed: {
     ...mapGetters({
-      user: "getUserState",
-      mainAddress: "getAddress",
-      banks: "getBanks",
+      productState: "getProductState",
+      user: "getUser"
     }),
-    response() {
-      return this.$store.dispatch("loadStations");
-    },
   },
 };
 </script>
-<style></style>
+<style>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card {
+    /* border-radius: theme("borderRadius.lg");
+    padding: theme("spacing.3");
+    box-shadow: theme("boxShadow.md"); */
+  }
+
+  .price {
+  }
+
+  .pricing {
+    padding-bottom: theme("spacing.6");
+  }
+
+  .name {
+    font-size: theme("fontSize.2xl");
+  }
+
+  .subscript{
+    font-size: theme("fontSize.sm");
+    color: theme("colors.yellow.900")
+  }
+}
+</style>

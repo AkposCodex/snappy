@@ -1,7 +1,8 @@
 <template>
   <div class="md:grid md:grid-cols-4 auto-cols-min grid-flow-col w-full">
     <div
-      class="md:w-full h-full md:block hidden bg-main dark:bg-opacity-40 p-2 text-white relative"
+      id="sidebar"
+      class="md:w-full h-[100vh] md:block hidden bg-main dark:bg-opacity-40 p-2 text-white relative"
     >
       <div id="top" class="">
         <div
@@ -509,192 +510,15 @@
         </tbody>
       </table>
     </div>
-    <div class="col-span-3 w-full p-3 mx-auto" id="profile" v-if="tile == 9">
-      <div class="flex justify-between">
-        <img
-          src="@/assets/svg/undraw_personal_info_re_ur1n.svg"
-          width="600"
-          height="100"
-          alt=""
-        />
-        <div class="p-6">
-          <div class="border-2 p-4 rounded-md">
-            <div
-              class="bg-main border-2 p-3 rounded-md text-white border-main bg-opacity-60"
-            >
-              <p class="font-bold">Completed Orders</p>
-              <p class="font-bold">13</p>
-            </div>
-            <p class="font-bold">Uncompleted Orders</p>
-            <p>2</p>
-            <p class="font-bold">Total</p>
-            <p>15</p>
-          </div>
-        </div>
-      </div>
-      <div class="ml-9 grid grid-cols-2">
-        <div class="">
-          <h1 class="text-xl font-bold">Personal Info</h1>
-          <label for="firstname">First name</label>
-          <p id="firstname" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.bio.firstName }}
-          </p>
-          <label for="">Last name</label>
-          <p id="lastname" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.bio.lastName }}
-          </p>
-          <label for="emailaddress">Email Address </label>
-          <div class="flex">
-            <!-- <p id="emailaddress" class="p-3 border-2 w-3/5 rounded-md">
-              {{ user.bio.emailAddress }}
-            </p> -->
-            <input
-              :disabled="!editable1"
-              class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
-              type="text"
-              name=""
-              id=""
-              v-model="user.bio.emailAddress"
-            />
-            <div class="w-[24px]">
-              <button
-                @click="
-                  editable1 = !editable1;
-                  editing();
-                  isEditing = !isEditing;
-                "
-              >
-                <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="">
-          <h1 class="text-xl font-bold">Business Details</h1>
-          <label for="businessname">Business Type </label>
-          <p id="businessname" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.businessDetails.businessType }}
-          </p>
-          <label for="businessname">Business Name </label>
-          <p id="businessname" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.businessDetails.businessName }}
-          </p>
-          <label for="phonenumber">Phone Number</label>
-          <div class="flex">
-            <!-- <p id="phonenumber" class="p-3 border-2 w-3/5 rounded-md">
-              {{ user.bio.phoneNumber }}
-            </p> -->
-            <input
-              :disabled="!editable2"
-              class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
-              type="text"
-              name=""
-              id=""
-              v-model="user.bio.phoneNumber"
-            />
-            <div class="w-[24px]">
-              <button
-                @click="
-                  editable2 = !editable2;
-                  editing();
-                  isEditing = !isEditing;
-                "
-              >
-                <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
-              </button>
-            </div>
-          </div>
-          <label for="address">Address</label>
-          <div class="flex">
-            <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
-              {{ user.mainAddress }}
-            </p> -->
-            <textarea
-              disabled="true"
-              class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
-              type="text"
-              name=""
-              id=""
-              v-model="user.mainAddress"
-            ></textarea>
-            <div class="w-[24px]">
-              <button
-                @click="
-                  editable2 = !editable2;
-                  isEditing = !isEditing;
-                  editing();
-                "
-              >
-                <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="">
-          <div class="flex">
-            <h1 class="text-xl font-bold">Bank Details</h1>
-            <div class="w-[24px]">
-              <button
-                @click="
-                  editable3 = !editable3;
-                  editing();
-                  isEditing = !isEditing;
-                "
-              >
-                <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
-              </button>
-            </div>
-          </div>
-          <label for="address">Bank Code</label>
-          <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.account.bank }}
-          </p> -->
-          <br />
-          <input
-            :disabled="!editable3"
-            class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
-            type="text"
-            name=""
-            id=""
-            v-model="user.account.bank"
-          />
-          <br />
-          <label for="address">Acount Name</label>
-          <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.account.accountName }}
-          </p> --><br />
-          <input
-            :disabled="!editable3"
-            class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
-            type="text"
-            name=""
-            id=""
-            v-model="user.account.accountName"
-          /><br />
-          <label for="address">Acount Number</label>
-          <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.account.accountNumber }}
-          </p> --><br />
-          <input
-            :disabled="!editable3"
-            class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
-            type="text"
-            name=""
-            id=""
-            v-model="user.account.accountNumber"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="col-span-3 w-full p-3 mx-auto" id="profile" v-if="tile == 4">
-      <div class="tabs">
-        <div class="w-full p-4 bg-gray-200 mb-4">
+    <div class="col-span-3 w-full mx-auto" id="profile" v-if="tile == 4">
+      <div id="tabs">
+        <div class="w-full p-4 mb-4">
           <ul class="flex justify-between w-3/5 mx-auto">
             <li>
               <button
                 @click="tab = 1"
-                :class="{ 'bg-white bg-opacity-70': tab == 1 }"
-                class="p-2 rounded-md"
+                :class="{ 'bg-white bg-opacity-40': tab == 1 }"
+                class="p-2 rounded-lg bg-gray-700 text-white"
               >
                 Personal Info
               </button>
@@ -702,8 +526,8 @@
             <li>
               <button
                 @click="tab = 2"
-                :class="{ 'bg-white bg-opacity-70': tab == 2 }"
-                class="p-2 rounded-md"
+                :class="{ 'bg-white bg-opacity-40': tab == 2 }"
+                class="p-2 rounded-lg bg-gray-700 text-white"
               >
                 Business Details
               </button>
@@ -711,155 +535,157 @@
             <li>
               <button
                 @click="tab = 3"
-                :class="{ 'bg-white bg-opacity-70': tab == 3 }"
-                class="p-2 rounded-md"
+                :class="{ 'bg-white bg-opacity-40': tab == 3 }"
+                class="p-2 rounded-lg bg-gray-700 text-white"
               >
                 Bank Details
               </button>
             </li>
           </ul>
         </div>
-        <div class="" v-if="tab == 1">
-          <label for="firstname">First name</label>
-          <p id="firstname" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.bio.firstName }}
-          </p>
-          <br />
-          <label for="">Last name</label>
-          <p id="lastname" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.bio.lastName }}
-          </p>
-          <br />
-          <label for="emailaddress">Email Address </label>
-          <div class="flex">
-            <!-- <p id="emailaddress" class="p-3 border-2 w-3/5 rounded-md">
-                {{ user.bio.emailAddress }}
-              </p> -->
-            <input
-              :disabled="!editable1"
-              class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
-              type="text"
-              name=""
-              id=""
-              v-model="user.bio.emailAddress"
-            />
-            <div class="w-[24px]">
-              <button
-                @click="
-                  editable1 = !editable1;
-                  editing();
-                  isEditing = !isEditing;
-                "
-              >
-                <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
-              </button>
+        <div class="p-3">
+          <div class="" v-if="tab == 1">
+            <label for="firstname">First name</label>
+            <p id="firstname" class="p-3 border-2 w-3/5 rounded-md">
+              {{ user.bio.firstName }}
+            </p>
+            <br />
+            <label for="">Last name</label>
+            <p id="lastname" class="p-3 border-2 w-3/5 rounded-md">
+              {{ user.bio.lastName }}
+            </p>
+            <br />
+            <label for="emailaddress">Email Address </label>
+            <div class="flex">
+              <!-- <p id="emailaddress" class="p-3 border-2 w-3/5 rounded-md">
+                  {{ user.bio.emailAddress }}
+                </p> -->
+              <input
+                :disabled="!editable1"
+                class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
+                type="text"
+                name=""
+                id=""
+                v-model="user.bio.emailAddress"
+              />
+              <!-- <div class="w-[24px]">
+                <button
+                  @click="
+                    editable1 = !editable1;
+                    editing();
+                    isEditing = !isEditing;
+                  "
+                >
+                  <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
+                </button>
+              </div> -->
             </div>
           </div>
-        </div>
-        <div class="" v-if="tab == 2">
-          <label for="businessname">Business Type </label>
-          <p id="businessname" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.businessDetails.businessType }}
-          </p>
-          <br />
-          <label for="businessname">Business Name </label>
-          <p id="businessname" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.businessDetails.businessName }}
-          </p>
-          <br />
-          <label for="phonenumber">Phone Number</label>
-          <div class="flex">
-            <!-- <p id="phonenumber" class="p-3 border-2 w-3/5 rounded-md">
-                {{ user.bio.phoneNumber }}
-              </p> -->
-            <input
-              :disabled="!editable2"
-              class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
-              type="text"
-              name=""
-              id=""
-              v-model="user.bio.phoneNumber"
-            />
-            <div class="w-[24px]">
-              <button
-                @click="
-                  editable2 = !editable2;
-                  editing();
-                  isEditing = !isEditing;
-                "
-              >
-                <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
-              </button>
+          <div class="" v-if="tab == 2">
+            <label for="businessname">Business Type </label>
+            <p id="businessname" class="p-3 border-2 w-3/5 rounded-md">
+              {{ user.businessDetails.businessType }}
+            </p>
+            <br />
+            <label for="businessname">Business Name </label>
+            <p id="businessname" class="p-3 border-2 w-3/5 rounded-md">
+              {{ user.businessDetails.businessName }}
+            </p>
+            <br />
+            <label for="phonenumber">Phone Number</label>
+            <div class="flex">
+              <!-- <p id="phonenumber" class="p-3 border-2 w-3/5 rounded-md">
+                  {{ user.bio.phoneNumber }}
+                </p> -->
+              <input
+                :disabled="!editable2"
+                class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
+                type="text"
+                name=""
+                id=""
+                v-model="user.bio.phoneNumber"
+              />
+              <!-- <div class="w-[24px]">
+                <button
+                  @click="
+                    editable2 = !editable2;
+                    editing();
+                    isEditing = !isEditing;
+                  "
+                >
+                  <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
+                </button>
+              </div> -->
+            </div>
+            <br />
+            <label for="address">Address</label>
+            <div class="flex">
+              <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
+                  {{ user.mainAddress }}
+                </p> -->
+              <textarea
+                disabled="true"
+                class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
+                type="text"
+                name=""
+                id=""
+                v-model="user.mainAddress"
+              ></textarea>
+              <div class="w-[24px]">
+                <button
+                  @click="
+                    editable2 = !editable2;
+                    isEditing = !isEditing;
+                    editing();
+                  "
+                >
+                  <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
+                </button>
+              </div>
             </div>
           </div>
-          <br />
-          <label for="address">Address</label>
-          <div class="flex">
+          <div class="" v-if="tab == 3">
+            <label for="address">Bank Code</label>
             <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
-                {{ user.mainAddress }}
-              </p> -->
-            <textarea
-              disabled="true"
+              {{ user.account.bank }}
+            </p> -->
+            <br />
+            <input
+              :disabled="!editable3"
               class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
               type="text"
               name=""
               id=""
-              v-model="user.mainAddress"
-            ></textarea>
-            <div class="w-[24px]">
-              <button
-                @click="
-                  editable2 = !editable2;
-                  isEditing = !isEditing;
-                  editing();
-                "
-              >
-                <img src="@/assets/icons/pencil-48.png" widht="20" alt="" />
-              </button>
-            </div>
+              v-model="user.account.bank"
+            />
+            <br /><br />
+            <label for="address">Acount Name</label>
+            <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
+              {{ user.account.accountName }}
+            </p> --><br />
+            <input
+              :disabled="!editable3"
+              class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
+              type="text"
+              name=""
+              id=""
+              v-model="user.account.accountName"
+            /><br />
+            <br />
+            <label for="address">Acount Number</label>
+            <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
+              {{ user.account.accountNumber }}
+            </p> --><br />
+            <input
+              :disabled="!editable3"
+              class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
+              type="text"
+              name=""
+              id=""
+              v-model="user.account.accountNumber"
+            />
+            <br />
           </div>
-        </div>
-        <div class="" v-if="tab == 3">
-          <label for="address">Bank Code</label>
-          <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.account.bank }}
-          </p> -->
-          <br />
-          <input
-            :disabled="!editable3"
-            class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
-            type="text"
-            name=""
-            id=""
-            v-model="user.account.bank"
-          />
-          <br /><br />
-          <label for="address">Acount Name</label>
-          <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.account.accountName }}
-          </p> --><br />
-          <input
-            :disabled="!editable3"
-            class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
-            type="text"
-            name=""
-            id=""
-            v-model="user.account.accountName"
-          /><br />
-          <br />
-          <label for="address">Acount Number</label>
-          <!-- <p id="address" class="p-3 border-2 w-3/5 rounded-md">
-            {{ user.account.accountNumber }}
-          </p> --><br />
-          <input
-            :disabled="!editable3"
-            class="p-3 border-2 border-gray-200 w-3/5 rounded-md"
-            type="text"
-            name=""
-            id=""
-            v-model="user.account.accountNumber"
-          />
-          <br />
         </div>
       </div>
     </div>

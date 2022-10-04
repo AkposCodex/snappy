@@ -57,7 +57,7 @@
     />
   </div>
   <div
-    class="text-pink p-6 flex sm:flex-row flex-col justify-between items-center"
+    class="text-pink p-6 flex md:flex-row-reverse sm:flex-row flex-col justify-between items-center"
   >
     <div class="sm:w-1/2 p-3">
       <div>
@@ -97,7 +97,7 @@
     />
   </div>
   <div
-    class="text-pink p-6 flex sm:flex-row flex-col justify-between items-center"
+    class="text-pink p-6 flex md:flex-row-reverse sm:flex-row flex-col justify-between items-center"
   >
     <div class="sm:w-1/2 p-3">
       <div>

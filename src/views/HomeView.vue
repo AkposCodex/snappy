@@ -85,7 +85,7 @@ export default {
         />
       </div>
       <div
-        class="text-pink p-6 flex items-center sm:flex-row flex-col justify-between"
+        class="text-pink p-6 flex md:flex-row-reverse items-center sm:flex-row flex-col justify-between"
       >
         <div class="sm:w-1/2 p-3">
           <div>

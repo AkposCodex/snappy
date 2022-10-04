@@ -49,12 +49,12 @@ const router = createRouter({
     {
       path: "/geotest",
       name: "geotest",
-      component: () => import('@/views/ProductsView.vue')
+      component: () => import('@/views/GeoView.vue')
     },
     {
-      path: "/product",
+      path: "/products",
       name: "pricing",
-      component: () => import("@/views/ProductView.vue"),
+      component: () => import("@/views/ProductsView.vue"),
       meta: {
         needsAuth: true,
       },
