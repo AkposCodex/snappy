@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="text-center py-20 dark:text-white">
-    <h1 class="text-3xl font-bold text-black">
+    <h1 class="text-3xl font-bold dark:text-white text-black">
       Payment in a <span class="text-sub font-bold">S</span>nap!
     </h1>
     <p class="text-xl">
@@ -33,7 +33,7 @@
   <div
     class="text-pink p-6 flex items-center sm:flex-row flex-col justify-between"
   >
-    <div class="sm:w-1/2 p-3">
+    <div class="sm:w-1/2 p-3 dark:text-white">
       <div>
         <h3 class="text-4xl font-bold p-3">Get paid, Today!</h3>
         <p class="text-2xl p-3">SAME-DAY TRANSFERS</p>
@@ -57,7 +57,7 @@
     />
   </div>
   <div
-    class="text-pink p-6 flex md:flex-row-reverse sm:flex-row flex-col justify-between items-center"
+    class="text-pink p-6 flex dark:text-white md:flex-row-reverse sm:flex-row flex-col justify-between items-center"
   >
     <div class="sm:w-1/2 p-3">
       <div>
@@ -77,7 +77,7 @@
     />
   </div>
   <div
-    class="text-pink p-6 flex sm:flex-row flex-col justify-between items-center"
+    class="text-pink p-6 flex dark:text-white sm:flex-row flex-col justify-between items-center"
   >
     <div class="sm:w-1/2 p-3">
       <div>
@@ -97,7 +97,7 @@
     />
   </div>
   <div
-    class="text-pink p-6 flex md:flex-row-reverse sm:flex-row flex-col justify-between items-center"
+    class="text-pink p-6 flex dark:text-white md:flex-row-reverse sm:flex-row flex-col justify-between items-center"
   >
     <div class="sm:w-1/2 p-3">
       <div>

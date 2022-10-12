@@ -65,7 +65,7 @@ export default {
         till, the table or on the move.
       </p>
       <div
-        class="text-pink p-6 flex sm:flex-row flex-col justify-between items-center"
+        class="text-pink p-6 flex dark:text-white sm:flex-row flex-col justify-between items-center"
       >
         <div class="sm:w-1/2 p-3">
           <div>
@@ -85,7 +85,7 @@ export default {
         />
       </div>
       <div
-        class="text-pink p-6 flex md:flex-row-reverse items-center sm:flex-row flex-col justify-between"
+        class="text-pink p-6 flex dark:text-white md:flex-row-reverse items-center sm:flex-row flex-col justify-between"
       >
         <div class="sm:w-1/2 p-3">
           <div>
@@ -111,7 +111,7 @@ export default {
         />
       </div>
       <div
-        class="text-pink p-6 flex items-center sm:flex-row flex-col justify-between"
+        class="text-pink p-6 flex dark:text-white items-center sm:flex-row flex-col justify-between"
       >
         <div class="sm:w-1/2 p-3">
           <div>

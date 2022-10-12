@@ -103,12 +103,12 @@ const router = createRouter({
     },
   ],
 });
-// router.beforeResolve((to,from,next) =>{
-//   if(to.name){
-//     NProgress.start()
-//   }
-//   next()
-// })
+router.beforeResolve((to,from,next) =>{
+  if(to.name){
+    NProgress.start()
+  }
+  next()
+})
 
 // router.afterEach((to, from) => {
 //   // Complete the animation of the route progress bar.

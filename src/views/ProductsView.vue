@@ -206,7 +206,7 @@ export default {
         product,
         qty,
       }).then(()=>{
-        console.log(price, product, image);
+        console.log(price, product);
         this.$store.dispatch("productModule/updateTotal",price*qty);
         this.$store.dispatch("productModule/clearQty");
       });

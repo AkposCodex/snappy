@@ -1,5 +1,5 @@
 <template>
-  <div class="md:grid md:grid-cols-4 auto-cols-min grid-flow-col w-full">
+  <div class="md:grid md:grid-cols-4 dark:text-white auto-cols-min grid-flow-col w-full">
     <div
       id="sidebar"
       class="md:w-full h-[100vh] md:block hidden bg-main dark:bg-opacity-40 p-2 text-white relative"
@@ -319,7 +319,7 @@
         <h1 class="text-left uppercase text-3xl">Inventory</h1>
         <button
           @click="show()"
-          class="w-10 h-10 border-solid border-2 border-black text-black text-lg rounded-lg"
+          class="w-10 h-10 border-solid border-2 border-black dark:border-white dark:text-white text-black text-lg rounded-lg"
         >
           +
         </button>
@@ -546,12 +546,12 @@
         <div class="p-3">
           <div class="" v-if="tab == 1">
             <label for="firstname">First name</label>
-            <p id="firstname" class="p-3 border-2 w-3/5 rounded-md">
+            <p id="firstname" class="p-3 border-2 w-3/5 dark:bg-white rounded-md">
               {{ user.bio.firstName }}
             </p>
             <br />
             <label for="">Last name</label>
-            <p id="lastname" class="p-3 border-2 w-3/5 rounded-md">
+            <p id="lastname" class="p-3 border-2 w-3/5 dark:bg-white rounded-md">
               {{ user.bio.lastName }}
             </p>
             <br />
@@ -583,12 +583,12 @@
           </div>
           <div class="" v-if="tab == 2">
             <label for="businessname">Business Type </label>
-            <p id="businessname" class="p-3 border-2 w-3/5 rounded-md">
+            <p id="businessname" class="p-3 border-2 w-3/5 dark:bg-white rounded-md">
               {{ user.businessDetails.businessType }}
             </p>
             <br />
             <label for="businessname">Business Name </label>
-            <p id="businessname" class="p-3 border-2 w-3/5 rounded-md">
+            <p id="businessname" class="p-3 border-2 w-3/5 dark:bg-white rounded-md">
               {{ user.businessDetails.businessName }}
             </p>
             <br />
