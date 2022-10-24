@@ -1,4 +1,5 @@
 <template lang="">
+  <combinedNav></combinedNav>
   <div class="flex w-full justify-between">
     <div
       class="w-[20rem] md:w-[30rem] hidden md:block h-min m-9 before:content-['Finna act up'] before:text-9xl before:text-red-200 block before:rounded-full before:w-[15rem] before:bg-sub before:bg-opacity-40 before:shadow-lg before:h-[15rem] before:bottom-5 before:right-[-6rem] before:absolute before:backdrop-blur text-center"
@@ -7,7 +8,7 @@
         class="rounded-full shadow-lg relative bg-[url('https://3geepay.com.ng/wp-content/uploads/2020/07/3gpay-thumb-14.jpg')] h-[30rem] bg-center bg-cover"
       ></div>
     </div>
-    <div class="md:w-1/2 w-full" v-if="signUp">
+    <div class="md:w-1/2 w-full" v-if="signUp == 'true'">
       <div class="md:pt-6 p-6">
         <h1 class="text-4xl text-green-700 dark:text-white">
           Let's Get you Started
@@ -60,7 +61,7 @@
         </template>
       </ModalComponent>
     </transition>
-    <div class="md:w-1/2 w-full p-9" v-if="!signUp">
+    <div class="md:w-1/2 w-full p-9" v-if="signUp == 'false'">
       <Form
         @submit="signIn()"
         class="w-full p-6 flex-col flex items-center"
@@ -121,6 +122,7 @@
 <script>
 import { mapGetters } from "vuex";
 import { Field, Form, ErrorMessage } from "vee-validate";
+import encryptor from "../services/snappyService/encryptionService";
 import * as yup from "yup";
 import { useToast } from "vue-toastification";
 
@@ -157,8 +159,17 @@ export default {
     signIn: function () {
       this.$store.dispatch("userModule/login").then(() => {
         // this.showModal = true;
+        let pack = {
+          pass: this.userState.bio.password,
+          email: this.userState.bio.emailAddress,
+        };
+        let data = encryptor.aesEncrypt(JSON.stringify(pack));
+        // let pass = encryptor.aesEncrypt(this.userState.bio.password);
+        // let email = encryptor.aesEncrypt(this.userState.bio.emailAddress);
+        console.log(data);
+        console.log(encryptor.aesDecrypt(data));
         console.log(this.userState.isLoggedIn);
-        this.toast.success("Login Successful", {timeout:1500});
+        this.toast.success("Login Successful", { timeout: 1500 });
         setTimeout(() => {
           this.$router.replace({ path: "/dash" });
         }, 2000);
@@ -174,7 +185,7 @@ export default {
       console.log(this.stage);
     },
     toggle() {
-      this.$router.push({ name: "signup", params: { signUp: true } });
+      this.$router.push({ name: "signup", params: { signUp: "true" } });
     },
   },
   computed: {

@@ -8,7 +8,7 @@ export default {
   methods: {
     btnClick: function () {
       if (!this.user) {
-        this.$router.push({ name: "signup", params: { signUp: true } });
+        this.$router.push({ name: "signup", params: { signUp: "true" } });
         console.log(this.user);
       } else {
         this.$router.push({ path: "/about-us" });
@@ -18,7 +18,13 @@ export default {
   },
   computed: mapGetters({
     user: "getUser",
+    orderState: "getOrderState",
+    userState: "getUserState",
+    productState: "getProductState",
   }),
+  data() {
+    return { menu: false };
+  },
 };
 </script>
 <style>
@@ -29,6 +35,7 @@ export default {
 
 <template>
   <main>
+    <CombinedNav></CombinedNav>
     <div
       id="hero"
       class="relative bg-[url('@/assets/images/snappy-home-header.jpeg')] h-[100vh] md:h-[25rem] bg-center bg-cover"
@@ -151,4 +158,21 @@ export default {
       </button>
     </div>
   </main>
+  <footer class="bg-gray-700 w-full p-4 font-sans">
+    <div
+      class="font-bold flex flex-col md:flex-row items-center justify-center mb-1 w-full text-white rounded-full relative text-center p-1"
+    >
+      <span class="font-bold text-md">Mobile|WhatsApp:</span>
+      <a
+        href="https://wa.me/%2B2347043151949?text=Good%20Day%2C%0AI%20have%20enquiries%20concerning%20SNAPPY%20pay"
+        class="text-md mr-4"
+        >+234 7043151949</a
+      >
+      <span class="font-bold text-md">Email:</span>
+      <p class="text-md">frontdesk@snappy.com.ng</p>
+    </div>
+    <p class="text-md text-white text-center">
+      Powered by 3GeePay, a licensed PTSP by CBN
+    </p>
+  </footer>
 </template>

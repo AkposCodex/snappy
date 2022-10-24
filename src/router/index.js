@@ -110,10 +110,10 @@ router.beforeResolve((to,from,next) =>{
   next()
 })
 
-// router.afterEach((to, from) => {
-//   // Complete the animation of the route progress bar.
-//   NProgress.done()
-// })
+router.afterEach((to, from) => {
+  // Complete the animation of the route progress bar.
+  NProgress.done()
+})
 
 
 // router.beforeEach((to, from, next) => {

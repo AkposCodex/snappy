@@ -1,4 +1,5 @@
 <template>
+  <combinedNav></combinedNav>
   <section class="" id="faq">
     <div class="text-center text-2xl dark:text-white p-16">
       <h1 class="font-bold text-3xl uppercase mb-6">

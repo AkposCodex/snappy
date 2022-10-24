@@ -1,4 +1,5 @@
 <template lang="">
+  <combinedNav></combinedNav>
   <div class="w-full mx-auto pt-10">
     <!-- <h1 class="text-black text-4xl p-[3rem] font-title">RO<span
               class="text-teal-800 text-6xl">k</span>U</h1> -->

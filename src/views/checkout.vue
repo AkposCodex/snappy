@@ -1,9 +1,13 @@
 <template>
+  <combinedNav></combinedNav>
   <div class="text-center dark:text-white">
     <h1 class="text-3xl md:text-6xl">Welcome, {{ userState.bio.firstName }}</h1>
     <!-- <a href="/products">Go to geocoder</a> -->
     <!-- <button @click="log()">HERE!</button> -->
-    <div class="text-xl md:text-2xl" v-if="productState.order.products.length <= 0">
+    <div
+      class="text-xl md:text-2xl"
+      v-if="productState.order.products.length <= 0"
+    >
       <h1>You don't have any Items added,</h1>
       <span
         >Return to <i>Product</i> to rent a
@@ -18,10 +22,7 @@
     </p>
   </div>
   <div class="w-full h-min md:flex dark:text-white">
-    <div
-      id="order-details"
-      class="h-full md:mx-auto bg-whitep-8 md:w-[90%]"
-    >
+    <div id="order-details" class="h-full md:mx-auto bg-whitep-8 md:w-[90%]">
       <div
         id="details"
         class="w-full"

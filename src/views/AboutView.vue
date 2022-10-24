@@ -1,4 +1,5 @@
 <template>
+  <combinedNav></combinedNav>
   <div
     class="w-full md:h-[30rem] bg-[url('@/assets/images/snappy-about-header.jpeg')] bg-center bg-cover"
   >
