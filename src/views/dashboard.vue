@@ -226,8 +226,59 @@
     >
       <div class="md:block md:p-9 p-3 rounded-xl mx-auto bg-white">
         <h1 class="text-left p-3 text-3xl">Transaction History</h1>
+        <div
+          class="border-solid justify-between items-center w-full mx-auto rounded-t-lg px-6 py-4 border-2 border-slate"
+        >
+          <p class="text-lg">Filters</p>
+          <div class="flex form justify-between items-center w-full">
+            <div class="flex flex-col w-max">
+              <label for="">Transaction Type</label>
+              <select name="" id="" v-model="filter" class="hidden">
+                <option value="PURCHASE">PURCHASE</option>
+                <option value="TRANSFER">TRANSFER</option>
+              </select>
+              <Multiselect
+                placeholder="Trans. Type"
+                v-model="filter"
+                label="name"
+                class="block border-green-700 w-full border-0 border-b dark:text-black bg-black focus:border-blue-600 focus:outline-none focus:ring-0"
+                valueProp="id"
+                :min-chars="1"
+                :searchable="true"
+                :options="['PURCHASE', 'TRANSFER']"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label for="">Date</label>
+              <input
+                type="text"
+                class="peer block w-full form-input appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+                name=""
+                id=""
+                v-model="type"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label for="">RRN</label>
+              <input
+                type="text"
+                class="peer block w-full form-input appearance-none border-0 border-b border-green-700 bg-gray-100 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+                name=""
+                id=""
+                v-model="rrn"
+              />
+            </div>
+            <a
+              href="#transaction-history"
+              class="border-solid w-min p-1 rounded-2xl border-2 border-[#E1E0E0]"
+              v-on:click="search(type, filter, rrn)"
+              >Search</a
+            >
+          </div>
+        </div>
         <div class="overflow-x-scroll w-full z-10">
           <VueTableLite
+            v-if="!isSearching"
             :is-loading="table.isLoading"
             :columns="table.columns"
             :rows="table.rows"
@@ -236,6 +287,17 @@
             :sortable="table.sortable"
             :messages="table.messages"
             @do-search="doSearch"
+            @is-finished="table.isLoading = false"
+          />
+          <VueTableLite
+            v-if="isSearching"
+            :is-loading="table.isLoading"
+            :columns="table.columns"
+            :rows="row"
+            :is-re-search="table.isReSearch"
+            :total="table.totalRecordCount"
+            :sortable="row.sortable"
+            :messages="table.messages"
             @is-finished="table.isLoading = false"
           />
         </div>
@@ -306,23 +368,6 @@
           >
             +
           </button>
-        </div>
-        <div
-          class="flex border-solid justify-between items-center w-full sm:w-4/5 md:w-2/5 mx-auto rounded-md px-3 py-2 border-2 border-[#f2f2f2]"
-        >
-          <p>Filters</p>
-          <div class="flex space-x-3">
-            <a
-              href=""
-              class="border-solid w-min p-1 rounded-2xl border-2 border-[#E1E0E0]"
-              >Successfull</a
-            >
-            <a
-              href=""
-              class="border-solid w-min p-1 rounded-2xl border-2 border-[#E1E0E0]"
-              >Failed</a
-            >
-          </div>
         </div>
         <table class="table-auto w-full">
           <thead class="border-b text-sm md:text-xl border-[#C8C8C8]">
@@ -638,6 +683,8 @@
 <script>
 import { useToast } from "vue-toastification";
 import { mapGetters } from "vuex";
+import Multiselect from "@vueform/multiselect";
+import { Field } from "vee-validate";
 import VueTableLite from "vue3-table-lite";
 import { defineComponent, reactive } from "vue";
 
@@ -646,13 +693,23 @@ const sampleData1 = (offst, limit) => {
   offst = offst + 1;
   let data = [];
   for (let i = offst; i <= limit; i++) {
-    data.push({
-      description: "TEST" + i,
-      quantity: i * 5,
-      date: newDate.replace("2022", "22'"),
-      type: "PURCHASE",
-      amount: 300 + i * 2,
-    });
+    i % 2 == 0
+      ? data.push({
+          description: "TEST" + i,
+          quantity: i * 5,
+          rrn: "1023561" + Math.random(),
+          date: newDate.replace("2022", "22'"),
+          type: "PURCHASE",
+          amount: 300 + i * 2,
+        })
+      : data.push({
+          description: "TEST" + i,
+          quantity: i * 5,
+          rrn: "7104137" + Math.random(),
+          date: newDate.replace("2022", "22'"),
+          type: "TRANSFER",
+          amount: 300 + i * 2,
+        });
   }
   return data;
 };
@@ -661,19 +718,31 @@ const sampleData2 = (offst, limit) => {
   let newDate = new Date().toDateString();
   let data = [];
   for (let i = limit; i > offst; i--) {
-    data.push({
-      description: "TEST" + i,
-      quantity: i * 5,
-      date: newDate.replace("2022", "22'"),
-      type: "PURCHASE",
-      amount: 300 + i * 2,
-    });
+    i % 2 == 0
+      ? data.push({
+          description: "TEST" + i,
+          quantity: i * 5,
+          rrn: "1023561" + Math.random().toString(),
+          date: newDate.replace("2022", "22'"),
+          type: "PURCHASE",
+          amount: 300 + i * 2,
+        })
+      : data.push({
+          description: "TEST" + i,
+          quantity: i * 5,
+          rrn: "7104137" + Math.random(),
+          date: newDate.replace("2022", "22'"),
+          type: "TRANSFER",
+          amount: 300 + i * 2,
+        });
   }
   return data;
 };
 export default {
   components: {
     VueTableLite,
+    Field,
+    Multiselect,
   },
   setup() {
     // Get toast interface
@@ -709,6 +778,12 @@ export default {
           field: "date",
           width: "10%",
           sortable: true,
+        },
+        {
+          label: "RRN",
+          field: "rrn",
+          width: "10%",
+          sortable: true,
           isKey: true,
         },
         {
@@ -716,7 +791,6 @@ export default {
           field: "type",
           width: "3%",
           sortable: true,
-          isKey: true,
         },
         {
           label: "Amount",
@@ -773,30 +847,6 @@ export default {
     const updateCheckedRows = (rowsKey) => {
       console.log(rowsKey);
     };
-    const row = [
-      {
-        id: "1",
-        type: "WTB",
-        rrn: "10235618483497249732",
-      },
-      {
-        id: "2",
-        type: "PURCHASE",
-        rrn: "37574693299476502677",
-      },
-      {
-        id: "3",
-        type: "WTB",
-        rrn: "84484574757231816718",
-      },
-    ];
-    const search = (sortable, term) => {
-      // select from transaction_log where filter like '%${{term}}%';
-      doSearch(0, 1, "rrn", asc);
-      if (row.sortable == "PURCHASE" && row.rrn == "37574693299476502677") {
-        table.rows = row[1];
-      }
-    };
     // First get data
     doSearch(0, 10, "id", "asc");
     return {
@@ -810,6 +860,11 @@ export default {
   data() {
     let newDate = new Date().toDateString();
     return {
+      row: [],
+      filter: null,
+      type: null,
+      rrn: null,
+      isSearching: false,
       date: newDate.replace("2022", "22'"),
       showModal: false,
       isEditing: false,
@@ -831,6 +886,29 @@ export default {
     show() {
       this.showModal = !this.showModal;
     },
+    search(tye, fill, rrn) {
+      this.isSearching = true;
+      this.row.length = 0;
+      console.log("type:" + tye, "date" + fill);
+      console.log(this.table);
+      for (let i = 0; i < this.table.rows.length; i++) {
+        if (this.table.rows.length >= 1 && this.search) {
+          if (
+            this.table.rows[i].rrn.match(rrn) ||
+            this.table.rows[i].type.match(fill) ||
+            (this.table.rows[i].date.match(tye) &&
+              this.table.rows[i].type.match(fill))
+          ) {
+            if (this.row.includes(this.table.rows[i])) {
+            } else {
+              console.log(this.row);
+              this.row.push(this.table.rows[i]);
+            }
+          }
+        }
+      }
+      this.table.totalRecordCount = this.row.length;
+    },
     editing() {
       if (!this.isEditing) {
         this.toast.warning("You are now editing your profile", {
@@ -849,19 +927,19 @@ export default {
 <style scoped>
 ::v-deep(.vtl-table .vtl-thead .vtl-thead-th) {
   color: #fff;
-  background-color: #42b983;
-  border-color: #42b983;
+  background-color: #64b6ac;
+  border-color: #6ecfc3;
 }
 ::v-deep(.vtl-table td),
 ::v-deep(.vtl-table tr) {
   border: none;
 }
 ::v-deep(.vtl-paging-info) {
-  color: rgb(172, 0, 0);
+  color: #ffae03;
 }
 ::v-deep(.vtl-paging-count-label),
 ::v-deep(.vtl-paging-page-label) {
-  color: rgb(172, 0, 0);
+  color: #ffae03;
 }
 ::v-deep(.vtl-paging-pagination-page-link) {
   border: none;

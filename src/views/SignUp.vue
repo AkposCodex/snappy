@@ -125,6 +125,7 @@ import { Field, Form, ErrorMessage } from "vee-validate";
 import encryptor from "../services/snappyService/encryptionService";
 import * as yup from "yup";
 import { useToast } from "vue-toastification";
+import { Buffer } from "buffer";
 
 export default {
   components: {
@@ -166,7 +167,9 @@ export default {
         let data = encryptor.aesEncrypt(JSON.stringify(pack));
         // let pass = encryptor.aesEncrypt(this.userState.bio.password);
         // let email = encryptor.aesEncrypt(this.userState.bio.emailAddress);
-        console.log(data);
+        const buffer = Buffer.from(data, "base64");
+        const bufString = buffer.toString("hex");
+        console.log(bufString);
         console.log(encryptor.aesDecrypt(data));
         console.log(this.userState.isLoggedIn);
         this.toast.success("Login Successful", { timeout: 1500 });

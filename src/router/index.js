@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import store from "../state/store";
-import AboutView from "@/views/AboutView.vue"
+import AboutView from "@/views/AboutView.vue";
 
 const isLoggedIn = store.getters.getUser;
 
@@ -32,6 +32,11 @@ const router = createRouter({
       },
     },
     {
+      path: "/table",
+      name: "table",
+      component: () => import("@/views/laTable.vue"),
+    },
+    {
       path: "/products",
       name: "product",
       meta: {
@@ -49,7 +54,7 @@ const router = createRouter({
     {
       path: "/geotest",
       name: "geotest",
-      component: () => import('@/views/GeoView.vue')
+      component: () => import("@/views/GeoView.vue"),
     },
     {
       path: "/products",
@@ -67,8 +72,7 @@ const router = createRouter({
       meta: {
         needsAuth: false,
       },
-      beforeEnter: () =>{
-      }
+      beforeEnter: () => {},
     },
     {
       path: "/checkout",
@@ -77,8 +81,7 @@ const router = createRouter({
       meta: {
         needsAuth: true,
       },
-      beforeEnter: (to, from) => {
-      },
+      beforeEnter: (to, from) => {},
     },
     {
       path: "/about-us",
@@ -103,18 +106,17 @@ const router = createRouter({
     },
   ],
 });
-router.beforeResolve((to,from,next) =>{
-  if(to.name){
-    NProgress.start()
+router.beforeResolve((to, from, next) => {
+  if (to.name) {
+    NProgress.start();
   }
-  next()
-})
+  next();
+});
 
 router.afterEach((to, from) => {
   // Complete the animation of the route progress bar.
-  NProgress.done()
-})
-
+  NProgress.done();
+});
 
 // router.beforeEach((to, from, next) => {
 //   if (!isLoggedIn && to.meta.needsAuth) {
